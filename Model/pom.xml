@@ -34,8 +34,23 @@
 						<target>1.8</target>
 					</configuration>
 				</plugin>
+				
+				<!-- (mvn javadoc:javadoc) Javadoc plugin which generate javadoc in target ../docs/Model directory -->
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-javadoc-plugin</artifactId>
+					<version>3.0.1</version>
+					<configuration>
+						<show>private</show>
+						<nohelp>true</nohelp>
+						<reportOutputDirectory>../docs/Site</reportOutputDirectory>
+					</configuration>
+				</plugin>
+				
 			</plugins>
 		</pluginManagement>
+		
+		
 	</build>
 
 
