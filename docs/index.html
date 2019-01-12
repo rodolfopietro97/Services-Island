@@ -42,7 +42,7 @@
 
 
 <body>
-  <div class="stage-shelf hidden" id="sidebar">
+  <!-- <div class="stage-shelf hidden" id="sidebar">
   <ul class="nav nav-bordered nav-stacked flex-column">
     <li class="nav-header">Examples</li>
     <li class="nav-item">
@@ -63,15 +63,15 @@
       <a class="nav-link" href="http://getbootstrap.com">Bootstrap</a>
     </li>
   </ul>
-</div>
+</div> -->
 
 
   <div class="stage" id="app-stage">
 
-    <button class="btn btn-link stage-toggle" data-target="#app-stage" data-toggle="stage">
+    <!-- <button class="btn btn-link stage-toggle" data-target="#app-stage" data-toggle="stage">
       <span class="icon icon-menu stage-toggle-icon"></span>
       Menu
-    </button>
+    </button> -->
 
     
       <div class="docs-header" id="content">
@@ -81,121 +81,113 @@
         </div>
       </div>
       <div class="container docs-content">
-        
-<h1 id="contents">Contents</h1>
+
 
 <ul id="markdown-toc">
   <li><a href="#contents" id="markdown-toc-contents">Contents</a></li>
   <li><a href="#intro" id="markdown-toc-intro">Introduzione</a></li>
-  <li><a href="#whats-included" id="markdown-toc-whats-included">What’s included</a>    <ul>
-      <li><a href="#getting-started" id="markdown-toc-getting-started">Getting started</a></li>
-      <li><a href="#gulpfilejs" id="markdown-toc-gulpfilejs">Gulpfile.js</a></li>
-      <li><a href="#theme-source-code" id="markdown-toc-theme-source-code">Theme source code</a></li>
+  <li><a href="#architettura" id="markdown-toc-intro">Architettura</a></li>
+  <li><a href="#javadoc" id="markdown-toc-intro">Javadoc</a></li>
+  <li><a href="#tecnologieUtilizzate" id="markdown-toc-intro">Tecnologie Utilizzate</a></li>
+  <li><a href="#tests" id="markdown-toc-whats-included">Tests</a>    <ul>
+      <li><a href="#testsModel" id="markdown-toc-getting-started">Tests Model</a></li>
+      <li><a href="#testsSite" id="markdown-toc-gulpfilejs">Tests Site</a></li>
     </ul>
   </li>
-  <li><a href="#custom-builds" id="markdown-toc-custom-builds">Custom builds</a></li>
-  <li><a href="#basic-template" id="markdown-toc-basic-template">Basic template</a></li>
-  <li><a href="#new-components" id="markdown-toc-new-components">New components</a>    <ul>
-      <li><a href="#entypo" id="markdown-toc-entypo">Entypo</a>        <ul>
-          <li><a href="#available-icons" id="markdown-toc-available-icons">Available icons</a></li>
-          <li><a href="#examples" id="markdown-toc-examples">Examples</a></li>
-        </ul>
-      </li>
-      <li><a href="#pill-buttons" id="markdown-toc-pill-buttons">Pill buttons</a></li>
-      <li><a href="#blocks" id="markdown-toc-blocks">Blocks</a></li>
-      <li><a href="#text-ribbons" id="markdown-toc-text-ribbons">Text ribbons</a></li>
-      <li><a href="#transparent-navbar" id="markdown-toc-transparent-navbar">Transparent navbar</a></li>
-      <li><a href="#nav-bordered" id="markdown-toc-nav-bordered">Nav bordered</a></li>
-      <li><a href="#carousel-light" id="markdown-toc-carousel-light">Carousel Light</a></li>
-      <li><a href="#callouts" id="markdown-toc-callouts">Callouts</a></li>
-      <li><a href="#featured-lists" id="markdown-toc-featured-lists">Featured lists</a></li>
-      <li><a href="#pull-quotes" id="markdown-toc-pull-quotes">Pull Quotes</a></li>
-      <li><a href="#icon-list" id="markdown-toc-icon-list">Icon list</a></li>
-      <li><a href="#stat-cards" id="markdown-toc-stat-cards">Stat cards</a></li>
-    </ul>
-  </li>
-  <li><a href="#plugins" id="markdown-toc-plugins">Plugins</a>    <ul>
-      <li><a href="#zoom" id="markdown-toc-zoom">Zoom</a>        <ul>
-          <li><a href="#data-api" id="markdown-toc-data-api">Data API</a></li>
-        </ul>
-      </li>
-      <li><a href="#enter" id="markdown-toc-enter">Enter</a>        <ul>
-          <li><a href="#options" id="markdown-toc-options">Options</a></li>
-          <li><a href="#javascript-api" id="markdown-toc-javascript-api">JavaScript API</a></li>
-          <li><a href="#data-api-1" id="markdown-toc-data-api-1">Data API</a></li>
-        </ul>
-      </li>
-      <li><a href="#image-grids" id="markdown-toc-image-grids">Image grids</a>        <ul>
-          <li><a href="#options-1" id="markdown-toc-options-1">Options</a></li>
-          <li><a href="#javascript-api-1" id="markdown-toc-javascript-api-1">JavaScript API</a></li>
-          <li><a href="#data-api-2" id="markdown-toc-data-api-2">Data Api</a></li>
-        </ul>
-      </li>
-      <li><a href="#stage" id="markdown-toc-stage">Stage</a>        <ul>
-          <li><a href="#options-2" id="markdown-toc-options-2">Options</a></li>
-          <li><a href="#customizing" id="markdown-toc-customizing">Customizing</a></li>
-          <li><a href="#example" id="markdown-toc-example">Example</a></li>
-        </ul>
-      </li>
-    </ul>
-  </li>
+  
 </ul>
 
 <h1 id="intro">Introduzione</h1>
-<p>Documentazione della parte implementativa di Services Island</p>
-<div>
-  <ul>
-    <li>
-      <p>Progetto <a href="Site/">Site</a></p>
-    </li>
-    <li>
-      <p>Progetto <a href="Model/">Model</a></p>
-    </li>
+<p>Documentazione relativa alla parte implementativa di Services Island.<br>Per questioni di tempo, abbiamo caricato questa parte online in quanto non siamo riusciti ancora ad avere un'implementazione concreta da testare <strong>Questa pagina è in continnuo aggiornamento.</strong></p>
+
+
+  
+
+
+<h1 id="architettura">Architettura</h1>
+<img src="assets/Architettura.png" class="img-fluid">
+<ul style="margin-top: 10px; margin-bottom: 0pt;">
+  <li style="list-style-type: disc; font-size: 11pt; font-family: 'Open Sans'; color: #000000; background-color: transparent; font-weight: 400; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre;"><strong><span style="font-size: 11pt; font-family: 'Open Sans'; color: #000000; background-color: transparent; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;">Model</span></strong><span style="font-size: 11pt; font-family: 'Open Sans'; color: #000000; background-color: transparent; font-weight: 400; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;">: Maven Project che utilizza il pattern DAO e Jdbc </span><span style="font-size: 11pt; font-family: 'Open Sans'; color: #000000; background-color: transparent; font-weight: 400; font-variant: normal; text-decoration: underline; -webkit-text-decoration-skip: none; text-decoration-skip-ink: none; vertical-align: baseline; white-space: pre-wrap;">(Parte Model dell&rsquo;architettura MVC)</span></li>
+  <ul style="margin-top: 0pt; margin-bottom: 0pt;">
+  <li style="list-style-type: circle; font-size: 11pt; font-family: 'Open Sans'; color: #000000; background-color: transparent; font-weight: 400; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre;"><span style="font-size: 11pt; font-family: 'Open Sans'; color: #000000; background-color: transparent; font-weight: 400; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;">Il sottopackage </span><strong><span style="font-size: 11pt; font-family: 'Open Sans'; color: #000000; background-color: transparent; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;">Model</span></strong><span style="font-size: 11pt; font-family: 'Open Sans'; color: #000000; background-color: transparent; font-weight: 400; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;"> gestir&agrave; i dati in maniera astratta interfacciandosi con connection</span></li>
+  <li style="list-style-type: circle; font-size: 11pt; font-family: 'Open Sans'; color: #000000; background-color: transparent; font-weight: 400; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre;"><span style="font-size: 11pt; font-family: 'Open Sans'; color: #000000; background-color: transparent; font-weight: 400; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;">Il sottopackage </span><strong><span style="font-size: 11pt; font-family: 'Open Sans'; color: #000000; background-color: transparent; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;">Connection</span></strong><span style="font-size: 11pt; font-family: 'Open Sans'; color: #000000; background-color: transparent; font-weight: 400; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;"> far&agrave; da &ldquo;ponte&rdquo; tra Model e Persistance</span></li>
+  <li style="list-style-type: circle; font-size: 11pt; font-family: 'Open Sans'; color: #000000; background-color: transparent; font-weight: 400; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre;"><span style="font-size: 11pt; font-family: 'Open Sans'; color: #000000; background-color: transparent; font-weight: 400; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;">Il sottopackage </span><strong><span style="font-size: 11pt; font-family: 'Open Sans'; color: #000000; background-color: transparent; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;">Persistance</span></strong><span style="font-size: 11pt; font-family: 'Open Sans'; color: #000000; background-color: transparent; font-weight: 400; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;"> gestir&agrave; tutta la parte fisica riguardante la persistenza dei dati. Persistance effettivamente &egrave; quel sottopackage che si interfaccia con il Database</span></li>
   </ul>
-</div>
+  <li style="list-style-type: disc; font-size: 11pt; font-family: 'Open Sans'; color: #000000; background-color: transparent; font-weight: 400; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre;"><strong><span style="font-size: 11pt; font-family: 'Open Sans'; color: #000000; background-color: transparent; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;">Site</span></strong><span style="font-size: 11pt; font-family: 'Open Sans'; color: #000000; background-color: transparent; font-weight: 400; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;">: Tipica applicazione Java EE implementata su server Tomcat (Maven Archetype Site) </span><span style="font-size: 11pt; font-family: 'Open Sans'; color: #000000; background-color: transparent; font-weight: 400; font-variant: normal; text-decoration: underline; -webkit-text-decoration-skip: none; text-decoration-skip-ink: none; vertical-align: baseline; white-space: pre-wrap;">(Parti View e Controller dell&rsquo;architettura MVC)</span></li>
+  <ul style="margin-top: 0pt; margin-bottom: 0pt;">
+  <li style="list-style-type: circle; font-size: 11pt; font-family: 'Open Sans'; color: #000000; background-color: transparent; font-weight: 400; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre;"><span style="font-size: 11pt; font-family: 'Open Sans'; color: #000000; background-color: transparent; font-weight: 400; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;">Il sottopackage </span><strong><span style="font-size: 11pt; font-family: 'Open Sans'; color: #000000; background-color: transparent; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;">Businesslogic</span></strong><span style="font-size: 11pt; font-family: 'Open Sans'; color: #000000; background-color: transparent; font-weight: 400; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;"> controller&agrave; le interazioni con il model e creer&agrave; un livello di astrazione sui dati. In generale in businesslogic ci saranno le Servlet e le classi di utilit&agrave; </span><span style="font-size: 11pt; font-family: 'Open Sans'; color: #000000; background-color: transparent; font-weight: 400; font-variant: normal; text-decoration: underline; -webkit-text-decoration-skip: none; text-decoration-skip-ink: none; vertical-align: baseline; white-space: pre-wrap;">(Parte Controller dell&rsquo;architettura MVC)</span></li>
+  <li><span style="font-size: 11pt; font-family: 'Open Sans'; color: #000000; background-color: transparent; font-weight: 400; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;">Il sottopackage </span><strong><span style="font-size: 11pt; font-family: 'Open Sans'; color: #000000; background-color: transparent; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;">View</span></strong><span style="font-size: 11pt; font-family: 'Open Sans'; color: #000000; background-color: transparent; font-weight: 400; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;"> implementativamente non rappresenta un vero package, ma associamo nella nostra architettura view, alle pagine jsp contenute nella cartella "webapp" </span><span style="font-size: 11pt; font-family: 'Open Sans'; color: #000000; background-color: transparent; font-weight: 400; font-variant: normal; text-decoration: underline; -webkit-text-decoration-skip: none; text-decoration-skip-ink: none; vertical-align: baseline; white-space: pre-wrap;">(Parte View dell&rsquo;architettura MVC)</span></li>
+  </ul>
+  </ul>
 
-
-
-<h2 id="getting-started">Getting started</h2>
-
-
-<h1 id="custom-builds">Custom builds</h1>
-
-
-<h1 id="basic-template">Basic template</h1>
-
-<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="cp">&lt;!DOCTYPE html&gt;</span>
-<span class="nt">&lt;html</span> <span class="na">lang=</span><span class="s">"en"</span><span class="nt">&gt;</span>
-  <span class="nt">&lt;head&gt;</span>
-    <span class="c">&lt;!-- These meta tags come first. --&gt;</span>
-    <span class="nt">&lt;meta</span> <span class="na">charset=</span><span class="s">"utf-8"</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;meta</span> <span class="na">http-equiv=</span><span class="s">"X-UA-Compatible"</span> <span class="na">content=</span><span class="s">"IE=edge"</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;meta</span> <span class="na">name=</span><span class="s">"viewport"</span> <span class="na">content=</span><span class="s">"width=device-width, initial-scale=1"</span><span class="nt">&gt;</span>
-
-    <span class="nt">&lt;title&gt;</span>Bootstrap Theme Example<span class="nt">&lt;/title&gt;</span>
-
-    <span class="c">&lt;!-- Include the CSS --&gt;</span>
-    <span class="nt">&lt;link</span> <span class="na">href=</span><span class="s">"dist/toolkit.min.css"</span> <span class="na">rel=</span><span class="s">"stylesheet"</span><span class="nt">&gt;</span>
-
-  <span class="nt">&lt;/head&gt;</span>
-  <span class="nt">&lt;body&gt;</span>
-    <span class="nt">&lt;h1&gt;</span>Hello, world!<span class="nt">&lt;/h1&gt;</span>
-
-    <span class="c">&lt;!-- Include jQuery (required) and the JS --&gt;</span>
-    <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
-    <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"dist/toolkit.min.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
-  <span class="nt">&lt;/body&gt;</span>
-<span class="nt">&lt;/html&gt;</span></code></pre></figure>
-
-<h1 id="new-components">New components</h1>
+  <p><span style="font-size: 11pt; font-family: 'Open Sans'; color: #000000; background-color: transparent; font-weight: 400; font-variant: normal; text-decoration: underline; -webkit-text-decoration-skip: none; text-decoration-skip-ink: none; vertical-align: baseline; white-space: pre-wrap;">&nbsp;</span></p>
 
 
 
 
+  <h1 id="javadoc">Javadoc</h1>
+  <div>
+    <p>Generabile tramite il comando "mvn javadoc:javadoc"</p>
+      <ul>
+        <li>
+          <p>Progetto <a href="Site/">Site</a></p>
+        </li>
+        <li>
+          <p>Progetto <a href="Model/">Model</a></p>
+        </li>
+      </ul>
+    </div>
 
-        <a class="docs-top" style="display: none" href="#">Back to top</a>
-      </div>
-    
+
+
+    <h1 id="tecnologieUtilizzate">Tecnologie Utilizzate</h1>
+    <ul style="margin-top: 0pt; margin-bottom: 0pt;">
+        <li style="list-style-type: disc; font-size: 11pt; font-family: Arial; color: #000000; background-color: transparent; font-weight: 400; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre;"><strong><span style="font-size: 11pt; font-family: Arial; color: #000000; background-color: transparent; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;">Linguaggi di programmazione</span></strong><span style="font-size: 11pt; font-family: Arial; color: #000000; background-color: transparent; font-weight: 400; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;">: Java 8, Javascript ES6, html 5, css 3 (gli ultimi due li consideriamo "linguaggi")</span></li>
+        </ul>
+        <p>&nbsp;</p>
+        <ul>
+        <li style="list-style-type: disc; font-size: 11pt; font-family: Arial; color: #000000; background-color: transparent; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre;"><strong><span style="font-size: 11pt; font-family: Arial; color: #000000; background-color: transparent; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;">Framework e tecnologie</span><span style="font-size: 11pt; font-family: Arial; color: #000000; background-color: transparent; font-weight: 400; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;">: JaveEE con Apache Tomcat, Bootstrap, JQuery, API pagamenti (ancora da scegliere), MySql, PostgreSql</span></strong></li>
+        </ul>
+        <p>&nbsp;</p>
+        <ul style="margin-top: 0pt; margin-bottom: 0pt;">
+        <li style="list-style-type: disc; font-size: 11pt; font-family: Arial; color: #000000; background-color: transparent; font-weight: 400; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre;"><strong><span style="font-size: 11pt; font-family: Arial; color: #000000; background-color: transparent; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;">Build Tools</span></strong><span style="font-size: 11pt; font-family: Arial; color: #000000; background-color: transparent; font-weight: 400; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;">: Apache Maven</span></li>
+        </ul>
+        <p>&nbsp;</p>
+        <ul>
+        <li style="list-style-type: disc; font-size: 11pt; font-family: Arial; color: #000000; background-color: transparent; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre;"><strong><span style="font-size: 11pt; font-family: Arial; color: #000000; background-color: transparent; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;">Tools Disegno</span><span style="font-size: 11pt; font-family: Arial; color: #000000; background-color: transparent; font-weight: 400; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;">: draw.io, websequencediagrams.com</span></strong></li>
+        </ul>
+        <ul>
+        <li style="list-style-type: disc; font-size: 11pt; font-family: Arial; color: #000000; background-color: transparent; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre;"><strong><span style="font-size: 11pt; font-family: Arial; color: #000000; background-color: transparent; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;">Ide</span></strong><span style="font-size: 11pt; font-family: Arial; color: #000000; background-color: transparent; font-weight: 400; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;">: Eclipse, Visual Studio Code (per le pagine statiche)</span></li>
+        </ul>
+        <ul>
+        <li style="list-style-type: disc; font-size: 11pt; font-family: Arial; color: #000000; background-color: transparent; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre;"><strong><span style="font-size: 11pt; font-family: Arial; color: #000000; background-color: transparent; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;">Issue Tracking</span></strong><span style="font-size: 11pt; font-family: Arial; color: #000000; background-color: transparent; font-weight: 400; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;">: Atlassian Trello e strumenti di BitBucket (per ora abbandonati, in quanto migrati a GitHub), Google Drive</span></li>
+        </ul>
+        <ul>
+        <li style="list-style-type: disc; font-size: 11pt; font-family: Arial; color: #000000; background-color: transparent; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre;"><strong><span style="font-size: 11pt; font-family: Arial; color: #000000; background-color: transparent; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;">Software Versioning</span></strong><span style="font-size: 11pt; font-family: Arial; color: #000000; background-color: transparent; font-weight: 400; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;">: Git</span></li>
+        </ul>
+        <p style="padding-left: 30px;">&nbsp;</p>
+        <ul>
+        <li><strong><span style="font-size: 11pt; font-family: Arial; color: #000000; background-color: transparent; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;">Testing</span></strong><span style="font-size: 11pt; font-family: Arial; color: #000000; background-color: transparent; font-weight: 400; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;">: Junit</span></li>
+        </ul>
+        <p>&nbsp;</p>
+        <p><span style="font-size: 11pt; font-family: 'Open Sans'; color: #000000; background-color: transparent; font-weight: 400; font-variant: normal; text-decoration: underline; -webkit-text-decoration-skip: none; text-decoration-skip-ink: none; vertical-align: baseline; white-space: pre-wrap;">&nbsp;</span></p>
+
+
+  <h1 id="tests">Tests</h1>
+  <p>Tests effettuati con Junit, generabili tramite il comanto "mvn test"</p>
+  <h2 id="testsModel">Tests Model</h2>
+  <p>Work in progress</p>
+  <h2 id="testsSite">Tests Site</h2>
+  <p>Work in progress</p>
+
+
+
+
+
+
+
+<a class="docs-top" style="display: none" href="#">Torna Sopra</a>
+  </div>
 
   </div>
 
