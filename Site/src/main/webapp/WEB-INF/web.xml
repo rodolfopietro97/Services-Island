@@ -4,4 +4,19 @@
 
 <web-app>
   <display-name>Archetype Created Web Application</display-name>
+  
+  <!-- Deny access to components folder -->
+	<security-constraint>
+		<web-resource-collection>
+			<web-resource-name>components</web-resource-name>
+			<url-pattern>/components/*</url-pattern>
+		</web-resource-collection>
+		<auth-constraint />
+	</security-constraint>
+	
+<!-- Settings the error pages -->
+	<error-page>
+		<error-code>404</error-code>
+		<location>/404.jsp</location>
+	</error-page>
 </web-app>
