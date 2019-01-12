@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="author" content="">
+
+    <title>Services Island - Documentation</title>
+
+    
+      <link href="http://fonts.googleapis.com/css?family=Roboto:100,300,400,700" rel="stylesheet">
+      <link href="css/application-minimal.css" rel="stylesheet">
+      <link href="css/toolkit-minimal.css" rel="stylesheet">
+    
+
+    
+      <link href="css/docs.css" rel="stylesheet">
+    
+
+    <style>
+      /* note: this is a hack for ios iframe for bootstrap themes shopify page */
+      /* this chunk of css is not part of the toolkit :) */
+      /* …curses ios, etc… */
+      @media (max-width: 768px) and (-webkit-min-device-pixel-ratio: 2) {
+        body {
+          width: 1px;
+          min-width: 100%;
+          *width: 100%;
+        }
+        #stage {
+          height: 1px;
+          overflow: auto;
+          min-height: 100vh;
+          -webkit-overflow-scrolling: touch;
+        }
+      }
+    </style>
+  </head>
+
+
+<body>
+  <div class="stage-shelf hidden" id="sidebar">
+  <ul class="nav nav-bordered nav-stacked flex-column">
+    <li class="nav-header">Examples</li>
+    <li class="nav-item">
+      <a class="nav-link" href="../index.html">Startup</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="../minimal/index.html">Minimal</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="../bold/index.html">Bold</a>
+    </li>
+    <li class="nav-divider"></li>
+    <li class="nav-header">Docs</li>
+    <li class="nav-item">
+      <a class="nav-link active" href="../docs/index.html">Toolkit</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="http://getbootstrap.com">Bootstrap</a>
+    </li>
+  </ul>
+</div>
+
+
+  <div class="stage" id="app-stage">
+
+    <button class="btn btn-link stage-toggle" data-target="#app-stage" data-toggle="stage">
+      <span class="icon icon-menu stage-toggle-icon"></span>
+      Menu
+    </button>
+
+    
+      <div class="docs-header" id="content">
+        <div class="container">
+          <h1>Documentation</h1>
+          <p>Find out what's included in your Bootstrap theme and how to compile source files. Includes live examples and code snippets for every new component.</p>
+        </div>
+      </div>
+      <div class="container docs-content">
+        
+<h1 id="contents">Contents</h1>
+
+<ul id="markdown-toc">
+  <li><a href="#contents" id="markdown-toc-contents">Contents</a></li>
+  <li><a href="#intro" id="markdown-toc-intro">Intro</a></li>
+  <li><a href="#whats-included" id="markdown-toc-whats-included">What’s included</a>    <ul>
+      <li><a href="#getting-started" id="markdown-toc-getting-started">Getting started</a></li>
+      <li><a href="#gulpfilejs" id="markdown-toc-gulpfilejs">Gulpfile.js</a></li>
+      <li><a href="#theme-source-code" id="markdown-toc-theme-source-code">Theme source code</a></li>
+    </ul>
+  </li>
+  <li><a href="#custom-builds" id="markdown-toc-custom-builds">Custom builds</a></li>
+  <li><a href="#basic-template" id="markdown-toc-basic-template">Basic template</a></li>
+  <li><a href="#new-components" id="markdown-toc-new-components">New components</a>    <ul>
+      <li><a href="#entypo" id="markdown-toc-entypo">Entypo</a>        <ul>
+          <li><a href="#available-icons" id="markdown-toc-available-icons">Available icons</a></li>
+          <li><a href="#examples" id="markdown-toc-examples">Examples</a></li>
+        </ul>
+      </li>
+      <li><a href="#pill-buttons" id="markdown-toc-pill-buttons">Pill buttons</a></li>
+      <li><a href="#blocks" id="markdown-toc-blocks">Blocks</a></li>
+      <li><a href="#text-ribbons" id="markdown-toc-text-ribbons">Text ribbons</a></li>
+      <li><a href="#transparent-navbar" id="markdown-toc-transparent-navbar">Transparent navbar</a></li>
+      <li><a href="#nav-bordered" id="markdown-toc-nav-bordered">Nav bordered</a></li>
+      <li><a href="#carousel-light" id="markdown-toc-carousel-light">Carousel Light</a></li>
+      <li><a href="#callouts" id="markdown-toc-callouts">Callouts</a></li>
+      <li><a href="#featured-lists" id="markdown-toc-featured-lists">Featured lists</a></li>
+      <li><a href="#pull-quotes" id="markdown-toc-pull-quotes">Pull Quotes</a></li>
+      <li><a href="#icon-list" id="markdown-toc-icon-list">Icon list</a></li>
+      <li><a href="#stat-cards" id="markdown-toc-stat-cards">Stat cards</a></li>
+    </ul>
+  </li>
+  <li><a href="#plugins" id="markdown-toc-plugins">Plugins</a>    <ul>
+      <li><a href="#zoom" id="markdown-toc-zoom">Zoom</a>        <ul>
+          <li><a href="#data-api" id="markdown-toc-data-api">Data API</a></li>
+        </ul>
+      </li>
+      <li><a href="#enter" id="markdown-toc-enter">Enter</a>        <ul>
+          <li><a href="#options" id="markdown-toc-options">Options</a></li>
+          <li><a href="#javascript-api" id="markdown-toc-javascript-api">JavaScript API</a></li>
+          <li><a href="#data-api-1" id="markdown-toc-data-api-1">Data API</a></li>
+        </ul>
+      </li>
+      <li><a href="#image-grids" id="markdown-toc-image-grids">Image grids</a>        <ul>
+          <li><a href="#options-1" id="markdown-toc-options-1">Options</a></li>
+          <li><a href="#javascript-api-1" id="markdown-toc-javascript-api-1">JavaScript API</a></li>
+          <li><a href="#data-api-2" id="markdown-toc-data-api-2">Data Api</a></li>
+        </ul>
+      </li>
+      <li><a href="#stage" id="markdown-toc-stage">Stage</a>        <ul>
+          <li><a href="#options-2" id="markdown-toc-options-2">Options</a></li>
+          <li><a href="#customizing" id="markdown-toc-customizing">Customizing</a></li>
+          <li><a href="#example" id="markdown-toc-example">Example</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h1 id="intro">Intro</h1>
+
+
+
+<h2 id="getting-started">Getting started</h2>
+
+
+<h1 id="custom-builds">Custom builds</h1>
+
+
+<h1 id="basic-template">Basic template</h1>
+
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="nt">&lt;html</span> <span class="na">lang=</span><span class="s">"en"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;head&gt;</span>
+    <span class="c">&lt;!-- These meta tags come first. --&gt;</span>
+    <span class="nt">&lt;meta</span> <span class="na">charset=</span><span class="s">"utf-8"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;meta</span> <span class="na">http-equiv=</span><span class="s">"X-UA-Compatible"</span> <span class="na">content=</span><span class="s">"IE=edge"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;meta</span> <span class="na">name=</span><span class="s">"viewport"</span> <span class="na">content=</span><span class="s">"width=device-width, initial-scale=1"</span><span class="nt">&gt;</span>
+
+    <span class="nt">&lt;title&gt;</span>Bootstrap Theme Example<span class="nt">&lt;/title&gt;</span>
+
+    <span class="c">&lt;!-- Include the CSS --&gt;</span>
+    <span class="nt">&lt;link</span> <span class="na">href=</span><span class="s">"dist/toolkit.min.css"</span> <span class="na">rel=</span><span class="s">"stylesheet"</span><span class="nt">&gt;</span>
+
+  <span class="nt">&lt;/head&gt;</span>
+  <span class="nt">&lt;body&gt;</span>
+    <span class="nt">&lt;h1&gt;</span>Hello, world!<span class="nt">&lt;/h1&gt;</span>
+
+    <span class="c">&lt;!-- Include jQuery (required) and the JS --&gt;</span>
+    <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
+    <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"dist/toolkit.min.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
+  <span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span></code></pre></figure>
+
+<h1 id="new-components">New components</h1>
+
+
+
+
+
+        <a class="docs-top" style="display: none" href="#">Back to top</a>
+      </div>
+    
+
+  </div>
+
+    <script src="../Site/src/main/webapp/assets/script/jquery.min.js"></script>
+    <script src="../Site/src/main/webapp/assets/script/tether.min.js"></script>
+    <script src="../Site/src/main/webapp/assets/script/toolkit.js"></script>
+    <script src="../Site/src/main/webapp/assets/script/application.js"></script>
+
+  </body>
+</html>
+
+
