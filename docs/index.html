@@ -89,7 +89,8 @@
   <li><a href="#architettura" id="markdown-toc-intro">Architettura</a></li>
   <li><a href="#javadoc" id="markdown-toc-intro">Javadoc</a></li>
   <li><a href="#tecnologieUtilizzate" id="markdown-toc-intro">Tecnologie Utilizzate</a></li>
-  <li><a href="#tests" id="markdown-toc-whats-included">Tests</a>    <ul>
+  <li><a href="#tecnologieUtilizzate" id="markdown-toc-intro">Tecnologie Utilizzate</a></li>
+  <li><a href="#repo" id="markdown-toc-whats-included">Repository</a>    <ul>
       <li><a href="#testsModel" id="markdown-toc-getting-started">Tests Model</a></li>
       <li><a href="#testsSite" id="markdown-toc-gulpfilejs">Tests Site</a></li>
     </ul>
@@ -110,8 +111,8 @@
   <li style="list-style-type: disc; font-size: 11pt; font-family: 'Open Sans'; color: #000000; background-color: transparent; font-weight: 400; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre;"><strong><span style="font-size: 11pt; font-family: 'Open Sans'; color: #000000; background-color: transparent; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;">Model</span></strong><span style="font-size: 11pt; font-family: 'Open Sans'; color: #000000; background-color: transparent; font-weight: 400; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;">: Maven Project che utilizza il pattern DAO e Jdbc </span><span style="font-size: 11pt; font-family: 'Open Sans'; color: #000000; background-color: transparent; font-weight: 400; font-variant: normal; text-decoration: underline; -webkit-text-decoration-skip: none; text-decoration-skip-ink: none; vertical-align: baseline; white-space: pre-wrap;">(Parte Model dell&rsquo;architettura MVC)</span></li>
   <ul style="margin-top: 0pt; margin-bottom: 0pt;">
   <li style="list-style-type: circle; font-size: 11pt; font-family: 'Open Sans'; color: #000000; background-color: transparent; font-weight: 400; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre;"><span style="font-size: 11pt; font-family: 'Open Sans'; color: #000000; background-color: transparent; font-weight: 400; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;">Il sottopackage </span><strong><span style="font-size: 11pt; font-family: 'Open Sans'; color: #000000; background-color: transparent; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;">Model</span></strong><span style="font-size: 11pt; font-family: 'Open Sans'; color: #000000; background-color: transparent; font-weight: 400; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;"> gestir&agrave; i dati in maniera astratta interfacciandosi con connection</span></li>
-  <li style="list-style-type: circle; font-size: 11pt; font-family: 'Open Sans'; color: #000000; background-color: transparent; font-weight: 400; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre;"><span style="font-size: 11pt; font-family: 'Open Sans'; color: #000000; background-color: transparent; font-weight: 400; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;">Il sottopackage </span><strong><span style="font-size: 11pt; font-family: 'Open Sans'; color: #000000; background-color: transparent; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;">Connection</span></strong><span style="font-size: 11pt; font-family: 'Open Sans'; color: #000000; background-color: transparent; font-weight: 400; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;"> far&agrave; da &ldquo;ponte&rdquo; tra Model e Persistance</span></li>
-  <li style="list-style-type: circle; font-size: 11pt; font-family: 'Open Sans'; color: #000000; background-color: transparent; font-weight: 400; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre;"><span style="font-size: 11pt; font-family: 'Open Sans'; color: #000000; background-color: transparent; font-weight: 400; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;">Il sottopackage </span><strong><span style="font-size: 11pt; font-family: 'Open Sans'; color: #000000; background-color: transparent; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;">Persistance</span></strong><span style="font-size: 11pt; font-family: 'Open Sans'; color: #000000; background-color: transparent; font-weight: 400; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;"> gestir&agrave; tutta la parte fisica riguardante la persistenza dei dati. Persistance effettivamente &egrave; quel sottopackage che si interfaccia con il Database</span></li>
+  <li style="list-style-type: circle; font-size: 11pt; font-family: 'Open Sans'; color: #000000; background-color: transparent; font-weight: 400; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre;"><span style="font-size: 11pt; font-family: 'Open Sans'; color: #000000; background-color: transparent; font-weight: 400; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;">Il sottopackage </span><strong><span style="font-size: 11pt; font-family: 'Open Sans'; color: #000000; background-color: transparent; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;">Connection</span></strong><span style="font-size: 11pt; font-family: 'Open Sans'; color: #000000; background-color: transparent; font-weight: 400; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;"> far&agrave; da &ldquo;ponte&rdquo; tra Model e Persistence</span></li>
+  <li style="list-style-type: circle; font-size: 11pt; font-family: 'Open Sans'; color: #000000; background-color: transparent; font-weight: 400; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre;"><span style="font-size: 11pt; font-family: 'Open Sans'; color: #000000; background-color: transparent; font-weight: 400; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;">Il sottopackage </span><strong><span style="font-size: 11pt; font-family: 'Open Sans'; color: #000000; background-color: transparent; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;">Persistance</span></strong><span style="font-size: 11pt; font-family: 'Open Sans'; color: #000000; background-color: transparent; font-weight: 400; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;"> gestir&agrave; tutta la parte fisica riguardante la persistenza dei dati. Persistence effettivamente &egrave; quel sottopackage che si interfaccia con il Database</span></li>
   </ul>
   <li style="list-style-type: disc; font-size: 11pt; font-family: 'Open Sans'; color: #000000; background-color: transparent; font-weight: 400; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre;"><strong><span style="font-size: 11pt; font-family: 'Open Sans'; color: #000000; background-color: transparent; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;">Site</span></strong><span style="font-size: 11pt; font-family: 'Open Sans'; color: #000000; background-color: transparent; font-weight: 400; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;">: Tipica applicazione Java EE implementata su server Tomcat (Maven Archetype Site) </span><span style="font-size: 11pt; font-family: 'Open Sans'; color: #000000; background-color: transparent; font-weight: 400; font-variant: normal; text-decoration: underline; -webkit-text-decoration-skip: none; text-decoration-skip-ink: none; vertical-align: baseline; white-space: pre-wrap;">(Parti View e Controller dell&rsquo;architettura MVC)</span></li>
   <ul style="margin-top: 0pt; margin-bottom: 0pt;">
@@ -171,6 +172,35 @@
         </ul>
         <p>&nbsp;</p>
         <p><span style="font-size: 11pt; font-family: 'Open Sans'; color: #000000; background-color: transparent; font-weight: 400; font-variant: normal; text-decoration: underline; -webkit-text-decoration-skip: none; text-decoration-skip-ink: none; vertical-align: baseline; white-space: pre-wrap;">&nbsp;</span></p>
+
+
+  <h1 id="repo">Repository</h1>
+  <p>Il repository è diviso in 5 branch principali:</p>
+  <ul>
+    <li>
+      <p><strong>master</strong> rappresenta il branch di default e contiene le milestone</p>
+    </li>
+    <li>
+      <p><strong>dev</strong> rappresenta il branch di sviluppo.  in esso verranno messe in modo coerente tutte le modifiche fatte nei branches rodolfo, tiziana, antonio, giovanni</p>
+    </li>
+    <li>
+      <p><strong>release</strong> branch contenente la release</p>
+    </li>
+    <li>
+      <p><strong>rodolfo</strong> branch di lavoro di Rodolfo Pietro Calabrò</p>
+    </li>
+    <li>
+      <p><strong>tiziana</strong> branch di lavoro di Tiziana Oliviero</p>
+    </li>
+    <li>
+      <p><strong>antonio</strong> branch di lavoro di Antonio Guarna</p>
+    </li>
+    <li>
+      <p><strong>giovanni</strong> branch di lavoro di Giovanni Graziano</p>
+    </li>
+  </ul>
+</div>
+
 
 
   <h1 id="tests">Tests</h1>
