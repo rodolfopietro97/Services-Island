@@ -43,7 +43,7 @@
 					<configuration>
 						<show>private</show>
 						<nohelp>true</nohelp>
-						<reportOutputDirectory>../docs/Site</reportOutputDirectory>
+						<reportOutputDirectory>../docs/Model</reportOutputDirectory>
 					</configuration>
 				</plugin>
 				

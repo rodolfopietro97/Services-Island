@@ -20,7 +20,7 @@ public class ConnectionInfo {
 	/**
 	 * Attributes
 	 */
-	private String host, dbVendor, port, user, password;
+	private String url, host, dbVendor, port, user, password;
 	
 	/**
 	 * Content of JSON file
@@ -48,6 +48,7 @@ public class ConnectionInfo {
 	private void initJson() {
 		object = new JSONObject(this.fileContent.trim());
 
+		url = object.getString("url").toString();
 		host = object.get("host").toString();
 		dbVendor = object.get("DB_Vendor").toString();
 		port = object.get("port").toString();
@@ -110,4 +111,14 @@ public class ConnectionInfo {
 	public String getDBPassword() {
 		return password;
 	}
+
+	/**
+	 * Get the url of db connection
+	 * @return the url
+	 */
+	public String getDBUrl() {
+		return url;
+	}
+	
+	
 }

@@ -32,12 +32,14 @@ public class TestConnectionInfo {
 	@Test
 	public void testConnectionParametersRead() {
 		System.out.println("Test of ConnectionInfo");
+		System.out.println(connectionInfo.getDBUrl());
 		System.out.println(connectionInfo.getDBHost());
 		System.out.println(connectionInfo.getDBPassword());
 		System.out.println(connectionInfo.getDBPort());
 		System.out.println(connectionInfo.getDBUser());
 		System.out.println(connectionInfo.getDBVendor());
 		
+		assertEquals("prova", connectionInfo.getDBUrl());
 		assertEquals("prova", connectionInfo.getDBHost());
 		assertEquals("prova", connectionInfo.getDBPassword());
 		assertEquals("prova", connectionInfo.getDBPort());
