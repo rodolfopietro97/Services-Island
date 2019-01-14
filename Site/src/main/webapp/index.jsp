@@ -19,13 +19,13 @@
         Services Island - HOME
     </title>
 
-    
-      <link href='https://fonts.googleapis.com/css?family=Lora:400,400italic|Work+Sans:300,400,500,600' rel='stylesheet' type='text/css'>
+	<link rel="shortcut icon" href="assets/favicon.ico" />
+	<link href='https://fonts.googleapis.com/css?family=Lora:400,400italic|Work+Sans:300,400,500,600' rel='stylesheet' type='text/css'>
 
-      <!-- Startup theme stylesheets -->
-      <link href="assets/style/homeTemplate/toolkit-startup.css" rel="stylesheet">
-      <link href="assets/style/homeTemplate/application-startup.css" rel="stylesheet">
-      <link href="assets/style/homeTemplate/iosIframeHack.css" rel="stylesheet">
+	<!-- Startup theme stylesheets -->
+	<link href="assets/style/homeTemplate/toolkit-startup.css" rel="stylesheet">
+	<link href="assets/style/homeTemplate/application-startup.css" rel="stylesheet">
+	<link href="assets/style/homeTemplate/iosIframeHack.css" rel="stylesheet">
     
   </head>
 

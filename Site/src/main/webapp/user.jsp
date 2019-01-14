@@ -14,6 +14,7 @@
       Statistics services
     </title>
 
+	<link rel="shortcut icon" href="assets/favicon.ico" />
     <link href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic" rel="stylesheet">
     
     <!-- Light Ui theme stylesheets -->
