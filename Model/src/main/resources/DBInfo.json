@@ -1,0 +1,7 @@
+{
+	"host" : "localhost",
+	"DB_Vendor" : "MySql",
+	"port" : "5432",
+	"user" : "rodolfo",
+	"password" : "password"
+}
