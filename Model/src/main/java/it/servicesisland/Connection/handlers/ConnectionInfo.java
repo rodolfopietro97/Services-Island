@@ -32,6 +32,7 @@ public class ConnectionInfo {
 	 */
 	private JSONObject object;
 	
+
 	/**
 	 * Constructor with parameters
 	 * @param path of JSON file
