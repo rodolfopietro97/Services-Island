@@ -41,9 +41,6 @@
 	<jsp:include page="components/userMenu.jsp"></jsp:include>
 	        
 	<jsp:include page="components/userHeader.jsp"></jsp:include>
-
-
-	<hr class="mt-3">
 	
 	<jsp:include page="components/userContents.jsp"></jsp:include>
 

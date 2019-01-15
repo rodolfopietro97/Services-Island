@@ -1,3 +1,4 @@
+<hr class="mt-3">
 <div class="row text-center mt-5">
   <div class="col-md-4 mb-4 mb-md-3">
     <div class="w-3 mx-auto">

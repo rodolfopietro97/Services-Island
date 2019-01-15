@@ -7,7 +7,8 @@
             </button>
 
           </div>
-
+<br>
+<br>
           <div class="collapse nav-toggleable-md" id="nav-toggleable-md">
             <form class="sidebar-form">
               <input class="form-control" type="text" placeholder="Search...">
