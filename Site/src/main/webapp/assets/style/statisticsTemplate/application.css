@@ -26,3 +26,19 @@ hr {
 .navbar-static-top {
   border-bottom: 0;
 }
+
+article{
+	margin-top: 20px;
+	padding: 5px;
+	border: 1px solid #e5e5e5;
+}
+
+article h1 {
+	margin-top: 15px;
+	margin-left: 15px;
+}
+
+article p {
+	margin-top: 10px;
+	margin-left: 20px;
+}
