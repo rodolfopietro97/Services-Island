@@ -44,9 +44,9 @@
           <li class="py-4"><strong>24hrs</strong> technical supprt</li>
         </ul>
 
-        <button class="btn btn-lg btn-primary btn-block">
-          Start <span class="hidden-lg-down">a personal account</span>
-        </button>
+        <a class="btn btn-lg btn-primary btn-block" href="registrationPage.jsp?userType=p">
+          Start as professionist
+        </a>
       </div>
 
       <div class="col-sm-6 col-md-5 col-lg-6">
@@ -62,9 +62,9 @@
           <li class="py-4"><strong>Tools</strong> you have all tools and statistic tools you need</li>
         </ul>
 
-        <button class="btn btn-lg btn-primary btn-block">
-          Start <span class="hidden-lg-down">a business account</span>
-        </button>
+        <a class="btn btn-lg btn-primary btn-block" href="registrationPage.jsp?userType=u">
+          Start as user
+        </a>
       </div>
 
     </div>

@@ -1,5 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
+<%@ taglib uri='http://java.sun.com/jsp/jstl/core' prefix='c'%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+    
 <div class="stage-shelf stage-shelf-right hidden" id="sidebar">
   <ul class="nav nav-bordered nav-stacked flex-column">
     <li class="nav-header">Menu</li>
@@ -76,6 +80,7 @@
     <div class="container">
 
 
+		<c:if test="${pageContext.request.servletPath ne '/registrationPage.jsp'}">
         <div class="col-md-3 offset-md-3 float-right" style="margin-top: 50px;">
 
                 <form class="px-4 py-3" method="POST" action="login">
@@ -87,11 +92,16 @@
                     <label for="exampleDropdownFormPassword1">Password</label>
                     <input name="txtPassword" type="password" class="form-control" id="exampleDropdownFormPassword1" placeholder="Password" style="min-width: 150px;">
                   </div>
+                  	<button type="submit" class="btn btn-primary float-right">Login</button>
+					<a href="#registration" class="btn btn-primary float-right" style="margin-right: 5px;">Sing Up</a>
+                  	
 
-                  <button type="submit" class="btn btn-primary float-right">Sign in</button>
                 </form>
 
-        </div>
+        </div>		
+		</c:if>
+
+
 
     </div>
 </div>

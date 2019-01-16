@@ -1,0 +1,3 @@
+<h1>
+	USER REGISTRATION FORM
+</h1>
