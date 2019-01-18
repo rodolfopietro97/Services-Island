@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
 <div class="block block-secondary app-iphone-block">
   <div class="container">
     <div class="row app-align-center">
@@ -17,8 +18,8 @@
       </div>
     </div>
 
-  </div>
 </div>
+<!-- </div> -->
 
 
 <div class="block app-price-plans" id="registration">

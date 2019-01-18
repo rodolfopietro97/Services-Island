@@ -8,8 +8,8 @@ import org.junit.Test;
 import it.servicesisland.Connection.handlers.ConnectionInfo;
 
 /**
- * Data Source testing class
  * @author rodolfo
+ * Data Source testing class
  */
 public class TestDataSource {
 

@@ -36,14 +36,18 @@
 
 <body>
 
-  <div class="container">
-
-	<jsp:include page="components/userMenu.jsp"></jsp:include>
-	        
-	<jsp:include page="components/userHeader.jsp"></jsp:include>
-	
-	<jsp:include page="components/userContents.jsp"></jsp:include>
-
+	<div class="container">
+		<div class="row">
+			<div class="col-md-3 sidebar">
+				<jsp:include page="components/userMenu.jsp"></jsp:include>
+			</div>
+			  
+			<div class="col-md-9 content">			        
+				<jsp:include page="components/userHeader.jsp"></jsp:include>		
+				<jsp:include page="components/userContents.jsp"></jsp:include>
+			</div>
+		</div>
+	</div>
 
     <script src="assets/script/jquery.min.js"></script>
     <script src="assets/script/tether.min.js"></script>

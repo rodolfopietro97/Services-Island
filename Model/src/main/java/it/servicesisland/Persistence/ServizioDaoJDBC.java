@@ -5,7 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import model.Servizio;
+import it.servicesisland.Model.*;
 
 public class ServizioDaoJDBC {
 

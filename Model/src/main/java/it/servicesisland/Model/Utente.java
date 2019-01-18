@@ -12,6 +12,49 @@ public class Utente {
 	private boolean professionista;
 	private Long telefono;
 	
+	
+	public Utente() {
+		this.codice = null;
+		this.nome = null;
+		this.cognome = null;
+		this.sesso = null;
+		this.email = null;
+		this.password =null;
+		this.professionista = false;
+		this.telefono = null;
+	}
+	
+	/**
+	 * @param codice
+	 * @param nome
+	 * @param cognome
+	 * @param sesso
+	 * @param email
+	 * @param password
+	 * @param professionista
+	 * @param telefono
+	 */
+	public Utente(Long codice, String nome, String cognome, String sesso, String email, String password,
+			boolean professionista, Long telefono) {
+		this.codice = codice;
+		this.nome = nome;
+		this.cognome = cognome;
+		this.sesso = sesso;
+		this.email = email;
+		this.password = password;
+		this.professionista = professionista;
+		this.telefono = telefono;
+	}
+	
+	
+
+	/**
+	 * @return the codice
+	 */
+	public Long getCodice() {
+		return codice;
+	}
+
 	public void setCodice(Long codice) {
 		this.codice = codice;
 	}

@@ -9,3 +9,4 @@
 		<div class="btn-toolbar-item input-with-icon"></div>
 	</div>
 </div>
+<hr class="mt-3">
