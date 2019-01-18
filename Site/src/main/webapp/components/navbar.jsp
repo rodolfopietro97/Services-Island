@@ -7,15 +7,15 @@
 <!-- Hidden menu for mobile devices -->
 <menu class="stage-shelf stage-shelf-right hidden" id="sidebar">
 	<ul class="nav nav-bordered nav-stacked flex-column">
-		<li class="nav-header">Menu</li>
+		<li class="nav-header">Menu Navigazione</li>
 		<li class="nav-item">
-			<a class="nav-link active" href="index.html">Home</a>
+			<a class="nav-link active" href="/Site">Home</a>
 		</li>
 		<li class="nav-item">
-			<a class="nav-link" href="minimal/index.html">About</a>
+			<a class="nav-link" href="about.jsp">Info</a>
 		</li>
 		<li class="nav-item">
-			<a class="nav-link" href="bold/index.html">Terms</a>
+			<a class="nav-link" href="terms.jsp">Termini</a>
 		</li>
 	</ul>
 </menu>
@@ -42,12 +42,12 @@
 				<div class="hidden-sm-down text-uppercase nav nav-tabs border"
 					style="background: #28669f; /* Old browsers */ background: -moz-linear-gradient(top, #28669f 0%, #357ea9 100%); /* FF3.6-15 */ background: -webkit-linear-gradient(top, #28669f 0%, #357ea9 100%); /* Chrome10-25,Safari5.1-6 */ background: linear-gradient(to bottom, #28669f 0%, #357ea9 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#28669f', endColorstr='#357ea9', GradientType=0); /* IE6-9 */ border-top-left-radius: 5px; border-top-right-radius: 5px;">
 					<ul class="navbar-nav">
-						<li class="nav-item px-1"><a class="nav-link" href="#">Home</a>
+						<li class="nav-item px-1"><a class="nav-link" href="/Site">Home</a>
 						</li>
 						<li class="nav-item px-1 "><a class="nav-link"
-							href="minimal/index.html">About</a></li>
+							href="about.jsp">Info</a></li>
 						<li class="nav-item px-1 "><a class="nav-link"
-							href="#registration">Terms</a></li>
+							href="terms.jsp">Termini</a></li>
 
 					</ul>
 				</div>

@@ -16,7 +16,7 @@
     <meta name="author" content="">
 
     <title>
-        Services Island - HOME
+        Services Island - Pagina di registrazione
     </title>
 
 	<link rel="shortcut icon" href="assets/favicon.ico" />

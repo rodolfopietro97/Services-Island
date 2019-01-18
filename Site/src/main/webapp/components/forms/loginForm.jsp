@@ -5,9 +5,9 @@
 
 	<form class="px-4 py-3" method="POST" action="UserHandler?op=login">
 		<div class="form-group">
-			<label for="exampleDropdownFormEmail1">Email address</label> <input
+			<label for="exampleDropdownFormEmail1">Email</label> <input
 				name="txtEmail" type="email" class="form-control"
-				id="exampleDropdownFormEmail1" placeholder="email@example.com"
+				id="exampleDropdownFormEmail1" placeholder="email@esempio.com"
 				style="min-width: 150px;">
 		</div>
 		<div class="form-group">
@@ -17,17 +17,15 @@
 				style="min-width: 150px;">
 		</div>
 
-		<div style="">
-			<ul>
-				<li style="float: left; list-style-type: none; margin: 2px;"><a
-					href="#registration" class="btn btn-primary float-right">Sing
-						Up</a></li>
-			</ul>
-			<ul>
-				<li style="float: left; list-style-type: none; margin: 2px;">
-					<button type="submit" class="btn btn-primary float-right">Login</button>
-				</li>
-			</ul>
-		</div>
+		<table style="margin: 0px; padding: 0px; width: 100%;">
+			<tr>
+				<td style="padding: 2px; width: 50%">
+					<a style="cursor: pointer; width: 100%;" href="#registration" class="btn btn-primary float-right">Registrati</a>
+				</td>
+				<td style="padding: 2px; width: 50%">
+					<button style="cursor: pointer; width: 100%;" type="submit" class="btn btn-primary float-right">Accedi</button>
+				</td>
+			</tr>
+		</table>
 	</form>
 </div>

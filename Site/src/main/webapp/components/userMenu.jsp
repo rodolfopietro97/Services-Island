@@ -5,7 +5,7 @@
 	<div class="sidebar-header">
 		<button class="nav-toggler nav-toggler-md sidebar-toggler"
 			type="button" data-toggle="collapse" data-target="#nav-toggleable-md">
-			<span class="sr-only">Toggle nav</span>
+			<span class="sr-only">Menu Navigazione</span>
 		</button>
 
 	</div>
@@ -23,7 +23,7 @@
 				href="../index-light/index.html">Home</a></li>
 
 
-			<li class="nav-header">User Menu</li>
+			<li class="nav-header">Menu Utente</li>
 
 
 

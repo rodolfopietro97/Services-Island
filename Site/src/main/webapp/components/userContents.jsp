@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 
 <article class="row text-center mt-5 rounded">
-	<h1>.. GRAPHS ..</h1>
+	<h1>.. GRAFICI ..</h1>
 	<!-- 	<div class="col-md-4 mb-4 mb-md-3">
 		<div class="w-3 mx-auto">
 			<canvas class="ex-graph" width="200" height="200"
@@ -48,7 +48,7 @@
 </div>
 
 <article class="row statcards rounded">
-	<h1>.. STATS ..</h1>
+	<h1>.. STATISTICHE ..</h1>
 
 	<!-- 	<div class="col-md-6 col-xl-3 mb-3 mb-md-4 mb-xl-0">
 		<div class="statcard statcard-success">

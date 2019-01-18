@@ -10,10 +10,10 @@
       </div>
 
       <div class="col-md-6 offset-md-1 col-sm-12 offset-sm-0">
-        <h6 class="text-muted text-uppercase">Informations</h6>
-        <h3>What is Services Island?</h3>
+        <h6 class="text-muted text-uppercase">Descrizione</h6>
+        <h3>Che cos'è Services Island?</h3>
         <p class="lead mb-4">
-          Services Island is the best place to find services and profesionists. With Services Island you can publish your services, and book services.<br>what are you waiting for? <strong>Try it!</strong>
+          Services Island è il posto perfetto dove trovare servizi e professionisti a portata di click. Con services Island puoi pubblicare, comprare, recensire, prenotare e gesire servizi in modo semplice, economico e veloce!.<br>Che cosa stai aspettando? <strong>Provalo!</strong>
         </div>
       </div>
     </div>
@@ -27,45 +27,52 @@
 
     <div class="row mb-5">
       <div class="col-md-8 offset-md-2 col-lg-6 offset-lg-3">
-        <h6 class="text-muted text-uppercase mb-2">Registration</h6>
-        <h3>Are you a profesionists or a simple user? <strong>Choose your plan!</strong></h3>
+        <h6 class="text-muted text-uppercase mb-2">Registrazione</h6>
+        <h3>Vuoi essere professionista oppure utente? <strong>Scegli il tuo piano!</strong></h3>
       </div>
     </div>
 
     <div class="row">
       <div class="col-sm-5 col-md-6">
         <div class="px-2 mb-2">
-          <h6 class="text-muted text-uppercase mb-4">User</h6>
-          <img class="mb-4" src="assets/style/images/0.png">
-          <p class="pb-2">Search and book all services you want.</p>
+          <h6 class="text-muted text-uppercase mb-4">Utente</h6>
+          <h1>0&euro;<sub>/M</sub></h1>
+          <p class="pb-2">Cerca e prenota tutti i servizi che vuoi in modo semplice, efficace senza pagare nulla!</p>
         </div>
 
         <ul class="list-unstyled list-bordered text-xs-left my-4">
-          <li class="py-4"><strong>NO LIMIT</strong> You could book all services you want</li>
-          <li class="py-4"><strong>24hrs</strong> technical supprt</li>
+          <a class="btn btn-lg btn-primary btn-block" href="registrationPage.jsp?userType=u">
+           Registrati
+          </a>
+          <br>
+          <li class="py-4"><strong>NESSUN LIMITE</strong> Puoi cercare ed acquistare tutti i servizi che vuoi!</li>
+          <li class="py-4"><strong>H24</strong> Supporto clienti 24 ore su 24</li>
+          <li class="py-4"><strong>SICUREZZA</strong> Sicurezza e privacy sono la nostra priorità</li>
+          
         </ul>
 
-        <a class="btn btn-lg btn-primary btn-block" href="registrationPage.jsp?userType=u">
-          Start as user
-        </a>
+
       </div>
 
       <div class="col-sm-6 col-md-5 col-lg-6">
         <div class="px-2">
-          <h6 class="text-muted text-uppercase mb-4">Professionist</h6>
-          <img class="mb-4" src="assets/style/images/0,99.png">
-          <p class="pb-2">The perfect sized plan for professionists to get started.</p>
+          <h6 class="text-muted text-uppercase mb-4">Professionista</h6>
+          <h1>0.99&euro;<sub>/M</sub></h1>
+          <p class="pb-2">Cerca, prenota, inserisci e gestisci in modo semplice ed efficace tutti i servizi che vuoi!</p>
         </div>
 
         <ul class="list-unstyled list-bordered text-xs-left my-4">
-          <li class="py-4"><strong>NO LIMIT</strong> you could manage all your services</li>
-          <li class="py-4"><strong>24/7</strong> technical supprt</li>
-          <li class="py-4"><strong>Tools</strong> you have all tools and statistic tools you need</li>
+          <a class="btn btn-lg btn-primary btn-block" href="registrationPage.jsp?userType=p">
+          	Registrati
+          </a>
+          <br>
+          <li class="py-4"><strong>NESSUN LIMITE</strong> Puoi cercare ed acquistare tutti i servizi che vuoi!</li>
+          <li class="py-4"><strong>H24</strong> Supporto clienti 24 ore su 24</li>
+          <li class="py-4"><strong>SICUREZZA</strong> Sicurezza e privacy sono la nostra priorità</li>
+          <li class="py-4"><strong>STRUMENTI</strong> Potrai usufruire di strumenti potenti che supporteranno la gestione del tuo business</li>
         </ul>
 
-        <a class="btn btn-lg btn-primary btn-block" href="registrationPage.jsp?userType=p">
-          Start as professionist
-        </a>
+
       </div>
 
     </div>

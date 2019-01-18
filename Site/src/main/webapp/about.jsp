@@ -13,7 +13,7 @@
     <meta name="author" content="">
 
     <title>
-        Services Island - Homepage
+        Services Island - Pagina informazioni
     </title>
 
 	<link rel="shortcut icon" href="assets/favicon.ico" />

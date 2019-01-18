@@ -13,7 +13,7 @@
     <meta name="author" content="">
 
     <title>
-        Services Island - Homepage
+        Services Island - Termini e condizioni
     </title>
 
 	<link rel="shortcut icon" href="assets/favicon.ico" />

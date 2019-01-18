@@ -8,7 +8,7 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>Services Island - 404</title>
+  <title>Services Island - Errore 404</title>
   
   <link rel="shortcut icon" href="assets/favicon.ico" />
   <link rel="stylesheet" type="text/css" href="//cloud.typography.com/746852/739588/css/fonts.css" />
@@ -19,8 +19,8 @@
 <body>
 
 <div class="error-container">
-  <h1>Error 404</h1>
-  <p class="return">Take me back to <a href="/Site">Services Island</a></p>
+  <h1>Errore 404</h1>
+  <p class="return">Ritorna a <a href="/Site">Services Island</a></p>
 </div>
 
 </body>
