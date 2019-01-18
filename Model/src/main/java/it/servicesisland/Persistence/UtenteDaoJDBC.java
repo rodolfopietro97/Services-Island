@@ -10,15 +10,30 @@ import it.servicesisland.Model.Utente;
 
 
 
+/**
+ * @author tiziana
+ * Utente jdbc dao class
+ */
 public class UtenteDaoJDBC {
 	
+	/**
+	 * Instance of DataSource
+	 */
 	private DataSource dataSource;
 
+	/**
+	 * Constructor with parameters
+	 * @param dataSource of connection
+	 */
 	public UtenteDaoJDBC(DataSource dataSource) {
 		this.dataSource = dataSource;
 		//dataSource=new DataSource("jdbc:postgresql://localhost:5432/services_island","postgres","postgres");
 	}
 	
+	/**
+	 * Add new Utente in the database
+	 * @param utente to add
+	 */
 	public void save(Utente utente){
 		Connection connection = this.dataSource.getConnection();
 		try {
@@ -31,7 +46,7 @@ public class UtenteDaoJDBC {
 			statement.setString(3, utente.getSesso());
 			statement.setString(4, utente.getEmail());
 			statement.setString(5, utente.getPassword());
-			statement.setBoolean(6, utente.getProfessionista());
+			statement.setBoolean(6, utente.isProfessionista());
 			statement.setLong(7, utente.getTelefono());
 					
 			statement.executeUpdate();
@@ -54,6 +69,11 @@ public class UtenteDaoJDBC {
 		}
 	}
 	
+	/**
+	 * Fine an Utente by his email
+	 * @param email of user to fine
+	 * @return Utente which has the same email
+	 */
 	public Utente findByEmail(String email) {
 		Connection connection = this.dataSource.getConnection();
 		Utente utente = null;
@@ -88,6 +108,11 @@ public class UtenteDaoJDBC {
 		return utente;
 	}
 	
+	/**
+	 * Get all services of a professionists
+	 * @param email of professionist user
+	 * @return {@link List} of services offered by Utente which has the same email
+	 */
 	public List<Servizio> findAllServices(String email) {
 		Connection connection = this.dataSource.getConnection();
 		List<Servizio> servizi = new ArrayList<>();
@@ -120,7 +145,11 @@ public class UtenteDaoJDBC {
 		return servizi;
 	}
 	
+	/**
+	 * it in TODO phase
+	 * @return average of rating
+	 */
 	public double averageRating() {
-		return (Double) null;
+		return 0;
 	}
 }

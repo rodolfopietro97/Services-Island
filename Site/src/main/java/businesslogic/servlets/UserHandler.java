@@ -9,6 +9,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import it.servicesisland.Connection.handlers.StandardDataSource;
+import it.servicesisland.Model.Utente;
+import it.servicesisland.Persistence.UtenteDaoJDBC;
+
 
 /**
  * Servlet implementation class UserHandler
@@ -47,6 +51,22 @@ public class UserHandler extends HttpServlet {
 			response.getOutputStream().println("<h1>" + request.getParameter("op") + "</h1>");
 			response.getOutputStream().println(request.getParameter("txtEmail"));
 			response.getOutputStream().println(request.getParameter("txtPassword"));
+		}
+		else if(request.getParameter("op").equals("registerUser")) {
+			response.getOutputStream().print("REGISTRA UN UTENTE");
+			for(Object i : request.getParameterMap().entrySet()) {
+				response.getOutputStream().print(i.toString());
+			}
+			Utente temp = new Utente(null, 
+					request.getParameter("nome"), 
+					request.getParameter("cognome"), 
+					"m", 
+					request.getParameter("email"), 
+					request.getParameter("password"), 
+					false, 
+					null);
+			
+			new UtenteDaoJDBC(StandardDataSource.getInstance().getDefaultDataSource()).save(temp);
 		}
 		
 	}

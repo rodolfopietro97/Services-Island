@@ -40,5 +40,6 @@
     <script src="assets/script/tether.min.js"></script>
     <script src="assets/script/toolkit.js"></script>
     <script src="assets/script/application.js"></script>
+
   </body>
 </html>

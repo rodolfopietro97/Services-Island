@@ -9,7 +9,7 @@ import org.junit.Test;
 
 /**
  * @author rodolfo
- * Connection info test class
+ * {@link ConnectionInfo} test class
  */
 public class TestConnectionInfo {
 	

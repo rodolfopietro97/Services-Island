@@ -7,15 +7,30 @@ import java.sql.SQLException;
 
 import it.servicesisland.Model.*;
 
+/**
+ * @author tiziana
+ * Servizio jdbc dao class
+ */
 public class ServizioDaoJDBC {
 
+	/**
+	 * Instance of DataSource
+	 */
 	private DataSource dataSource;
 
+	/**
+	 * Constructor with parameters
+	 * @param dataSource of connection
+	 */
 	public ServizioDaoJDBC(DataSource dataSource) {
 		this.dataSource = dataSource;
 		//dataSource=new DataSource("jdbc:postgresql://localhost:5432/services_island","postgres","postgres");
 	}
 	
+	/**
+	 * Add new service in the database
+	 * @param servizio to save
+	 */
 	public void save(Servizio servizio) {
 		
 		Connection connection = this.dataSource.getConnection();
@@ -56,6 +71,11 @@ public class ServizioDaoJDBC {
 		}
 	}
 	
+	/**
+	 * Find the Servizio by primary key
+	 * @param id of service
+	 * @return the Servizio which has a primary key id
+	 */
 	public Servizio findByPrimaryKey(Long id) {
 		Connection connection = this.dataSource.getConnection();
 		Servizio servizio = null;

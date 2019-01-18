@@ -12,7 +12,7 @@ import it.servicesisland.Model.Utente;
 
 /**
  * @author rodolfo
- * Utente dao testing class
+ * {@link UtenteDaoJDBC} testing class
  */
 public class TestUtenteDaoJDBC {
 	
@@ -22,13 +22,20 @@ public class TestUtenteDaoJDBC {
 	Utente user;
 	UtenteDaoJDBC userDao;
 
+	/**
+	 * Constructor without parameters
+	 */
 	public TestUtenteDaoJDBC() {
 		user = new Utente(null, "ippolito", "bruno", "F", "ippolito@prova.it", "prova", false, 333333333L);
 		userDao = new UtenteDaoJDBC(StandardDataSource.getInstance().getDefaultDataSource());
 	}
 	
+	/**
+	 * Test the saving of an Utente
+	 */
 	@Test
-	public void testDataSourceUserAdd() {
+	public void testUserSave() {
+		System.out.println("Test of saving of Utente Dao JDBC");
 		userDao.save(user);
 		assertEquals(user.getCodice(), userDao.findByEmail("ippolito@prova.it").getCodice());
 	}

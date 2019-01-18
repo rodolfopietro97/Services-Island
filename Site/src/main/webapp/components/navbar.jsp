@@ -5,7 +5,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 
 <!-- Hidden menu for mobile devices -->
-<div class="stage-shelf stage-shelf-right hidden" id="sidebar">
+<menu class="stage-shelf stage-shelf-right hidden" id="sidebar">
 	<ul class="nav nav-bordered nav-stacked flex-column">
 		<li class="nav-header">Menu</li>
 		<li class="nav-item">
@@ -18,7 +18,7 @@
 			<a class="nav-link" href="bold/index.html">Terms</a>
 		</li>
 	</ul>
-</div>
+</menu>
 
 <div class="stage" id="stage">
 
