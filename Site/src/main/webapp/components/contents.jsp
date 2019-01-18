@@ -36,7 +36,7 @@
       <div class="col-sm-5 col-md-6">
         <div class="px-2 mb-2">
           <h6 class="text-muted text-uppercase mb-4">User</h6>
-          <img class="mb-4" src="assets/style/images/startup-15.svg">
+          <img class="mb-4" src="assets/style/images/0.png">
           <p class="pb-2">Search and book all services you want.</p>
         </div>
 
@@ -45,15 +45,15 @@
           <li class="py-4"><strong>24hrs</strong> technical supprt</li>
         </ul>
 
-        <a class="btn btn-lg btn-primary btn-block" href="registrationPage.jsp?userType=p">
-          Start as professionist
+        <a class="btn btn-lg btn-primary btn-block" href="registrationPage.jsp?userType=u">
+          Start as user
         </a>
       </div>
 
       <div class="col-sm-6 col-md-5 col-lg-6">
         <div class="px-2">
           <h6 class="text-muted text-uppercase mb-4">Professionist</h6>
-          <img class="mb-4" src="assets/style/images/startup-16.svg">
+          <img class="mb-4" src="assets/style/images/0,99.png">
           <p class="pb-2">The perfect sized plan for professionists to get started.</p>
         </div>
 
@@ -63,8 +63,8 @@
           <li class="py-4"><strong>Tools</strong> you have all tools and statistic tools you need</li>
         </ul>
 
-        <a class="btn btn-lg btn-primary btn-block" href="registrationPage.jsp?userType=u">
-          Start as user
+        <a class="btn btn-lg btn-primary btn-block" href="registrationPage.jsp?userType=p">
+          Start as professionist
         </a>
       </div>
 

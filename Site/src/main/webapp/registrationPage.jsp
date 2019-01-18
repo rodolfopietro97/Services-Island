@@ -37,12 +37,13 @@
 
 	<c:choose>
 		<c:when test="${param.userType eq 'p'}">
-			<jsp:include page="components/professionistRegistrationForm.jsp"></jsp:include>
+			<jsp:include page="components/professionistRegistration.jsp"></jsp:include>
 		</c:when>
 		<c:when test="${param.userType eq 'u'}">
-			<jsp:include page="components/userRegistrationForm.jsp"></jsp:include>		</c:when>
+			<jsp:include page="components/userRegistration.jsp"></jsp:include>		
+		</c:when>
 		<c:otherwise>
-			<jsp:include page="components/userRegistrationForm.jsp"></jsp:include>
+			<jsp:include page="components/userRegistration.jsp"></jsp:include>
 		</c:otherwise>
 	</c:choose>
 

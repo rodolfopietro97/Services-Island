@@ -1,3 +1,6 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+
 <div class="col-md-3 offset-md-3 float-right" style="margin-top: 50px;">
 
 	<form class="px-4 py-3" method="POST" action="UserHandler?op=login">
