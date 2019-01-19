@@ -33,7 +33,7 @@ public class Utente {
 	
 	/**
 	 * Constructor with parameters
-	 * @param codice of Utente
+	 
 	 * @param nome of Utente
 	 * @param cognome of Utente
 	 * @param sesso of Utente
@@ -42,9 +42,9 @@ public class Utente {
 	 * @param professionista of Utente
 	 * @param telefono of Utente
 	 */
-	public Utente(Long codice, String nome, String cognome, String sesso, String email, String password,
+	public Utente(String nome, String cognome, String sesso, String email, String password,
 			boolean professionista, Long telefono) {
-		this.codice = codice;
+		
 		this.nome = nome;
 		this.cognome = cognome;
 		this.sesso = sesso;
@@ -62,7 +62,7 @@ public class Utente {
 	}
 
 	/**
-	 * @param codice the codice to set
+	 * @param codice the codice to be set
 	 */
 	public void setCodice(Long codice) {
 		this.codice = codice;

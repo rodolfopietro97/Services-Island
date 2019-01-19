@@ -39,13 +39,10 @@ public class ServizioDaoJDBC {
 			 
 			String insert = "insert into servizio(prezzo, orario, giorno, descrizione, approvato, professionista) values (?,?,?,?,?,?)";
 			PreparedStatement statement = connection.prepareStatement(insert);
+			
 			statement.setDouble(1, servizio.getPrezzo());
-			
-			//if(servizio.getOrario()!=null)
-				statement.setTime(2, servizio.getOrario());
-			//if(servizio.getGiorno()!=null)
-				statement.setDate(3, servizio.getGiorno());
-			
+			statement.setTime(2, servizio.getOrario());
+			statement.setDate(3, servizio.getGiorno());
 			statement.setString(4, servizio.getDescrizione());
 			statement.setBoolean(5, servizio.isApprovato());
 			statement.setInt(6, servizio.getProfessionista());
@@ -106,5 +103,31 @@ public class ServizioDaoJDBC {
 			}
 		}	
 		return servizio;
+	}
+	
+/**
+ * Delete a given instance of Servizio, finding it by primary key	
+ * @param id
+ */
+public void delete(Long id) {
+		
+		Connection connection = this.dataSource.getConnection();
+		try {
+		PreparedStatement statement;
+		String query = "delete from servizio where codice = ?";
+		statement = connection.prepareStatement(query);
+		statement.setLong(1, id);
+		statement.execute();
+		
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				connection.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		
 	}
 }
