@@ -1,6 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
    
+<%@ taglib uri='http://java.sun.com/jsp/jstl/core' prefix='c'%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+   
 <!DOCTYPE html>
 <!-- Tipical initial page template -->
 <html lang="en">
@@ -30,9 +33,29 @@
 <body>
 
 	<%@ include file="components/navbar.jsp" %>
-	
-	<%@ include file="components/contents.jsp" %>
-	
+
+	<!-- Choose the contents -->
+	<c:choose>
+		<c:when test="${param.page eq 'about'}">
+			<jsp:include page="components/contents/aboutContents.jsp"></jsp:include>
+		</c:when>
+		<c:when test="${param.page eq 'legalIssues'}">
+			<jsp:include page="components/contents/legalIssuesContents.jsp"></jsp:include>		
+		</c:when>
+		<c:when test="${param.page eq 'license'}">
+			<jsp:include page="components/contents/licenseContents.jsp"></jsp:include>		
+		</c:when>
+		<c:when test="${param.page eq 'terms'}">
+			<jsp:include page="components/contents/termsContents.jsp"></jsp:include>		
+		</c:when>
+		<c:when test="${param.page eq 'registration'}">
+			<jsp:include page="components/contents/registrationContents.jsp"></jsp:include>		
+		</c:when>
+		<c:otherwise>
+			<jsp:include page="components/contents/homeContents.jsp"></jsp:include>
+		</c:otherwise>
+	</c:choose>
+
 	<%@ include file="components/footer.jsp" %>
 
 

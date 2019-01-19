@@ -12,10 +12,10 @@
 			<a class="nav-link active" href="/Site">Home</a>
 		</li>
 		<li class="nav-item">
-			<a class="nav-link" href="about.jsp">Info</a>
+			<a class="nav-link" href="/Site?page=about">Info</a>
 		</li>
 		<li class="nav-item">
-			<a class="nav-link" href="terms.jsp">Termini</a>
+			<a class="nav-link" href="/Site?page=terms">Termini</a>
 		</li>
 	</ul>
 </menu>
@@ -45,9 +45,9 @@
 						<li class="nav-item px-1"><a class="nav-link" href="/Site">Home</a>
 						</li>
 						<li class="nav-item px-1 "><a class="nav-link"
-							href="about.jsp">Info</a></li>
+							href="/Site?page=about">Info</a></li>
 						<li class="nav-item px-1 "><a class="nav-link"
-							href="terms.jsp">Termini</a></li>
+							href="/Site?page=terms">Termini</a></li>
 
 					</ul>
 				</div>
@@ -59,7 +59,7 @@
 
 		<div class="container">
 			<!-- if we aren't in registration page -->
-			<c:if test="${pageContext.request.servletPath ne '/registrationPage.jsp'}">
+			<c:if test="${param.page ne 'registration'}">
 				<jsp:include page="components/forms/loginForm.jsp"></jsp:include>
 			</c:if>
 		</div>

@@ -3,27 +3,67 @@
 
 <form method="post" action="UserHandler?op=registerUser">
 
-	Nome<br> <input type="text" name="nome"><br> Cognome<br> <input
-		type="text" name="cognome"><br> Codice Fiscale<br> <input type="text"
-		name="codiceFiscale"><br> Data di Nascita<br> <input type="text"
-		name="dataDiNascita"><br> Email<br> <input type="text" name="email"><br>
-	Conferma Email<br> <input type="text" name="confermaEmail"><br>
-	Password<br> <input type="text" name="password"><br> Ripeti Password<br> <input type="text" name="confermaPassword">
-	</p>
+		<div class="form-group">
+			<p>Nome</p>
+			<input class="form-control" type="text" name="txtNome">
+		</div>
+		
+		<div class="form-group">
+			<p>Cognome</p>
+			<input class="form-control" type="text" name="txtCognome">
+		</div>
+		
+		<div class="form-group">
+			<p>Codice fiscale</p>
+			<input class="form-control" type="text" name="txtCodiceFiscale">
+		</div>
+		<div class="form-group">
+			<p>Data di nascita</p>
+			<input class="form-control" type="date" name="txtData">
+		</div>
+		
+		<div class="form-group">
+			<p>Email</p>
+			<input class="form-control" type="email" name="txtEmail">
+		</div>
+		
+		<div class="form-group">
+			<p>Password</p>
+			<input class="form-control" type="password" name="txtPassword">
+		</div>
+		
+		<div class="form-group">
+			<p>Conferma password</p>
+			<input class="form-control" type="password" name="txtConfermaPassword">
+		</div>
+		
+		<div class="form-group">
+			<p>Nazionalità</p>
+			<select class="form-control" name="sltNazionalita">
+					<option value="I">Italia</option>
+					<option value="E">Estero</option>
+			</select>
+		</div>
+		
+		<div class="form-group">
+			<p>Residenza</p>
+			<select name="sltResidenza">
+					<option value="I">Italia</option>
+					<option value="E">Estero</option>
+			</select>
+		</div>
+		
+		<div class="form-group">
+			<p>Sesso</p>
+			<select class="form-control" name="sltSesso">
+					<option value="I">Italia</option>
+					<option value="E">Estero</option>
+			</select>
+		</div>
+		
+		<div class="form-group">
+			<input class="btn btn-primary" type="submit" value="Registrati">
+		</div>
 
-
-	Paese<br> <select name="paese">
-		<option value="I">Italia</option>
-		<option value="E">Estero</option>
-	</select><br>
-	</p>
-
-	Residenza<br> <input type="text" name="residenza"><br>
-	</p>
-
-	Sesso<br> <input type="radio" name="sesso" value="M"> M<br> <input
-		type="radio" name="sesso" value="F"> F<br> <br> <br> <input
-		type="submit" value="Submit"> <input type="submit"
-		value="Submit with Facebook">
 
 </form>

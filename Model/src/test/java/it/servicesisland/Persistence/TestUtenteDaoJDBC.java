@@ -26,7 +26,7 @@ public class TestUtenteDaoJDBC {
 	 * Constructor without parameters
 	 */
 	public TestUtenteDaoJDBC() {
-		user = new Utente(null, "ippolito", "bruno", "F", "ippolito@prova.it", "prova", false, 333333333L);
+		user = new Utente("ippolito", "bruno", "F", "ippolito@prova.it", "prova", false, 333333333L);
 		userDao = new UtenteDaoJDBC(StandardDataSource.getInstance().getDefaultDataSource());
 	}
 	

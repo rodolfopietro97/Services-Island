@@ -20,7 +20,7 @@
 		<table style="margin: 0px; padding: 0px; width: 100%;">
 			<tr>
 				<td style="padding: 2px; width: 50%">
-					<a style="cursor: pointer; width: 100%;" href="#registration" class="btn btn-primary float-right">Registrati</a>
+					<a style="cursor: pointer; width: 100%;" href="/Site#registration" class="btn btn-primary float-right">Registrati</a>
 				</td>
 				<td style="padding: 2px; width: 50%">
 					<button style="cursor: pointer; width: 100%;" type="submit" class="btn btn-primary float-right">Accedi</button>
