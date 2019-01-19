@@ -6,4 +6,4 @@
  * Utils package of businesslogic.
  * it contains DataStructures, enume, utils classes, etc...
  */
-package utils;
+package businesslogic.utils;

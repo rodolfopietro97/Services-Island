@@ -21,15 +21,15 @@
       <div class="col-md-2 mb-5">
         <ul class="list-unstyled list-spaced">
           <li class="mb-2"><h6 class="text-uppercase">Privacy</h6></li>
-          <a href="/Site?page=legalIssues"><li class="text-muted">Legal Issues</li></a>
+          <a href="/Site?page=legalIssues#startContent"><li class="text-muted">Legal Issues</li></a>
         </ul>
       </div>
       <div class="col-md-2 mb-5">
         <ul class="list-unstyled list-spaced">
           <li class="mb-2"><h6 class="text-uppercase">Informazioni</h6></li>
-          <a href="/Site?page=terms"><li class="text-muted">Termini</li></a>
-          <a href="/Site?page=about"><li class="text-muted">Info</li></a>
-          <a href="/Site?page=license"><li class="text-muted">Licensa</li></a>
+          <a href="/Site?page=terms#startContent"><li class="text-muted">Termini</li></a>
+          <a href="/Site?page=about#startContent"><li class="text-muted">Info</li></a>
+          <a href="/Site?page=license#startContent"><li class="text-muted">Licensa</li></a>
         </ul>
       </div>
     </div>

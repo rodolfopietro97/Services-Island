@@ -30,13 +30,13 @@
 		<servlet-name>UserHandler</servlet-name>
 		<display-name>UserHandler</display-name>
 		<description>User handler servlet. It is used for login, user registration, etc...</description>
-		<servlet-class>servlets.UserHandler</servlet-class>
+		<servlet-class>businesslogic.servlets.UserHandler</servlet-class>
 	</servlet>
 	<servlet>
 		<servlet-name>ServicesHandler</servlet-name>
 		<display-name>ServicesHandler</display-name>
 		<description>Services handler servlet. It is used for handle services approvation, modification, etc...</description>
-		<servlet-class>servlets.ServicesHandler</servlet-class>
+		<servlet-class>businesslogic.servlets.ServicesHandler</servlet-class>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>UserHandler</servlet-name>

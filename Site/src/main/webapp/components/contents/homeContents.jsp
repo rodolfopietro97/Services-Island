@@ -9,7 +9,7 @@
         <img class="app-iphone" src="assets/style/images/LOGO_ServiceIsland.png" style="width: 100%;">
       </div>
 
-      <div class="col-md-6 offset-md-1 col-sm-12 offset-sm-0">
+      <div class="col-md-6 offset-md-1 col-sm-12 offset-sm-0"  id="startContent">
         <h6 class="text-muted text-uppercase">Descrizione</h6>
         <h3>Che cos'è Services Island?</h3>
         <p class="lead mb-4">
@@ -41,7 +41,7 @@
         </div>
 
         <ul class="list-unstyled list-bordered text-xs-left my-4">
-          <a class="btn btn-lg btn-primary btn-block" href="/Site?page=registration&userType=p">
+          <a class="btn btn-lg btn-primary btn-block" href="/Site?page=registration&userType=u#startContent">
            Registrati
           </a>
           <br>
@@ -62,7 +62,7 @@
         </div>
 
         <ul class="list-unstyled list-bordered text-xs-left my-4">
-          <a class="btn btn-lg btn-primary btn-block" href="/Site?page=registration&userType=p">
+          <a class="btn btn-lg btn-primary btn-block" href="/Site?page=registration&userType=p#startContent">
           	Registrati
           </a>
           <br>

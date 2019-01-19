@@ -1,5 +1,4 @@
-package servlets;
-
+package businesslogic.servlets;
 
 
 import java.io.IOException;
@@ -11,6 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import it.servicesisland.Connection.handlers.StandardDataSource;
 import it.servicesisland.Model.Utente;
+import it.servicesisland.Persistence.DataSource;
 import it.servicesisland.Persistence.UtenteDaoJDBC;
 
 
@@ -38,6 +38,8 @@ public class UserHandler extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {		
 		response.setContentType("text/html");
+		//request.setCharacterEncoding("utf-8");
+		response.setCharacterEncoding("utf-8");
 	}
 
 	/**
@@ -53,20 +55,33 @@ public class UserHandler extends HttpServlet {
 			response.getOutputStream().println(request.getParameter("txtPassword"));
 		}
 		else if(request.getParameter("op").equals("registerUser")) {
-			response.getOutputStream().print("REGISTRA UN UTENTE");
-			for(Object i : request.getParameterMap().entrySet()) {
-				response.getOutputStream().print(i.toString());
-			}
-			Utente temp = new Utente(null, 
-					request.getParameter("nome"), 
-					request.getParameter("cognome"), 
-					"m", 
-					request.getParameter("email"), 
-					request.getParameter("password"), 
-					false, 
-					null);
+			response.getOutputStream().print("registrazione utente");
 			
-			new UtenteDaoJDBC(StandardDataSource.getInstance().getDefaultDataSource()).save(temp);
+			final String nome = request.getParameter("txtNome").toString(); 
+			final String cognome =  request.getParameter("txtCognome").toString();
+			final String sesso = request.getParameter("sltSesso").toString();
+			final String email = request.getParameter("txtEmail").toString();
+			final String password =  request.getParameter("txtPassword").toString();
+			final long numero =  Long.parseLong(request.getParameter("txtNumeroTelefonico").toString());
+	
+			
+			
+			final Utente temp = new Utente(
+					nome, 
+					cognome,
+					sesso, 
+					email, 
+					password, 
+					false, 
+					numero);
+			
+			final UtenteDaoJDBC register = new UtenteDaoJDBC(new DataSource("jdbc:postgresql://tantor.db.elephantsql.com:5432/clbwfexq", "clbwfexq", "WhDf3DdXmdH5Iupu1BFjD6n7Z4CJ1lrS"));
+			register.save(temp);
+			response.getOutputStream().print("utente aggiunto con successo");
+
+			
+//			
+//			new UtenteDaoJDBC(StandardDataSource.getInstance().getDefaultDataSource()).save(temp);
 		}
 		
 	}

@@ -5,4 +5,4 @@
  * @author rodolfo
  * Servlets package
  */
-package servlets;
+package businesslogic.servlets;
