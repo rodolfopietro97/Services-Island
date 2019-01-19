@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import it.servicesisland.Connection.handlers.ConnectionInfo;
 import it.servicesisland.Connection.handlers.StandardDataSource;
 import it.servicesisland.Model.Utente;
 import it.servicesisland.Persistence.DataSource;
@@ -38,7 +39,7 @@ public class UserHandler extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {		
 		response.setContentType("text/html");
-		//request.setCharacterEncoding("utf-8");
+		request.setCharacterEncoding("utf-8");
 		response.setCharacterEncoding("utf-8");
 	}
 
@@ -54,8 +55,10 @@ public class UserHandler extends HttpServlet {
 			response.getOutputStream().println(request.getParameter("txtEmail"));
 			response.getOutputStream().println(request.getParameter("txtPassword"));
 		}
-		else if(request.getParameter("op").equals("registerUser")) {
-			response.getOutputStream().print("registrazione utente");
+		else if(request.getParameter("op").equals("registerUser")) {			
+			final DataSource dataSource = StandardDataSource.getInstance().getDefaultDataSource();
+
+			response.getOutputStream().print("<h1>registrazione utente</h1>");
 			
 			final String nome = request.getParameter("txtNome").toString(); 
 			final String cognome =  request.getParameter("txtCognome").toString();
@@ -75,9 +78,9 @@ public class UserHandler extends HttpServlet {
 					false, 
 					numero);
 			
-			final UtenteDaoJDBC register = new UtenteDaoJDBC(new DataSource("jdbc:postgresql://tantor.db.elephantsql.com:5432/clbwfexq", "clbwfexq", "WhDf3DdXmdH5Iupu1BFjD6n7Z4CJ1lrS"));
+			final UtenteDaoJDBC register = new UtenteDaoJDBC(dataSource);
 			register.save(temp);
-			response.getOutputStream().print("utente aggiunto con successo");
+			response.getOutputStream().print("<h1>utente aggiunto con successo</h1>");
 
 			
 //			

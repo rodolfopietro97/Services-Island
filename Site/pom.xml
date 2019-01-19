@@ -80,6 +80,15 @@
 			</plugins>	
 		</pluginManagement>
 		
+		<!-- Using the recources of Model Project -->
+		<resources>
+			<resource>
+				<directory>
+					../Model/src/main/resources
+				</directory>
+			</resource>
+		</resources>
+		
 	</build>
 
 
