@@ -6,17 +6,17 @@
 
 		<div class="form-group">
 			<p>Nome</p>
-			<input class="form-control" type="text" name="txtNome">
+			<input maxlength="40" class="form-control" type="text" name="txtNome" id="txtNome">
 		</div>
 		
 		<div class="form-group">
 			<p>Cognome</p>
-			<input class="form-control" type="text" name="txtCognome">
+			<input maxlength="40" class="form-control" type="text" name="txtCognome" id="txtCognome">
 		</div>
 		
 		<div class="form-group">
 			<p>Sesso</p>
-			<select class="form-control" name="sltSesso">
+			<select class="form-control" name="sltSesso"  id="sltSesso">
 					<option value="M">Maschio</option>
 					<option value="F">Femmina</option>
 			</select>
@@ -24,35 +24,56 @@
 		
 		<div class="form-group">
 			<p>Numero telefonico</p>
-			<input class="form-control" type="number" name="txtNumeroTelefonico">
+			<input maxlength="10" class="form-control" type="number" name="txtNumeroTelefonico" id="txtNumeroTelefonico">
 		</div>
 		
 		<div class="form-group">
 			<p>Email</p>
-			<input class="form-control" type="email" name="txtEmail">
+			<input maxlength="254" class="form-control" type="email" name="txtEmail" id="txtEmail">
 		</div>
 		
 		<div class="form-group">
 			<p>Password</p>
-			<input class="form-control" type="password" name="txtPassword">
+			<input maxlength="64" class="form-control" type="password" name="txtPassword" id="txtPassword">
 		</div>
 		
 		<div class="form-group">
 			<p>Conferma password</p>
-			<input class="form-control" type="password" name="txtConfermaPassword">
+			<input maxlength="64" class="form-control" type="password" name="txtConfermaPassword" id="txtConfermaPassword">
 		</div>
 		
 		
 		<div class="form-group">
-			<input class="btn btn-primary" type="submit" value="Registrati">
+			<input style="cursor: pointer;" class="btn btn-primary" type="submit" value="Registrati" id="btnSubmit">
 		</div>
 
 </form>
 
 	<script>
-	$("#userRegistrationForm").submit(function(event){
-		if('input[txtPassword]' == 'input[txtConfermaPassword]'){
-			alert("weeeeeeeeeeeeeeeeeeeeee");
+	
+	$( "#userRegistrationForm" ).submit(function( event ) {
+		var emptyField = false;
+		
+		// passwords will be equals
+		if($("#txtPassword").val() != $("#txtConfermaPassword").val()){
+			alert("Le password non corrispondono");
+			event.preventDefault();
 		}
+		else{
+			// all field MUST be not empty
+			$("input").each(function(){
+				if($(this).val() == "" ){
+					alert("Campo/i mancante, impossibile continuare");
+					emptyField = true;
+					return false;
+					
+				}
+			});
+			if(emptyField){
+				event.preventDefault();
+			}
+		}
+
 	});
+	
 	</script>

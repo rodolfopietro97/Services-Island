@@ -9,9 +9,13 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
+import org.apache.commons.codec.digest.DigestUtils;
 import org.postgresql.util.PSQLException;
 
+import businesslogic.utils.usermanagment.UserManager;
+import businesslogic.utils.usermanagment.UserRegistrationStrategy;
 import it.servicesisland.Connection.handlers.ConnectionInfo;
 import it.servicesisland.Connection.handlers.StandardDataSource;
 import it.servicesisland.Model.Utente;
@@ -25,6 +29,27 @@ import it.servicesisland.Persistence.UtenteDaoJDBC;
 public class UserHandler extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
+	/**
+	 * User manager instance
+	 */
+	UserManager userManager;
+	
+	/**
+	 * Data source instance
+	 */
+	DataSource dataSource;
+
+	/**
+	 * Load postgre driver
+	 */
+	static {
+	    try {
+	      Class.forName("org.postgresql.Driver");
+	    } catch (ClassNotFoundException e) {
+	      System.err.println("PostgreSQL DataSource unable to load PostgreSQL JDBC Driver");
+	    }
+	 }
+	
     /**
      * @see HttpServlet#HttpServlet()
      */
@@ -36,6 +61,7 @@ public class UserHandler extends HttpServlet {
 	 * @see Servlet#init(ServletConfig)
 	 */
 	public void init(ServletConfig config) throws ServletException {
+		dataSource = StandardDataSource.getInstance().getDefaultDataSource();
 	}
 
 	/**
@@ -52,53 +78,58 @@ public class UserHandler extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doGet(request, response);
-		
 
 		if(request.getParameter("op").equals("login")) {
-			response.getOutputStream().println("<h1>" + request.getParameter("op") + "</h1>");
-			response.getOutputStream().println(request.getParameter("txtEmail"));
-			response.getOutputStream().println(request.getParameter("txtPassword"));
-		}
-		else if(request.getParameter("op").equals("registerUser")) {			
-
+//			response.getOutputStream().println("<h1>" + request.getParameter("op") + "</h1>");
+//			response.getOutputStream().println(request.getParameter("txtEmail"));
+//			response.getOutputStream().println(request.getParameter("txtPassword"));
+//			
+			final String password = DigestUtils.sha256Hex(request.getParameter("txtPassword").toString());
+			final String email = request.getParameter("txtEmail").toString();
 			
-			try {
-				final DataSource dataSource = StandardDataSource.getInstance().getDefaultDataSource();
-				response.getOutputStream().print("<h1>registrazione utente</h1>");
+			final UtenteDaoJDBC utenteDao = new UtenteDaoJDBC(dataSource);
+			if(utenteDao.findByEmail(email).getPassword().equals(password)) {
+				HttpSession loginSession = request.getSession(true);
+	
+					loginSession.setAttribute("email", email);
+	
 				
-				final String nome = request.getParameter("txtNome").toString(); 
-				final String cognome =  request.getParameter("txtCognome").toString();
-				final String sesso = request.getParameter("sltSesso").toString();
-				final String email = request.getParameter("txtEmail").toString();
-				final String password =  request.getParameter("txtPassword").toString();
-				final long numero =  Long.parseLong(request.getParameter("txtNumeroTelefonico").toString());
-		
-				
-				
-				final Utente temp = new Utente(
-						nome, 
-						cognome,
-						sesso, 
-						email, 
-						password, 
-						false, 
-						numero);
-				
-				final UtenteDaoJDBC register = new UtenteDaoJDBC(dataSource);
-				register.save(temp);
-				response.getOutputStream().print("<h1>utente aggiunto con successo</h1>");
-
-			} 
-			catch (Exception e) {
-				if(e instanceof PSQLException) {
-					response.getOutputStream().print("<h1>Impossibile aggiungere l'utente</h1>");
-
-				}
-				else {
-					doPost(request, response);
-				}
+				request.setAttribute("reportMessage", "Login andato a buon fine!");
+				request.getRequestDispatcher("/report.jsp").forward(request, response);
+			}
+			else {
+				request.setAttribute("reportMessage", "Credenziali errate");
+				request.getRequestDispatcher("/report.jsp").forward(request, response);
 			}
 		}
+		else if(request.getParameter("op").equals("registerUser")) {			
+			
+			final Utente temp = new Utente(
+					request.getParameter("txtNome").toString(), 
+					request.getParameter("txtCognome").toString(),
+					request.getParameter("sltSesso").toString(), 
+					request.getParameter("txtEmail").toString(), 
+					request.getParameter("txtPassword").toString(), 
+					false, 
+					Long.parseLong(request.getParameter("txtNumeroTelefonico").toString()));
+			
+			
+			userManager = new UserManager(new UserRegistrationStrategy(temp, new UtenteDaoJDBC(this.dataSource)));
+			
+			try {
+//				response.getOutputStream().print("<h1>... registrazione utente ...</h1>");
+				userManager.handle();
+				
+				request.setAttribute("reportMessage", "Registrazione andata a buon fine!");
+				request.getRequestDispatcher("/report.jsp").forward(request, response);
+			} catch (Exception e) {
+				request.setAttribute("reportMessage", "Errore nella registrazione utente");
+				request.getRequestDispatcher("/report.jsp").forward(request, response);
+			}
+		
+		}
+		
+
 		
 	}
 

@@ -8,13 +8,6 @@
 <!-- Tipical initial page template -->
 <html lang="en">
   <head>
-  
-	<!-- This pages is inaccessible FOR LOGGED USER -->
-	<c:if test="${not empty sessionScope.email}">
-		<c:redirect url="user.jsp"></c:redirect>
-	</c:if>
-
-  
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -23,7 +16,7 @@
     <meta name="author" content="">
 
     <title>
-        Services Island - Homepage
+        Services Island - Pagina di report
     </title>
 
 	<link rel="shortcut icon" href="assets/favicon.ico" />
@@ -46,29 +39,10 @@
 
 	<%@ include file="components/navbar.jsp" %>
 
-
-	<!-- Choose the contents -->
-	<c:choose>
-		<c:when test="${param.page eq 'about'}">
-			<jsp:include page="components/contents/aboutContents.jsp"></jsp:include>
-		</c:when>
-		<c:when test="${param.page eq 'legalIssues'}">
-			<jsp:include page="components/contents/legalIssuesContents.jsp"></jsp:include>		
-		</c:when>
-		<c:when test="${param.page eq 'license'}">
-			<jsp:include page="components/contents/licenseContents.jsp"></jsp:include>		
-		</c:when>
-		<c:when test="${param.page eq 'terms'}">
-			<jsp:include page="components/contents/termsContents.jsp"></jsp:include>		
-		</c:when>
-		<c:when test="${param.page eq 'registration'}">
-			<jsp:include page="components/contents/registrationContents.jsp"></jsp:include>		
-		</c:when>
-		<c:otherwise>
-			<jsp:include page="components/contents/homeContents.jsp"></jsp:include>
-		</c:otherwise>
-	</c:choose>
-	
+	<c:if test="${empty requestScope.reportMessage}">
+		<c:redirect url="../Site"></c:redirect>
+	</c:if>
+	<h1>${requestScope.reportMessage}</h1>
 
 	<%@ include file="components/footer.jsp" %>
 

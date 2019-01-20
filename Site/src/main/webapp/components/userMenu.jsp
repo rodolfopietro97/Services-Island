@@ -18,7 +18,10 @@
 			</button>
 		</form>
 		<ul class="nav nav-pills nav-stacked flex-column">
+			<p>${sessionScope.email}</p>
+			
 			<li class="nav-header">Menu</li>
+
 			<li class="nav-item"><a class="nav-link active"
 				href="../index-light/index.html">Home</a></li>
 
