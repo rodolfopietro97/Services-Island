@@ -5,7 +5,9 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import model.Recensione;
+import it.servicesisland.Model.Recensione;
+
+
 
 public class RecensioneDaoJDBC {
 
