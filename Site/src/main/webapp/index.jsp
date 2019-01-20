@@ -27,6 +27,11 @@
 	<link href="assets/style/homeTemplate/application-startup.css" rel="stylesheet">
 	<link href="assets/style/homeTemplate/iosIframeHack.css" rel="stylesheet">
     
+    <script src="assets/script/jquery.min.js"></script>
+    <script src="assets/script/tether.min.js"></script>
+    <script src="assets/script/toolkit.js"></script>
+    <script src="assets/script/application.js"></script>
+    
   </head>
 
 
@@ -58,11 +63,6 @@
 
 	<%@ include file="components/footer.jsp" %>
 
-
-    <script src="assets/script/jquery.min.js"></script>
-    <script src="assets/script/tether.min.js"></script>
-    <script src="assets/script/toolkit.js"></script>
-    <script src="assets/script/application.js"></script>
 
   </body>
 </html>
