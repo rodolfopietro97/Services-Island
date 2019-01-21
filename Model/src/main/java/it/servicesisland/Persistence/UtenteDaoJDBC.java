@@ -147,9 +147,33 @@ public class UtenteDaoJDBC {
 	
 	/**
 	 * it in TODO phase
-	 * @return average of rating
+	 * @return average rating of all services
 	 */
-	public double averageRating() {
-		return 0;
+	public double averageRating(String email) {
+		Connection connection = this.dataSource.getConnection();
+		Utente us=findByEmail(email);
+		double avg=0.0;
+		try {
+			PreparedStatement statement;
+			String query = "select avg(voto) as media"
+					+ " from recensione inner join servizio on servizio.codice=recensione.servizio"
+					+ " where servizio.professionista= ?";
+			
+			statement = connection.prepareStatement(query);
+			statement.setLong(1, us.getCodice());
+			ResultSet result = statement.executeQuery();
+			while (result.next()) {
+				avg=result.getDouble("media");
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}	 finally {
+			try {
+				connection.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		return avg;
 	}
 }
