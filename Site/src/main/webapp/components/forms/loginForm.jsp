@@ -31,7 +31,7 @@
 </div>
 
 
-	<script>
+<!-- 	<script>
 	
 	$( "#loginForm" ).submit(function( event ) {
 		// not typed an email
@@ -44,4 +44,4 @@
 		}
 	});
 	
-	</script>
+	</script> -->

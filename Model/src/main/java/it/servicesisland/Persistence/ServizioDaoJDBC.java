@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 import it.servicesisland.Model.*;
 
@@ -103,6 +104,51 @@ public class ServizioDaoJDBC {
 			}
 		}	
 		return servizio;
+	}
+	
+	
+	/**
+	 * Find the Servizio by descrizione
+	 * @param descrizione of service
+	 * @return thelists of Servizio which have a descrizione like to descrizione
+	 */
+	public ArrayList<Servizio> findByDescrizione(String descrizione) {
+		ArrayList<Servizio> servizi = new ArrayList<>();
+
+		Connection connection = this.dataSource.getConnection();
+//		Servizio servizio = null;
+		try {
+			PreparedStatement statement;
+			String query = "select * from servizio where descrizione similar to (%)(?)(%)";
+
+			statement = connection.prepareStatement(query);
+			statement.setString(1, descrizione);
+			ResultSet result = statement.executeQuery();
+
+			
+			if (result.next()) {
+				Servizio servizio = new Servizio();
+				servizio.setCodice(result.getLong("codice"));				
+				servizio.setPrezzo(result.getDouble("prezzo"));
+				servizio.setApprovato(result.getBoolean("approvato"));
+				servizio.setDescrizione(result.getString("descrizione"));
+				servizio.setGiorno(result.getDate("giorno"));
+				servizio.setOrario(result.getTime("orario"));
+				servizio.setProfessionista(result.getInt("professionista"));
+				
+				servizi.add(servizio);
+				
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				connection.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}	
+		return servizi;
 	}
 	
 /**

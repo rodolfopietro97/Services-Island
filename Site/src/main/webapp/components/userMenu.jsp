@@ -14,12 +14,9 @@
 	</div>
 	<br> <br>
 	<div class="collapse nav-toggleable-md" id="nav-toggleable-md">
-		<form class="sidebar-form">
-			<input class="form-control" type="text" placeholder="Search...">
-			<button type="submit" class="btn-link">
-				<span class="fas fa-search"></span>
-			</button>
-		</form>
+	
+		<jsp:include page="forms/searchForm.jsp"></jsp:include>
+		
 		<ul class="nav nav-pills nav-stacked flex-column">
 			<p>${sessionScope.email}</p>
 			<c:choose>
