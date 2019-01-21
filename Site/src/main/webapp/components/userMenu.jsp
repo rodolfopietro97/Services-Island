@@ -1,6 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     
+<%@ taglib uri='http://java.sun.com/jsp/jstl/core' prefix='c'%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+    
 <nav class="sidebar-nav">
 	<div class="sidebar-header">
 		<button class="nav-toggler nav-toggler-md sidebar-toggler"
@@ -19,9 +22,21 @@
 		</form>
 		<ul class="nav nav-pills nav-stacked flex-column">
 			<p>${sessionScope.email}</p>
+			<c:choose>
+				<c:when test="${not empty sessionScope.professionist}">
+					<p>Professionista</p>
+				</c:when>
+				<c:otherwise>
+					<p>Utente</p>
+				</c:otherwise>
+			</c:choose>
 			
-			<li class="nav-header">Menu</li>
+			<p>${pageContext.request.servletPath}</p>
 
+			<jsp:include page="forms/logoutForm.jsp"></jsp:include>
+
+			<li class="nav-header">Menu</li>
+			
 			<li class="nav-item"><a class="nav-link active"
 				href="../index-light/index.html">Home</a></li>
 

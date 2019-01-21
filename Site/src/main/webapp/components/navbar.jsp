@@ -57,10 +57,15 @@
 
 
 		<div class="container">
-			<!-- if we aren't in registration page -->
-			<c:if test="${param.page ne 'registration'}">
-				<jsp:include page="components/forms/loginForm.jsp"></jsp:include>
-			</c:if>
+			<c:choose>
+				<c:when test="${param.page ne 'registration'}">
+					<jsp:include page="components/forms/loginForm.jsp"></jsp:include>
+				</c:when>
+<%--  				<c:when test="${pageContext.request.servletPath ne '/report.jsp'}">
+					<jsp:include page="components/forms/loginForm.jsp"></jsp:include>
+				</c:when> --%>
+			</c:choose>
+
 		</div>
 	</div>
 </div>
