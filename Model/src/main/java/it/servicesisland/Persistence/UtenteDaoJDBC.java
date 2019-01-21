@@ -177,4 +177,15 @@ public class UtenteDaoJDBC {
 		}
 		return avg;
 	}
+	
+	/**
+	 * TODO
+	 * @param email
+	 * @param seId
+	 * @return
+	 */
+	public double averageRatingService(String email, Long seId) {
+		return seId;
+		
+	}
 }
