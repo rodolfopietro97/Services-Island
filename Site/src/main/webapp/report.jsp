@@ -14,6 +14,12 @@
     <meta name="description" content="">
     <meta name="keywords" content="">
     <meta name="author" content="">
+    
+    
+
+	<meta http-equiv="refresh" content="2;url=/Site" />
+
+    
 
     <title>
         Services Island - Pagina di report
@@ -36,13 +42,11 @@
 
 
 <body>
-
-	<%@ include file="components/navbar.jsp" %>
-
 	<c:if test="${empty requestScope.reportMessage}">
 		<c:redirect url="../Site"></c:redirect>
 	</c:if>
 	<h1>${requestScope.reportMessage}</h1>
+	
 
 	<%@ include file="components/footer.jsp" %>
 

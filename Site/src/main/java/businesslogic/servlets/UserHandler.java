@@ -38,6 +38,7 @@ public class UserHandler extends HttpServlet {
 	 * Data source instance
 	 */
 	DataSource dataSource;
+	
 
 	/**
 	 * Load postgre driver
@@ -71,6 +72,10 @@ public class UserHandler extends HttpServlet {
 		response.setContentType("text/html");
 		request.setCharacterEncoding("utf-8");
 		response.setCharacterEncoding("utf-8");
+		
+		if(request.getParameter("op").equals("logout")) {			
+			doLogout(request, response);
+		}
 	}
 
 	/**
@@ -79,58 +84,136 @@ public class UserHandler extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doGet(request, response);
 
-		if(request.getParameter("op").equals("login")) {
-//			response.getOutputStream().println("<h1>" + request.getParameter("op") + "</h1>");
-//			response.getOutputStream().println(request.getParameter("txtEmail"));
-//			response.getOutputStream().println(request.getParameter("txtPassword"));
-//			
-			final String password = DigestUtils.sha256Hex(request.getParameter("txtPassword").toString());
-			final String email = request.getParameter("txtEmail").toString();
-			
-			final UtenteDaoJDBC utenteDao = new UtenteDaoJDBC(dataSource);
-			if(utenteDao.findByEmail(email).getPassword().equals(password)) {
-				HttpSession loginSession = request.getSession(true);
-	
-					loginSession.setAttribute("email", email);
-	
-				
-				request.setAttribute("reportMessage", "Login andato a buon fine!");
-				request.getRequestDispatcher("/report.jsp").forward(request, response);
-			}
-			else {
-				request.setAttribute("reportMessage", "Credenziali errate");
-				request.getRequestDispatcher("/report.jsp").forward(request, response);
-			}
-		}
-		else if(request.getParameter("op").equals("registerUser")) {			
-			
-			final Utente temp = new Utente(
-					request.getParameter("txtNome").toString(), 
-					request.getParameter("txtCognome").toString(),
-					request.getParameter("sltSesso").toString(), 
-					request.getParameter("txtEmail").toString(), 
-					request.getParameter("txtPassword").toString(), 
-					false, 
-					Long.parseLong(request.getParameter("txtNumeroTelefonico").toString()));
-			
-			
-			userManager = new UserManager(new UserRegistrationStrategy(temp, new UtenteDaoJDBC(this.dataSource)));
-			
-			try {
-//				response.getOutputStream().print("<h1>... registrazione utente ...</h1>");
-				userManager.handle();
-				
-				request.setAttribute("reportMessage", "Registrazione andata a buon fine!");
-				request.getRequestDispatcher("/report.jsp").forward(request, response);
-			} catch (Exception e) {
-				request.setAttribute("reportMessage", "Errore nella registrazione utente");
-				request.getRequestDispatcher("/report.jsp").forward(request, response);
-			}
-		
-		}
-		
 
 		
+		if(request.getParameter("op").equals("login")) {
+			doLogin(request, response);
+		}
+		else if(request.getParameter("op").equals("registerUser")) {			
+			registerUser(request, response);
+		}
+		else if(request.getParameter("op").equals("registerProfessonist")) {			
+			registerProfessionist(request, response);
+		}
+		
+	}
+
+	
+	/**
+	 * @param request
+	 * @param response
+	 * @throws ServletException
+	 * @throws IOException
+	 */
+	private void doLogout(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		HttpSession loginSession = request.getSession();
+		loginSession.invalidate();
+		
+		request.setAttribute("reportMessage", "Logout andato a buon fine!");
+		request.getRequestDispatcher("/report.jsp").forward(request, response);
+	}
+	
+	/**
+	 * @param request
+	 * @param response
+	 * @throws ServletException
+	 * @throws IOException
+	 */
+	private void doLogin(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		//			response.getOutputStream().println("<h1>" + request.getParameter("op") + "</h1>");
+		//			response.getOutputStream().println(request.getParameter("txtEmail"));
+		//			response.getOutputStream().println(request.getParameter("txtPassword"));
+		//			
+					final String password = DigestUtils.sha256Hex(request.getParameter("txtPassword").toString());
+					final String email = request.getParameter("txtEmail").toString();
+					
+
+					
+					final UtenteDaoJDBC utenteDao = new UtenteDaoJDBC(dataSource);
+					final Utente tempUtente = utenteDao.findByEmail(email);
+					
+					if(tempUtente.getPassword().equals(password)) {
+						HttpSession loginSession = request.getSession(true);
+			
+						loginSession.setAttribute("email", email);
+			
+						if(tempUtente.isProfessionista()) {
+							loginSession.setAttribute("professionist", true);
+						}
+						
+						request.setAttribute("reportMessage", "Login andato a buon fine!");
+						request.getRequestDispatcher("/report.jsp").forward(request, response);
+					}
+					else {
+						request.setAttribute("reportMessage", "Credenziali errate");
+						request.getRequestDispatcher("/report.jsp").forward(request, response);
+					}
+	}
+
+	/**
+	 * @param request
+	 * @param response
+	 * @throws ServletException
+	 * @throws IOException
+	 */
+	private void registerUser(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		final Utente temp = new Utente(
+				request.getParameter("txtNome").toString(), 
+				request.getParameter("txtCognome").toString(),
+				request.getParameter("sltSesso").toString(), 
+				request.getParameter("txtEmail").toString(), 
+				request.getParameter("txtPassword").toString(), 
+				false, 
+				Long.parseLong(request.getParameter("txtNumeroTelefonico").toString()));
+		
+		
+		userManager = new UserManager(new UserRegistrationStrategy(temp, new UtenteDaoJDBC(this.dataSource)));
+		
+		try {
+//				response.getOutputStream().print("<h1>... registrazione utente ...</h1>");
+			userManager.handle();
+			
+			request.setAttribute("reportMessage", "Registrazione andata a buon fine!");
+			request.getRequestDispatcher("/report.jsp").forward(request, response);
+		} catch (Exception e) {
+			request.setAttribute("reportMessage", "Errore nella registrazione utente");
+			request.getRequestDispatcher("/report.jsp").forward(request, response);
+		}
+	}
+	
+	/**
+	 * @param request
+	 * @param response
+	 * @throws ServletException
+	 * @throws IOException
+	 */
+	private void registerProfessionist(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		final Utente temp = new Utente(
+				request.getParameter("txtNome").toString(), 
+				request.getParameter("txtCognome").toString(),
+				request.getParameter("sltSesso").toString(), 
+				request.getParameter("txtEmail").toString(), 
+				request.getParameter("txtPassword").toString(), 
+				true, 
+				Long.parseLong(request.getParameter("txtNumeroTelefonico").toString()));
+		
+		
+		userManager = new UserManager(new UserRegistrationStrategy(temp, new UtenteDaoJDBC(this.dataSource)));
+		
+		try {
+//				response.getOutputStream().print("<h1>... registrazione utente ...</h1>");
+			userManager.handle();
+			
+			request.setAttribute("reportMessage", "Registrazione andata a buon fine!");
+			request.getRequestDispatcher("/report.jsp").forward(request, response);
+		} catch (Exception e) {
+			request.setAttribute("reportMessage", "Errore nella registrazione del professionista");
+			request.getRequestDispatcher("/report.jsp").forward(request, response);
+		}
 	}
 
 }
