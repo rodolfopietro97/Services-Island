@@ -162,6 +162,7 @@ public class UtenteDaoJDBC {
 			statement = connection.prepareStatement(query);
 			statement.setLong(1, us.getCodice());
 			ResultSet result = statement.executeQuery();
+			
 			while (result.next()) {
 				avg=result.getDouble("media");
 			}
