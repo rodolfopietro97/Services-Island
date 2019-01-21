@@ -42,6 +42,15 @@
         *width: 100%;
       }
     </style>
+    
+    <script src="assets/script/jquery.min.js"></script>
+    <script src="assets/script/tether.min.js"></script>
+    <script src="assets/script/chart.js"></script>
+    <script src="assets/script/tablesorter.min.js"></script>
+    <script src="assets/script/toolkit.js"></script>
+
+    <script src="assets/script/applicationStatistics.js"></script>
+    
   </head>
 
 
@@ -59,15 +68,6 @@
 			</div>
 		</div>
 	</div>
-
-    <script src="assets/script/jquery.min.js"></script>
-    <script src="assets/script/tether.min.js"></script>
-    <script src="assets/script/chart.js"></script>
-    <script src="assets/script/tablesorter.min.js"></script>
-    <script src="assets/script/toolkit.js"></script>
-
-    <script src="assets/script/applicationStatistics.js"></script>
-
 
 
     <script>
