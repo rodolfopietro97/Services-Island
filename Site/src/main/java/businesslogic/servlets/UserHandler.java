@@ -141,7 +141,7 @@ public class UserHandler extends HttpServlet {
 						loginSession.setAttribute("email", email);
 			
 						if(tempUtente.isProfessionista()) {
-							loginSession.setAttribute("professionist", true);
+							loginSession.setAttribute("professionist", "professionista");
 						}
 						
 						request.setAttribute("reportMessage", "Login andato a buon fine!");

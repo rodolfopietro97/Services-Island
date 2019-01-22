@@ -87,8 +87,6 @@ public class Utente {
 	public Utente(String nome, String cognome, String sesso, String email, String password, Long telefono,
 			String codice_fiscale, String partita_iva, String professione, String settore, String sede_fiscale,
 			String sede_legale) {
-		super();
-		this.codice = codice;
 		this.nome = nome;
 		this.cognome = cognome;
 		this.sesso = sesso;

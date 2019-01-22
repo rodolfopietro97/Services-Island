@@ -18,29 +18,46 @@
 		<jsp:include page="forms/searchForm.jsp"></jsp:include>
 		
 		<ul class="nav nav-pills nav-stacked flex-column">
-			<p>${sessionScope.email}</p>
-			<c:choose>
-				<c:when test="${not empty sessionScope.professionist}">
-					<p>Professionista</p>
-				</c:when>
-				<c:otherwise>
-					<p>Utente</p>
-				</c:otherwise>
-			</c:choose>
+			<li class="nav-header">
+				<p><strong>${sessionScope.email}</strong></p>
+				<c:choose>
+
+					<c:when test="${not empty sessionScope.professionist}">
+						<p>RUOLO: Professionista</p>
+					</c:when>
+					<c:otherwise>
+						<p>RUOLO: <strong>Utente</strong></p>
+					</c:otherwise>
+				</c:choose>
+				
+<%-- 				<p>${pageContext.request.servletPath}</p>
+ --%>	
+				<jsp:include page="forms/logoutForm.jsp"></jsp:include>
+			</li>
 			
-			<p>${pageContext.request.servletPath}</p>
-
-			<jsp:include page="forms/logoutForm.jsp"></jsp:include>
-
 			<li class="nav-header">Menu</li>
 			
-			<li class="nav-item"><a class="nav-link active"
-				href="../index-light/index.html">Home</a></li>
+			<li class="nav-item"><a class="nav-link"
+				href="/Site">Home</a></li>
 
 
 			<li class="nav-header">Menu Utente</li>
-
-
+			
+			<li class="nav-item">
+				<a class="nav-link" href="user.jsp?page=services">
+					Gestione servizi
+				</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="user.jsp?page=payments">
+					Area pagamenti
+				</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="user.jsp?page=settings">
+					Impostazioni
+				</a>
+			</li>
 
 		</ul>
 		<hr class="visible-xs mt-3">

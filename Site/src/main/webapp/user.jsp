@@ -63,8 +63,24 @@
 			</div>
 			  
 			<div class="col-md-9 content">			        
-				<jsp:include page="components/userHeader.jsp"></jsp:include>		
-				<jsp:include page="components/userContents.jsp"></jsp:include>
+				<jsp:include page="components/userHeader.jsp"></jsp:include>
+		
+				<!-- Choose the contents -->
+				<c:choose>
+					<c:when test="${param.page eq 'services'}">
+						<jsp:include page="components/userContents/servicesContents.jsp"></jsp:include>
+					</c:when>
+					<c:when test="${param.page eq 'payments'}">
+						<jsp:include page="components/userContents/paymentsContents.jsp"></jsp:include>
+					</c:when>
+					<c:when test="${param.page eq 'settings'}">
+						<jsp:include page="components/userContents/settingsContents.jsp"></jsp:include>
+					</c:when>
+					<c:otherwise>
+						<jsp:include page="components/userContents/userContents.jsp"></jsp:include>
+					</c:otherwise>
+				</c:choose>
+				
 			</div>
 		</div>
 	</div>

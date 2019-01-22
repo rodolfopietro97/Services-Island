@@ -113,25 +113,27 @@ public class ServizioDaoJDBC {
 	
 	/**
 	 * Find the Servizio by descrizione
-	 * @param descrizione of service
+	 * @param chiaveRicerca of service
 	 * @return thelists of Servizio which have a descrizione like to descrizione
 	 */
-	public ArrayList<Servizio> findByDescrizione(String descrizione) {
+	public ArrayList<Servizio> findByDescrizione(String chiaveRicerca) {
 		ArrayList<Servizio> servizi = new ArrayList<>();
 
 		Connection connection = this.dataSource.getConnection();
 //		Servizio servizio = null;
 		try {
 			PreparedStatement statement;
-			String query = "select * from servizio where descrizione similar to (%)(?)(%)";
+			String query = "select * from servizio where descrizione like ? or nome like ?";
 
 			statement = connection.prepareStatement(query);
-			statement.setString(1, descrizione);
-			ResultSet result = statement.executeQuery();
+			statement.setString(1, "%" + chiaveRicerca + "%");
+			statement.setString(2, "%" + chiaveRicerca + "%");
 
+			ResultSet result = statement.executeQuery();
 			
-			if (result.next()) {
-				Servizio servizio = new Servizio();
+			Servizio servizio = new Servizio();
+			while (result.next()) {
+
 				servizio.setCodice(result.getLong("codice"));				
 				servizio.setPrezzo(result.getDouble("prezzo"));
 				servizio.setApprovato(result.getBoolean("approvato"));
@@ -143,7 +145,6 @@ public class ServizioDaoJDBC {
 				servizio.setProfessionista(result.getInt("professionista"));
 				
 				servizi.add(servizio);
-				
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();

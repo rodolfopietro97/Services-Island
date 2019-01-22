@@ -46,7 +46,7 @@ public class UtenteDaoJDBC {
 			statement.setString(3, utente.getSesso());
 			statement.setString(4, utente.getEmail());
 			statement.setString(5, utente.getPassword());
-			statement.setBoolean(6, utente.isProfessionista());
+			statement.setBoolean(6, false);
 			statement.setLong(7, utente.getTelefono());
 					
 			statement.executeUpdate();
@@ -86,7 +86,7 @@ public class UtenteDaoJDBC {
 			statement.setString(3, utente.getSesso());
 			statement.setString(4, utente.getEmail());
 			statement.setString(5, utente.getPassword());
-			statement.setBoolean(6, utente.isProfessionista());
+			statement.setBoolean(6, true);
 			statement.setLong(7, utente.getTelefono());
 			statement.setString(8, utente.getCodice_fiscale());
 			statement.setString(9, utente.getPartita_iva());
