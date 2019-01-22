@@ -38,15 +38,17 @@ public class ServizioDaoJDBC {
 		try {
 			
 			 
-			String insert = "insert into servizio(prezzo, orario, giorno, descrizione, approvato, professionista) values (?,?,?,?,?,?)";
+			String insert = "insert into servizio(prezzo, orario_inizio, orario_fine, data_inizio, data_fine, descrizione, approvato, professionista) values (?,?,?,?,?,?,?,?)";
 			PreparedStatement statement = connection.prepareStatement(insert);
 			
 			statement.setDouble(1, servizio.getPrezzo());
-			statement.setTime(2, servizio.getOrario());
-			statement.setDate(3, servizio.getGiorno());
-			statement.setString(4, servizio.getDescrizione());
-			statement.setBoolean(5, servizio.isApprovato());
-			statement.setInt(6, servizio.getProfessionista());
+			statement.setTime(2, servizio.getOrario_inizio());
+			statement.setTime(3, servizio.getOrario_fine());
+			statement.setDate(4, servizio.getData_inizio());
+			statement.setDate(5, servizio.getData_fine());
+			statement.setString(6, servizio.getDescrizione());
+			statement.setBoolean(7, servizio.isApprovato());
+			statement.setInt(8, servizio.getProfessionista());
 
 						
 			statement.executeUpdate();
@@ -89,8 +91,10 @@ public class ServizioDaoJDBC {
 				servizio.setPrezzo(result.getDouble("prezzo"));
 				servizio.setApprovato(result.getBoolean("approvato"));
 				servizio.setDescrizione(result.getString("descrizione"));
-				servizio.setGiorno(result.getDate("giorno"));
-				servizio.setOrario(result.getTime("orario"));
+				servizio.setData_inizio(result.getDate("data_inizio"));
+				servizio.setData_fine(result.getDate("data_fine"));
+				servizio.setOrario_inizio(result.getTime("orario_inizio"));
+				servizio.setOrario_fine(result.getTime("orario_fine"));
 				servizio.setProfessionista(result.getInt("professionista"));
 				
 			}
@@ -132,8 +136,10 @@ public class ServizioDaoJDBC {
 				servizio.setPrezzo(result.getDouble("prezzo"));
 				servizio.setApprovato(result.getBoolean("approvato"));
 				servizio.setDescrizione(result.getString("descrizione"));
-				servizio.setGiorno(result.getDate("giorno"));
-				servizio.setOrario(result.getTime("orario"));
+				servizio.setData_inizio(result.getDate("data_inizio"));
+				servizio.setData_fine(result.getDate("data_fine"));
+				servizio.setOrario_inizio(result.getTime("orario_inizio"));
+				servizio.setOrario_fine(result.getTime("orario_fine"));
 				servizio.setProfessionista(result.getInt("professionista"));
 				
 				servizi.add(servizio);

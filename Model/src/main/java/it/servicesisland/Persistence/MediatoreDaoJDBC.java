@@ -40,14 +40,11 @@ public class MediatoreDaoJDBC {
 		try {
 			
 			 
-			String insert = "insert into mediatore(nome, email, password) values (?,?,?)";
+			String insert = "insert into mediatore(chiave) values (?)";
 			PreparedStatement statement = connection.prepareStatement(insert);
 			
-			statement.setString(1, mediatore.getNome());
-			
-			statement.setString(2, mediatore.getEmail());
-		
-			statement.setString(3, mediatore.getPassword());			
+			statement.setString(1, mediatore.getChiave());
+						
 						
 			statement.executeUpdate();
 			
@@ -73,23 +70,21 @@ public class MediatoreDaoJDBC {
 	 * @param email
 	 * @return the mediatore found
 	 */
-	public Mediatore findByEmail(String email) {
+	public Mediatore findByPrimaryKey(Long k) {
 		
 		Connection connection = this.dataSource.getConnection();
 		Mediatore mediatore = null;
 		
 		try {
 			PreparedStatement statement;
-			String query = "select * from mediatore where email = ?";
+			String query = "select * from mediatore where codice = ?";
 			statement = connection.prepareStatement(query);
-			statement.setString(1, email);
+			statement.setLong(1, k);
 			ResultSet result = statement.executeQuery();
 			if (result.next()) {
 				mediatore = new Mediatore();
 				mediatore.setCodice(result.getLong("codice"));				
-				mediatore.setNome(result.getString("nome"));
-				mediatore.setEmail(result.getString("email"));
-				mediatore.setPassword(result.getString("password"));
+				mediatore.setChiave(result.getString("chiave"));
 				
 			}
 		} catch (SQLException e) {
