@@ -31,10 +31,10 @@ public class UtenteDaoJDBC {
 	}
 	
 	/**
-	 * Add new Utente in the database
+	 * Add new simple user in the database
 	 * @param utente to add
 	 */
-	public void save(Utente utente){
+	public void saveSimple(Utente utente){
 		Connection connection = this.dataSource.getConnection();
 		try {
 			
@@ -48,6 +48,52 @@ public class UtenteDaoJDBC {
 			statement.setString(5, utente.getPassword());
 			statement.setBoolean(6, utente.isProfessionista());
 			statement.setLong(7, utente.getTelefono());
+					
+			statement.executeUpdate();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+			if (connection != null) {
+				try {
+					connection.rollback();
+				} catch(SQLException excep) {
+					//throw new PersistenceException(e.getMessage());
+				}
+			} 
+		} finally {
+			try {
+				connection.close();
+			} catch (SQLException e) {
+			//	throw new PersistenceException(e.getMessage());
+			}
+		}
+	}
+	
+	/**
+	 * Add new professionista in the database
+	 * @param utente to add
+	 */
+	public void saveProfessionista(Utente utente){
+		Connection connection = this.dataSource.getConnection();
+		try {
+			
+			
+			String insert = "insert into utente(nome, cognome, sesso,email, password, professionista, telefono,"
+					+ "codice_fiscale, partita_iva, professione, settore, sede_fiscale, sede_legale) values (?,?,?,?,?,?,?,?,?,?,?,?,?)";
+			PreparedStatement statement = connection.prepareStatement(insert);
+			statement.setString(1, utente.getNome());
+			statement.setString(2, utente.getCognome());
+			statement.setString(3, utente.getSesso());
+			statement.setString(4, utente.getEmail());
+			statement.setString(5, utente.getPassword());
+			statement.setBoolean(6, utente.isProfessionista());
+			statement.setLong(7, utente.getTelefono());
+			statement.setString(8, utente.getCodice_fiscale());
+			statement.setString(9, utente.getPartita_iva());
+			statement.setString(10, utente.getProfessione());
+			statement.setString(11, utente.getSettore());
+			statement.setString(12, utente.getSede_fiscale());
+			statement.setString(13, utente.getSede_legale());
 					
 			statement.executeUpdate();
 			
@@ -94,6 +140,12 @@ public class UtenteDaoJDBC {
 				utente.setPassword(result.getString("password"));
 				utente.setProfessionista(result.getBoolean("professionista"));
 				utente.setTelefono(result.getLong("telefono"));
+				utente.setCodice_fiscale(result.getString("codice_fiscale"));
+				utente.setPartita_iva(result.getString("partita_iva"));
+				utente.setProfessione(result.getString("professione"));
+				utente.setSettore(result.getString("settore"));
+				utente.setSede_fiscale(result.getString("sede_fiscale"));
+				utente.setSede_legale(result.getString("sede_legale"));
 				
 			}
 		} catch (SQLException e) {

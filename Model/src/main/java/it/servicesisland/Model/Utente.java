@@ -15,6 +15,12 @@ public class Utente {
 	private String password;
 	private boolean professionista;
 	private Long telefono;
+	private String codice_fiscale;
+	private String partita_iva;
+	private String professione;
+	private String settore;
+	private String sede_fiscale;
+	private String sede_legale;
 	
 	
 	/**
@@ -29,10 +35,16 @@ public class Utente {
 		this.password =null;
 		this.professionista = false;
 		this.telefono = null;
+		this.codice_fiscale=null;
+		this.partita_iva=null;
+		this.sede_fiscale=null;
+		this.sede_legale=null;
+		this.professione=null;
+		this.settore=null;
 	}
 	
 	/**
-	 * Constructor with parameters
+	 * Constructor with parameters of a simple user
 	 
 	 * @param nome of Utente
 	 * @param cognome of Utente
@@ -43,15 +55,53 @@ public class Utente {
 	 * @param telefono of Utente
 	 */
 	public Utente(String nome, String cognome, String sesso, String email, String password,
-			boolean professionista, Long telefono) {
+			 Long telefono) {
 		
 		this.nome = nome;
 		this.cognome = cognome;
 		this.sesso = sesso;
 		this.email = email;
 		this.password = password;
-		this.professionista = professionista;
+		this.professionista = false;
 		this.telefono = telefono;
+	}
+	
+	
+	/**
+	 * Constructor for professionista
+	 * 
+	 * @param codice
+	 * @param nome
+	 * @param cognome
+	 * @param sesso
+	 * @param email
+	 * @param password
+	 * @param telefono
+	 * @param codice_fiscale
+	 * @param partita_iva
+	 * @param professione
+	 * @param settore
+	 * @param sede_fiscale
+	 * @param sede_legale
+	 */
+	public Utente(Long codice, String nome, String cognome, String sesso, String email, String password, Long telefono,
+			String codice_fiscale, String partita_iva, String professione, String settore, String sede_fiscale,
+			String sede_legale) {
+		super();
+		this.codice = codice;
+		this.nome = nome;
+		this.cognome = cognome;
+		this.sesso = sesso;
+		this.email = email;
+		this.password = password;
+		this.telefono = telefono;
+		this.codice_fiscale = codice_fiscale;
+		this.partita_iva = partita_iva;
+		this.professione = professione;
+		this.settore = settore;
+		this.sede_fiscale = sede_fiscale;
+		this.sede_legale = sede_legale;
+		this.professionista=true;
 	}
 
 	/**
@@ -165,7 +215,79 @@ public class Utente {
 	public void setTelefono(Long telefono) {
 		this.telefono = telefono;
 	}
-	
-	
 
+	/**
+	 * return codice fiscale
+	 * @return codice_fiscale
+	 */
+	public String getCodice_fiscale() {
+		return codice_fiscale;
+	}
+
+	/**
+	 * sets the codice fiscale
+	 * @param codice_fiscale
+	 */
+	public void setCodice_fiscale(String codice_fiscale) {
+		this.codice_fiscale = codice_fiscale;
+	}
+
+	/**
+	 * returns the partita iva
+	 * @return partita_iva
+	 */
+	public String getPartita_iva() {
+		return partita_iva;
+	}
+
+	/**
+	 * sets partita iva
+	 * @param partita_iva
+	 */
+	public void setPartita_iva(String partita_iva) {
+		this.partita_iva = partita_iva;
+	}
+
+	/**
+	 * returns professione
+	 * @return professione
+	 */
+	public String getProfessione() {
+		return professione;
+	}
+
+	/**
+	 * sets professione
+	 * @param professione
+	 */
+	public void setProfessione(String professione) {
+		this.professione = professione;
+	}
+
+	public String getSettore() {
+		return settore;
+	}
+
+	public void setSettore(String settore) {
+		this.settore = settore;
+	}
+
+	public String getSede_fiscale() {
+		return sede_fiscale;
+	}
+
+	public void setSede_fiscale(String sede_fiscale) {
+		this.sede_fiscale = sede_fiscale;
+	}
+
+	public String getSede_legale() {
+		return sede_legale;
+	}
+
+	public void setSede_legale(String sede_legale) {
+		this.sede_legale = sede_legale;
+	}
+	
+	
+	
 }
