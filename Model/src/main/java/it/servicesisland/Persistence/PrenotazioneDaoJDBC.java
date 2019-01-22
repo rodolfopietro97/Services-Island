@@ -39,11 +39,11 @@ public class PrenotazioneDaoJDBC {
 		try {
 			
 			 
-			String insert = "insert into prenotazione(orario, giorno, utente, servizio) values (?,?,?,?)";
+			String insert = "insert into prenotazione(orario_prenotazione, data_prenotazione, utente, servizio) values (?,?,?,?)";
 			PreparedStatement statement = connection.prepareStatement(insert);
 			
-			statement.setTime(1, prenotazione.getOrario());
-			statement.setDate(2, prenotazione.getGiorno());
+			statement.setTime(1, prenotazione.getOrario_prenotazione());
+			statement.setDate(2, prenotazione.getData_prenotazione());
 			statement.setInt(3, prenotazione.getUtente());
 			statement.setInt(4, prenotazione.getServizio());
 						
@@ -86,8 +86,8 @@ public class PrenotazioneDaoJDBC {
 			ResultSet result = statement.executeQuery();
 			if (result.next()) {
 				prenotazione = new Prenotazione();
-				prenotazione.setGiorno(result.getDate("giorno"));
-				prenotazione.setOrario(result.getTime("orario"));
+				prenotazione.setData_prenotazione(result.getDate("data_prenotazione"));
+				prenotazione.setOrario_prenotazione(result.getTime("orario_prenotazione"));
 				prenotazione.setUtente(result.getInt("utente"));
 				prenotazione.setServizio(result.getInt("servizio"));
 			}

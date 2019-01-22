@@ -11,8 +11,8 @@ import java.sql.Time;
 
 public class Prenotazione {
 
-	private Time orario;
-	private Date giorno;
+	private Time orario_prenotazione;
+	private Date data_prenotazione;
 	private int utente;
 	private int servizio;
 	
@@ -22,8 +22,8 @@ public class Prenotazione {
 	 */
 	public Prenotazione() {
 		
-		this.orario=null;
-		this.giorno=null;
+		this.orario_prenotazione=null;
+		this.data_prenotazione=null;
 		this.servizio=0;
 		this.utente=0;
 	}
@@ -37,8 +37,8 @@ public class Prenotazione {
 	 */
 	public Prenotazione(Time orario, Date giorno, int utente, int servizio) {
 		super();
-		this.orario = orario;
-		this.giorno = giorno;
+		this.orario_prenotazione = orario;
+		this.data_prenotazione = giorno;
 		this.utente = utente;
 		this.servizio = servizio;
 	}
@@ -47,32 +47,32 @@ public class Prenotazione {
 	 * 
 	 * @return orario
 	 */
-	public Time getOrario() {
-		return orario;
+	public Time getOrario_prenotazione() {
+		return orario_prenotazione;
 	}
 	
 	/**
 	 * 
 	 * @param the orario to be set
 	 */
-	public void setOrario(Time orario) {
-		this.orario = orario;
+	public void setOrario_prenotazione(Time orario) {
+		this.orario_prenotazione = orario;
 	}
 	
 	/**
 	 * 
 	 * @return giorno
 	 */
-	public Date getGiorno() {
-		return giorno;
+	public Date getData_prenotazione() {
+		return data_prenotazione;
 	}
 	
 	/**
 	 * 
 	 * @param giorno
 	 */
-	public void setGiorno(Date giorno) {
-		this.giorno = giorno;
+	public void setData_prenotazione(Date giorno) {
+		this.data_prenotazione= giorno;
 	}
 	
 	/**
