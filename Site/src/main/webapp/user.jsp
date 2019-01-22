@@ -79,6 +79,11 @@
 					<c:when test="${param.page eq 'search'}">
 						<jsp:include page="components/userContents/searchContents.jsp"></jsp:include>
 					</c:when>
+					<c:when test="${param.page eq 'addService'}">
+						<article>
+							<jsp:include page="components/forms/serviceAddForm.jsp"></jsp:include>
+						</article>
+					</c:when>
 					<c:otherwise>
 						<jsp:include page="components/userContents/userContents.jsp"></jsp:include>
 					</c:otherwise>
