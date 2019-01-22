@@ -165,8 +165,7 @@ public class UserHandler extends HttpServlet {
 				request.getParameter("txtCognome").toString(),
 				request.getParameter("sltSesso").toString(), 
 				request.getParameter("txtEmail").toString(), 
-				request.getParameter("txtPassword").toString(), 
-				false, 
+				request.getParameter("txtPassword").toString(),  
 				Long.parseLong(request.getParameter("txtNumeroTelefonico").toString()));
 		
 		
@@ -198,7 +197,6 @@ public class UserHandler extends HttpServlet {
 				request.getParameter("sltSesso").toString(), 
 				request.getParameter("txtEmail").toString(), 
 				request.getParameter("txtPassword").toString(), 
-				true, 
 				Long.parseLong(request.getParameter("txtNumeroTelefonico").toString()));
 		
 		

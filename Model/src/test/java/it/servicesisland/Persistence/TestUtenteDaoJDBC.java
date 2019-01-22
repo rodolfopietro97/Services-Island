@@ -26,7 +26,7 @@ public class TestUtenteDaoJDBC {
 	 * Constructor without parameters
 	 */
 	public TestUtenteDaoJDBC() {
-		user = new Utente("ippolito", "bruno", "F", "ippolito@prova.it", "prova", false, 333333333L);
+		user = new Utente("ippolito", "bruno", "F", "ippolito@prova.it", "prova", 333333333L);
 		userDao = new UtenteDaoJDBC(StandardDataSource.getInstance().getDefaultDataSource());
 	}
 	
@@ -36,7 +36,7 @@ public class TestUtenteDaoJDBC {
 	@Test
 	public void testUserSave() {
 		System.out.println("Test of saving of Utente Dao JDBC");
-		userDao.save(user);
+		userDao.saveSimple(user);
 		assertEquals(user.getCodice(), userDao.findByEmail("ippolito@prova.it").getCodice());
 	}
 	

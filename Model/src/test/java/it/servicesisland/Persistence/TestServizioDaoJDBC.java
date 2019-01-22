@@ -25,7 +25,7 @@ public class TestServizioDaoJDBC {
 	 * Constructor without parameters
 	 */
 	public TestServizioDaoJDBC() {
-		service = new Servizio(1L, 10, new Time(0), new Date(0), "try service", false, 4); // 4 professionist foreign key exists!
+		service = new Servizio(1L, 10.0, new Time(0), new Date(0),new Time(0), new Date(0),"Servizio di prova", "try service", new Time(0), false, 4, ""); // 4 professionist foreign key exists!
 		serviceDao = new ServizioDaoJDBC(StandardDataSource.getInstance().getDefaultDataSource());
 	}
 	

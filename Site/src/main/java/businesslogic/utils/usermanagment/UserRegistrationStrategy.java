@@ -36,7 +36,7 @@ public class UserRegistrationStrategy extends UserStrategy{
 		utente.setPassword(DigestUtils.sha256Hex(utente.getPassword()));
 		// Mail confirmation
 		// ... TODO
-		utenteDao.save(utente);
+		utenteDao.saveSimple(utente);
 	}
 
 }
