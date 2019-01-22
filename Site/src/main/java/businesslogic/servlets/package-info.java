@@ -3,6 +3,6 @@
  */
 /**
  * @author rodolfo
- * Servlets package
+ * Servlets package, it is use for servlets
  */
 package businesslogic.servlets;
