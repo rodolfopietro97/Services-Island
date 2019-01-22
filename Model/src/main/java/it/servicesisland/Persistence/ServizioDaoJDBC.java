@@ -138,6 +138,7 @@ public class ServizioDaoJDBC {
 				servizio.setPrezzo(result.getDouble("prezzo"));
 				servizio.setApprovato(result.getBoolean("approvato"));
 				servizio.setDescrizione(result.getString("descrizione"));
+				servizio.setNome(result.getString("nome"));
 				servizio.setData_inizio(result.getDate("data_inizio"));
 				servizio.setData_fine(result.getDate("data_fine"));
 				servizio.setOrario_inizio(result.getTime("orario_inizio"));

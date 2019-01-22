@@ -46,17 +46,16 @@ public class ServicesHandler extends HttpServlet {
 		response.setCharacterEncoding("utf-8");
 		
 		if(request.getParameter("op").equals("search")) {			
-			response.getOutputStream().print("Ricerco : " + request.getParameter("txtSearch").toString());
 			ServizioDaoJDBC servizioDaoJDBC = new ServizioDaoJDBC(StandardDataSource.getInstance().getDefaultDataSource());
 			ArrayList<Servizio> servizi = servizioDaoJDBC.findByDescrizione(request.getParameter("txtSearch").toString());
 			if(servizi.isEmpty()) {
-				response.getOutputStream().print("Non ho trovato niente");
+				request.setAttribute("result", null);
+				request.getRequestDispatcher("user.jsp?page=search").forward(request, response);
 
 			}
 			else {
-				for (Servizio i : servizi) {
-					response.getOutputStream().print(i.getDescrizione());
-				}
+				request.setAttribute("result", servizi);
+				request.getRequestDispatcher("user.jsp?page=search").forward(request, response);
 			}
 		}
 	}
