@@ -26,18 +26,9 @@
     </title>
 
 	<link rel="shortcut icon" href="assets/favicon.ico" />
-	<link href='https://fonts.googleapis.com/css?family=Lora:400,400italic|Work+Sans:300,400,500,600' rel='stylesheet' type='text/css'>
-
-	<!-- Startup theme stylesheets -->
-	<link href="assets/style/homeTemplate/toolkit-startup.css" rel="stylesheet">
-	<link href="assets/style/homeTemplate/application-startup.css" rel="stylesheet">
-	<link href="assets/style/homeTemplate/iosIframeHack.css" rel="stylesheet">
-    
-    <script src="assets/script/jquery.min.js"></script>
-    <script src="assets/script/tether.min.js"></script>
-    <script src="assets/script/toolkit.js"></script>
-    <script src="assets/script/application.js"></script>
-    
+	<link rel="stylesheet" type="text/css" href="//cloud.typography.com/746852/739588/css/fonts.css" />
+	<link rel="stylesheet" type="text/css" href="assets/style/report.css" />
+	    
   </head>
 
 
@@ -45,10 +36,11 @@
 	<c:if test="${empty requestScope.reportMessage}">
 		<c:redirect url="../Site"></c:redirect>
 	</c:if>
-	<h1>${requestScope.reportMessage}</h1>
-	
-
-	<%@ include file="components/footer.jsp" %>
+	<div class="log-container">
+		<h1>${requestScope.reportMessage}</h1>
+	</div>
+<%-- 
+	<%@ include file="components/footer.jsp" %> --%>
 
 
   </body>
