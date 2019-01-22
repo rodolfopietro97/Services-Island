@@ -42,6 +42,35 @@
 			<input maxlength="64" class="form-control" type="password" name="txtConfermaPassword" id="txtConfermaPassword">
 		</div>
 		
+		<div class="form-group">
+			<p>Codice Fiscale</p>
+			<input maxlength="16" class="form-control" type="text" name="txtCodiceF" id="txtCodiceF">
+		</div>
+		
+		<div class="form-group">
+			<p>Partira IVA</p>
+			<input maxlength="16" class="form-control" type="text" name="txtPartitaIVA" id="txtPartitaIVA">
+		</div>
+		
+		<div class="form-group">
+			<p>Professione</p>
+			<input maxlength="40" class="form-control" type="text" name="txtProfessione" id="txtProfessione">
+		</div>
+		
+		<div class="form-group">
+			<p>Settore</p>
+			<input maxlength="40" class="form-control" type="text" name="txtSettore" id="txtSettore">
+		</div>
+		
+		<div class="form-group">
+			<p>Sede fiscale</p>
+			<input maxlength="50" class="form-control" type="text" name="txtSedeFiscale" id="txtSedeFiscale">
+		</div>
+		
+		<div class="form-group">
+			<p>Sede legale</p>
+			<input maxlength="50" class="form-control" type="text" name="txtSedeLegale" id="txtSedeLegale">
+		</div>
 		
 		<div class="form-group">
 			<input style="cursor: pointer;" class="btn btn-primary" type="submit" value="Registrati" id="btnSubmit">
