@@ -84,7 +84,7 @@ public class Utente {
 	 * @param sede_fiscale
 	 * @param sede_legale
 	 */
-	public Utente(Long codice, String nome, String cognome, String sesso, String email, String password, Long telefono,
+	public Utente(String nome, String cognome, String sesso, String email, String password, Long telefono,
 			String codice_fiscale, String partita_iva, String professione, String settore, String sede_fiscale,
 			String sede_legale) {
 		super();
