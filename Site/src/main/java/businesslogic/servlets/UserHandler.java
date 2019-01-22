@@ -14,6 +14,7 @@ import javax.servlet.http.HttpSession;
 import org.apache.commons.codec.digest.DigestUtils;
 import org.postgresql.util.PSQLException;
 
+import businesslogic.utils.usermanagment.ProfessionistRegistrationStrategy;
 import businesslogic.utils.usermanagment.UserManager;
 import businesslogic.utils.usermanagment.UserRegistrationStrategy;
 import it.servicesisland.Connection.handlers.ConnectionInfo;
@@ -205,7 +206,7 @@ public class UserHandler extends HttpServlet {
 				request.getParameter("txtSedeFiscale").toString();
 				request.getParameter("txtSedeLegale").toString();
 		
-		userManager = new UserManager(new UserRegistrationStrategy(temp, new UtenteDaoJDBC(this.dataSource)));
+		userManager = new UserManager(new ProfessionistRegistrationStrategy(temp, new UtenteDaoJDBC(this.dataSource)));
 		
 		try {
 //				response.getOutputStream().print("<h1>... registrazione utente ...</h1>");
