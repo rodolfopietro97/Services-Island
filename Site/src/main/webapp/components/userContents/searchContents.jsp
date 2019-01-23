@@ -6,12 +6,25 @@
 
 <c:choose>
 	<c:when test="${not empty requestScope.result}">
-		<article>
-			<c:forEach items="${requestScope.result}" var="i">
-				<p>${i.nome}</p>
-				<p>${i.descrizione}</p>
-			</c:forEach>
-		</article>
+		
+			<table id="servicesReportTable">
+				<tr>
+					<th><strong>Nome servizio</strong></th>
+					<th><strong>Descrizione servizio</strong></th>
+				</tr>
+				<c:forEach items="${requestScope.result}" var="i">
+				<tr>
+					<td>
+						<a href="ServicesHandler?op=findService&serviceId=${i.codice}">
+							<p>${i.nome}</p>
+						</a>
+					</td>
+					<td>
+						<p>${i.descrizione}</p>	
+					</td>
+				</tr>
+				</c:forEach>
+			</table>
 	</c:when>
 
 	<c:otherwise>

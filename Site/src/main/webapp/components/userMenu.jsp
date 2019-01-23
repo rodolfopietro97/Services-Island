@@ -23,7 +23,7 @@
 				<c:choose>
 
 					<c:when test="${not empty sessionScope.professionist}">
-						<p>RUOLO: Professionista</p>
+						<p>RUOLO: <strong>Professionista</strong></p>
 					</c:when>
 					<c:otherwise>
 						<p>RUOLO: <strong>Utente</strong></p>
@@ -43,19 +43,32 @@
 
 			<li class="nav-header">Menu Utente</li>
 			
+			<c:choose>
+				<c:when test="${not empty sessionScope.professionist}">
+					<li class="nav-item">
+						<a class="nav-link" href="user.jsp?page=services">
+							Gestione servizi
+						</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="user.jsp?page=payments">
+							Area pagamenti
+						</a>
+					</li>
+				</c:when>
+			</c:choose>
+
+			
 			<li class="nav-item">
-				<a class="nav-link" href="user.jsp?page=services">
-					Gestione servizi
+				<a class="nav-link" href="user.jsp?page=books">
+					Prenotazioni
 				</a>
 			</li>
-			<li class="nav-item">
-				<a class="nav-link" href="user.jsp?page=payments">
-					Area pagamenti
-				</a>
-			</li>
+			
+
 			<li class="nav-item">
 				<a class="nav-link" href="user.jsp?page=settings">
-					Impostazioni
+					Impostazioni account
 				</a>
 			</li>
 

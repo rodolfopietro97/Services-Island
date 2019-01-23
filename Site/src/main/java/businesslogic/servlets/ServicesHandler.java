@@ -58,6 +58,12 @@ public class ServicesHandler extends HttpServlet {
 				request.getRequestDispatcher("user.jsp?page=search").forward(request, response);
 			}
 		}
+		else if(request.getParameter("op").equals("findService")) {
+			ServizioDaoJDBC servizioDaoJDBC = new ServizioDaoJDBC(StandardDataSource.getInstance().getDefaultDataSource());
+			Servizio servizio = servizioDaoJDBC.findByPrimaryKey(Long.parseLong(request.getParameter("serviceId").toString()));
+			request.setAttribute("result", servizio);
+			request.getRequestDispatcher("user.jsp?page=serviceInfo").forward(request, response);			
+		}
 	}
 
 	/**

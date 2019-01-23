@@ -1,9 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html>
+
 
 <form method="post" action="ServicesHandler?op=addService">
-
 
 	<div class="form-group">
 		<p>Nome servizio</p>

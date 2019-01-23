@@ -68,22 +68,54 @@
 				<!-- Choose the contents -->
 				<c:choose>
 					<c:when test="${param.page eq 'services'}">
-						<jsp:include page="components/userContents/servicesContents.jsp"></jsp:include>
+						<c:choose>
+							<c:when test="${not empty sessionScope.professionist}">
+								<jsp:include page="components/userContents/servicesContents.jsp"></jsp:include>
+							</c:when>
+							<c:otherwise>
+								<jsp:include page="components/userContents/userContents.jsp"></jsp:include>
+							</c:otherwise>
+						</c:choose>
 					</c:when>
+					
 					<c:when test="${param.page eq 'payments'}">
-						<jsp:include page="components/userContents/paymentsContents.jsp"></jsp:include>
+						<c:choose>
+							<c:when test="${not empty sessionScope.professionist}">
+								<jsp:include page="components/userContents/paymentsContents.jsp"></jsp:include>
+							</c:when>
+							<c:otherwise>
+								<jsp:include page="components/userContents/userContents.jsp"></jsp:include>
+							</c:otherwise>
+						</c:choose>
 					</c:when>
+					
 					<c:when test="${param.page eq 'settings'}">
 						<jsp:include page="components/userContents/settingsContents.jsp"></jsp:include>
 					</c:when>
+					
 					<c:when test="${param.page eq 'search'}">
 						<jsp:include page="components/userContents/searchContents.jsp"></jsp:include>
 					</c:when>
-					<c:when test="${param.page eq 'addService'}">
-						<article>
-							<jsp:include page="components/forms/serviceAddForm.jsp"></jsp:include>
-						</article>
+					
+					<c:when test="${param.page eq 'serviceInfo'}">
+						<jsp:include page="components/userContents/serviceInfoContents.jsp"></jsp:include>
 					</c:when>
+					
+					<c:when test="${param.page eq 'addService'}">
+						<c:choose>
+							<c:when test="${not empty sessionScope.professionist}">
+								<jsp:include page="components/forms/serviceAddForm.jsp"></jsp:include>
+							</c:when>
+							<c:otherwise>
+								<jsp:include page="components/userContents/userContents.jsp"></jsp:include>
+							</c:otherwise>
+						</c:choose>
+					</c:when>
+					
+					<c:when test="${param.page eq 'books'}">
+						<jsp:include page="components/userContents/bookingsContent.jsp"></jsp:include>
+					</c:when>
+					
 					<c:otherwise>
 						<jsp:include page="components/userContents/userContents.jsp"></jsp:include>
 					</c:otherwise>

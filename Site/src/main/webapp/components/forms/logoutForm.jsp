@@ -3,7 +3,7 @@
 
 <form method="get" action="UserHandler" id="logoutForm">
 	<input type="hidden" value="logout" name="op">
-	<input type="submit" style="cursor: pointer;" class="btn btn-danger" value="Logout" >
+	<input type="submit" style="cursor: pointer;" class="btn btn-danger btn-block" value="Logout" >
 	
 </form>
 

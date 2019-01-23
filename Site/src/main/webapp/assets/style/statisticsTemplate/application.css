@@ -47,3 +47,23 @@ article p {
 	margin-top: 10px;
 	margin-left: 20px;
 }
+
+#servicesReportTable{
+	margin: 0px;
+	padding: 0px;
+	
+	width: 100%;
+	
+	background-color: #ffffff;
+}
+
+#servicesReportTable tr th{
+	border: 3px solid #e5e5e5;
+	text-align: center;
+}
+
+#servicesReportTable tr td{
+	margin-top: 5px;
+	border: 1px outset #e5e5e5;
+	text-align: center;
+}
