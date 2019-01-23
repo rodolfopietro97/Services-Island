@@ -99,4 +99,29 @@ public class MediatoreDaoJDBC {
 		return mediatore;
 	}
 	
+	
+public void approve(Long k) {
+		
+		Connection connection = this.dataSource.getConnection();
+		
+		
+		try {
+			PreparedStatement statement;
+			String query = "update servizio set approvato=true where codice = ?";
+			statement = connection.prepareStatement(query);
+			statement.setLong(1, k);
+			statement.executeUpdate();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				connection.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}	
+		
+	}
+	
 }

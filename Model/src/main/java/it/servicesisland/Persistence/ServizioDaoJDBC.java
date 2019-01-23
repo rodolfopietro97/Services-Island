@@ -5,6 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.List;
 
 import it.servicesisland.Model.*;
 
@@ -38,7 +39,7 @@ public class ServizioDaoJDBC {
 		try {
 			
 			 
-			String insert = "insert into servizio(prezzo, orario_inizio, orario_fine, data_inizio, data_fine, descrizione, approvato, professionista) values (?,?,?,?,?,?,?,?)";
+			String insert = "insert into servizio(prezzo, orario_inizio, orario_fine, data_inizio, data_fine, descrizione, nome, approvato, professionista) values (?,?,?,?,?,?,?,?,?)";
 			PreparedStatement statement = connection.prepareStatement(insert);
 			
 			statement.setDouble(1, servizio.getPrezzo());
@@ -47,8 +48,9 @@ public class ServizioDaoJDBC {
 			statement.setDate(4, servizio.getData_inizio());
 			statement.setDate(5, servizio.getData_fine());
 			statement.setString(6, servizio.getDescrizione());
-			statement.setBoolean(7, servizio.isApprovato());
-			statement.setInt(8, servizio.getProfessionista());
+			statement.setString(7, servizio.getNome());
+			statement.setBoolean(8, servizio.isApprovato());
+			statement.setInt(9, servizio.getProfessionista());
 
 						
 			statement.executeUpdate();
@@ -185,4 +187,45 @@ public void delete(Long id) {
 		}
 		
 	}
+
+public List<Servizio> findUnapproved(){
+	
+	List<Servizio> servizi= new ArrayList<Servizio>();
+	Connection connection = this.dataSource.getConnection();
+	try {
+	PreparedStatement statement;
+	String query = "select * from servizio where approvato = false";
+	statement = connection.prepareStatement(query);
+	
+	ResultSet result= statement.executeQuery();
+	while (result.next()) {
+		Servizio s= new Servizio();
+		s.setCodice(result.getLong("codice"));
+		s.setPrezzo(result.getDouble("prezzo"));
+		s.setApprovato(result.getBoolean("approvato"));
+		s.setDescrizione(result.getString("descrizione"));
+		s.setNome(result.getString("nome"));
+		s.setData_inizio(result.getDate("data_inizio"));
+		s.setData_fine(result.getDate("data_fine"));
+		s.setOrario_inizio(result.getTime("orario_inizio"));
+		s.setOrario_fine(result.getTime("orario_fine"));
+		s.setProfessionista(result.getInt("professionista"));
+		
+		servizi.add(s);
+		
+	}
+	
+	
+	} catch (SQLException e) {
+		e.printStackTrace();
+	} finally {
+		try {
+			connection.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	return servizi;
+}
 }
