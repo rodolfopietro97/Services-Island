@@ -2,9 +2,13 @@ package it.servicesisland.Persistence;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import it.servicesisland.Model.Notifica;
+import it.servicesisland.Model.Servizio;
 
 public class NotificaDaoJDBC {
 
@@ -60,4 +64,49 @@ public class NotificaDaoJDBC {
 		}
 	}
 	
+	
+	/**
+	 * restituisce le notifiche di un utente
+	 * @param id
+	 * @return
+	 */
+	public List<Notifica> findByUser(Long id){
+		Connection connection = this.dataSource.getConnection();
+		List<Notifica> notifiche= new ArrayList<Notifica>();
+		try {
+			PreparedStatement statement;
+			String query = "select * from notifica where utente = ?";
+
+			statement = connection.prepareStatement(query);
+			statement.setLong(1,id);
+			
+
+			ResultSet result = statement.executeQuery();
+			while (result.next()) {
+				Notifica n= new Notifica();
+				n.setCodice(result.getLong("codice"));
+				n.setContenuto(result.getString("contenuto"));
+				n.setTitolo(result.getString("contenuto"));
+				n.setUtente(result.getLong("utente"));
+				notifiche.add(n);
+			}
+			
+	}catch (SQLException e) {
+		if (connection != null) {
+			try {
+				connection.rollback();
+			} catch(SQLException excep) {
+				excep.printStackTrace();
+			}
+		} 
+	} finally {
+		try {
+			connection.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+		
+		return notifiche;
+}
 }
