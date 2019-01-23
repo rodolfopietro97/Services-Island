@@ -1,5 +1,3 @@
-#!../env/bin/python2.7
-
 import unirest
 import os
 from time import sleep

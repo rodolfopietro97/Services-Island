@@ -139,6 +139,7 @@ public class UserHandler extends HttpServlet {
 						HttpSession loginSession = request.getSession(true);
 			
 						loginSession.setAttribute("email", email);
+						loginSession.setAttribute("id", tempUtente.getCodice());
 			
 						if(tempUtente.isProfessionista()) {
 							loginSession.setAttribute("professionist", "professionista");

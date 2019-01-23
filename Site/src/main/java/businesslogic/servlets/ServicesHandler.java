@@ -119,21 +119,22 @@ public class ServicesHandler extends HttpServlet {
 		
 		if(request.getParameter("op").equals("addService")) {
 	
-		Servizio temp = new Servizio(null, 
-					Double.parseDouble(request.getParameter("txtPrezzo")), 
-					Time.valueOf(request.getParameter("txtOrarioInizio")), 
-					Date.valueOf(request.getParameter("txtDataInizio")), 
-					Time.valueOf(request.getParameter("txtOrarioFine")), 
-					Date.valueOf(request.getParameter("txtDataFine")), 
-					request.getParameter("txtDescrizione"), 
-					request.getParameter("txtNomeServizio"), 
-					Time.valueOf(request.getParameter("txtTempoMedio")), 
-					false, 
-					14, 
-					"none");
-		
-		
-		dao.save(temp);
+			Servizio temp = new Servizio(null, 
+						Double.parseDouble(request.getParameter("txtPrezzo")), 
+						Time.valueOf(request.getParameter("txtOrarioInizio")), 
+						Date.valueOf(request.getParameter("txtDataInizio")), 
+						Time.valueOf(request.getParameter("txtOrarioFine")), 
+						Date.valueOf(request.getParameter("txtDataFine")), 
+						request.getParameter("txtDescrizione").toString(), 
+						request.getParameter("txtNomeServizio").toString(), 
+						Time.valueOf(request.getParameter("txtTempoMedio")), 
+						false, 
+						Integer.parseInt(request.getSession().getAttribute("id").toString()), 
+						request.getParameter("txtAltriDettagli").toString());
+			
+			dao.save(temp);
+			request.setAttribute("reportMessage", "Inserimento servizio andato a buon fine!");
+			request.getRequestDispatcher("/report.jsp").forward(request, response);
 		}
 		// Mediator login
 		else if(request.getParameter("op").equals("mediatore")) {
