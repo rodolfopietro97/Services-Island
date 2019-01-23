@@ -23,7 +23,10 @@ public class NotificaDaoJDBC {
 		//dataSource=new DataSource("jdbc:postgresql://localhost:5432/services_island","postgres","postgres");
 	}
 	
-	
+	/**
+	 * salva l'istanza di notifica
+	 * @param n
+	 */
 	public void save(Notifica n) {
 		
 		Connection connection = this.dataSource.getConnection();
