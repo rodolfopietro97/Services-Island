@@ -100,6 +100,38 @@ public class MediatoreDaoJDBC {
 	}
 	
 	
+	/**
+	 * Find if exist a mediatore by password
+	 * @param chiave of mediatore
+	 * @return if mediatore exist
+	 */
+	public boolean existMediatore(String chiave) {
+		
+		Connection connection = this.dataSource.getConnection();
+		
+		try {
+			PreparedStatement statement;
+			String query = "select * from mediatore where chiave = ?";
+			statement = connection.prepareStatement(query);
+			statement.setString(1, chiave);
+			ResultSet result = statement.executeQuery();
+			if (result.next()) {
+				return true;
+				
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				connection.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}	
+		return false;
+	}
+	
+	
 public void approve(Long k) {
 		
 		Connection connection = this.dataSource.getConnection();

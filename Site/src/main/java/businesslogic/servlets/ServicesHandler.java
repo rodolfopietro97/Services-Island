@@ -9,6 +9,7 @@ import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.time.format.FormatStyle;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 import javax.servlet.ServletConfig;
@@ -20,7 +21,11 @@ import javax.swing.text.DateFormatter;
 
 import it.servicesisland.Connection.handlers.StandardDataSource;
 import it.servicesisland.Model.Servizio;
+
+import it.servicesisland.Persistence.MediatoreDaoJDBC;
+
 import it.servicesisland.Persistence.DataSource;
+
 import it.servicesisland.Persistence.ServizioDaoJDBC;
 
 /**
@@ -102,6 +107,7 @@ public class ServicesHandler extends HttpServlet {
 			request.setAttribute("result", servizio);
 			request.getRequestDispatcher("user.jsp?page=serviceInfo").forward(request, response);			
 		}
+
 	}
 
 	/**
@@ -128,6 +134,30 @@ public class ServicesHandler extends HttpServlet {
 		
 		
 		dao.save(temp);
+		}
+		// Mediator login
+		else if(request.getParameter("op").equals("mediatore")) {
+			MediatoreDaoJDBC mediatoreDaoJDBC = new MediatoreDaoJDBC(StandardDataSource.getInstance().getDefaultDataSource());
+			if(mediatoreDaoJDBC.existMediatore(request.getParameter("key"))){
+				ServizioDaoJDBC servizioDaoJDBC = new ServizioDaoJDBC(StandardDataSource.getInstance().getDefaultDataSource());
+				List<Servizio> servizi = servizioDaoJDBC.findUnapproved();
+				if(servizi.isEmpty()) {
+					response.getOutputStream().print("NON ci sono servizi al momento");
+				}
+				else {
+					response.getOutputStream().println("CODICE SERVIZIO: " + servizi.get(0).getCodice());
+					response.getOutputStream().println("NOME SERVIZIO: " + servizi.get(0).getNome());
+					response.getOutputStream().println("DESCRIZIONE SERVIZIO: " + servizi.get(0).getDescrizione());
+				}
+			}
+			else {
+				response.getOutputStream().print("error");
+			}
+		}
+		// mediator approvation
+		else if(request.getParameter("op").equals("approvation")) {
+			MediatoreDaoJDBC mediatoreDaoJDBC = new MediatoreDaoJDBC(StandardDataSource.getInstance().getDefaultDataSource());
+			mediatoreDaoJDBC.approve(Long.parseLong(request.getParameter("serviceCode").toString()));
 		}
 	}
 
