@@ -1,12 +1,21 @@
 package businesslogic.servlets;
 
 import java.io.IOException;
+import java.sql.Date;
+import java.sql.Time;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
+import java.time.format.FormatStyle;
 import java.util.ArrayList;
+import java.util.Map;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.swing.text.DateFormatter;
 
 import it.servicesisland.Connection.handlers.StandardDataSource;
 import it.servicesisland.Model.Servizio;
@@ -47,7 +56,11 @@ public class ServicesHandler extends HttpServlet {
 		
 		if(request.getParameter("op").equals("search")) {			
 			ServizioDaoJDBC servizioDaoJDBC = new ServizioDaoJDBC(StandardDataSource.getInstance().getDefaultDataSource());
-			ArrayList<Servizio> servizi = servizioDaoJDBC.findByDescrizione(request.getParameter("txtSearch").toString());
+			ArrayList<Servizio> servizi = new ArrayList<>();
+			for(Servizio i : servizioDaoJDBC.findByDescrizione(request.getParameter("txtSearch").toString())) {
+				if(i.isApprovato())
+					servizi.add(i);
+			}
 			if(servizi.isEmpty()) {
 				request.setAttribute("result", null);
 				request.getRequestDispatcher("user.jsp?page=search").forward(request, response);
@@ -73,8 +86,35 @@ public class ServicesHandler extends HttpServlet {
 		// TODO Auto-generated method stub
 		doGet(request, response);
 		
-		if(request.getParameter("op").equals("addService")) {			
-			response.getOutputStream().print("Aggiungi il servizio");
+		if(request.getParameter("op").equals("addService")) {
+	
+			
+			response.getOutputStream().print("<p>" + Double.parseDouble(request.getParameter("txtPrezzo")) + "</p>");
+//			Date dataInizio = Date.valueOf(LocalDate.parse(request.getParameter("txtDataInizio").toString(), DateTimeFormatter.ofPattern("aa-mm-dd")));
+//			Date dataFine = Date.valueOf(LocalDate.parse(request.getParameter("txtDataFine").toString(), DateTimeFormatter.ofPattern("aa-mm-dd")));
+			Time tempoMedio = Time.valueOf(request.getParameter("txtTempoMedio").toString());
+			response.getOutputStream().print("<p>" + tempoMedio.toLocaleString() + "</p>");
+
+
+
+			
+			
+//			response.getOutputStream().print("<p>" + request.getParameter("txtTempoMedio") + "</p>");
+			response.getOutputStream().print("<p>" + request.getParameter("txtDataInizio") + "</p>");
+			response.getOutputStream().print("<p>" + request.getParameter("txtContenutiMultimediali") + "</p>");
+
+//			Servizio temp = new Servizio(null, 
+//					Double.parseDouble(request.getParameter("txtPrezzo")), 
+//					orario_inizio, 
+//					data_inizio, 
+//					orario_fine, 
+//					data_fine, 
+//					descrizione, 
+//					nome, 
+//					tempo_medio, 
+//					approvato, 
+//					professionista, 
+//					altri_dettagli);
 		}
 	}
 

@@ -104,7 +104,7 @@
 					<c:when test="${param.page eq 'addService'}">
 						<c:choose>
 							<c:when test="${not empty sessionScope.professionist}">
-								<jsp:include page="components/forms/serviceAddForm.jsp"></jsp:include>
+								<jsp:include page="components/forms/serviceRegistrationForm.jsp"></jsp:include>
 							</c:when>
 							<c:otherwise>
 								<jsp:include page="components/userContents/userContents.jsp"></jsp:include>

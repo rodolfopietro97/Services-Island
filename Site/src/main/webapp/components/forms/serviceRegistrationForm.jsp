@@ -16,7 +16,7 @@
 
 	<div class="form-group">
 		<p>Durata media servizio</p>
-		<input class="form-control" type="text" name="txtTempoMedio" id="txtPrezzo">
+		<input class="form-control" type="time" name="txtTempoMedio" id="txtTempoMedio">
 	</div>
 
 	<div class="form-group">
