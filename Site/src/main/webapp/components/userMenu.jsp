@@ -12,6 +12,7 @@
 		</button>
 
 	</div>
+	<jsp:include page="userContents/notificationMenu.jsp"></jsp:include>
 	<br> <br>
 	<div class="collapse nav-toggleable-md" id="nav-toggleable-md">
 	

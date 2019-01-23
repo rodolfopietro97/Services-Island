@@ -86,7 +86,7 @@ public class NotificaDaoJDBC {
 				Notifica n= new Notifica();
 				n.setCodice(result.getLong("codice"));
 				n.setContenuto(result.getString("contenuto"));
-				n.setTitolo(result.getString("contenuto"));
+				n.setTitolo(result.getString("titolo"));
 				n.setUtente(result.getLong("utente"));
 				notifiche.add(n);
 			}

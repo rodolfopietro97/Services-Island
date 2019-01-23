@@ -20,10 +20,11 @@ import javax.servlet.http.HttpServletResponse;
 import javax.swing.text.DateFormatter;
 
 import it.servicesisland.Connection.handlers.StandardDataSource;
+import it.servicesisland.Model.Notifica;
 import it.servicesisland.Model.Servizio;
 
 import it.servicesisland.Persistence.MediatoreDaoJDBC;
-
+import it.servicesisland.Persistence.NotificaDaoJDBC;
 import it.servicesisland.Persistence.DataSource;
 
 import it.servicesisland.Persistence.ServizioDaoJDBC;
@@ -131,6 +132,14 @@ public class ServicesHandler extends HttpServlet {
 						request.getParameter("txtAltriDettagli").toString());
 			
 			dao.save(temp);
+			
+			Notifica notifica = new Notifica(
+					Long.parseLong(request.getSession().getAttribute("id").toString()),
+					"Richiesta inserimento servizio!", 
+					"Il servizio " + temp.getNome() + " è in fase di approvazione...");
+			NotificaDaoJDBC notificaDaoJDBC = new NotificaDaoJDBC(StandardDataSource.getInstance().getDefaultDataSource());
+			notificaDaoJDBC.save(notifica);
+			
 			request.setAttribute("reportMessage", "Inserimento servizio andato a buon fine!");
 			request.getRequestDispatcher("/report.jsp").forward(request, response);
 		}
@@ -157,6 +166,30 @@ public class ServicesHandler extends HttpServlet {
 		else if(request.getParameter("op").equals("approvation")) {
 			MediatoreDaoJDBC mediatoreDaoJDBC = new MediatoreDaoJDBC(StandardDataSource.getInstance().getDefaultDataSource());
 			mediatoreDaoJDBC.approve(Long.parseLong(request.getParameter("serviceCode").toString()));
+			
+			// metti quì l'id dell'utente in base al servizio
+			ServizioDaoJDBC servizioDaoJDBC = new ServizioDaoJDBC(StandardDataSource.getInstance().getDefaultDataSource());
+			Servizio temp = servizioDaoJDBC.findByPrimaryKey(Long.parseLong(request.getParameter("serviceCode").toString()));
+
+			Notifica notifica = new Notifica(
+					(long) temp.getProfessionista(),
+					"Servizio approvato!", 
+					"Il servizio " + request.getParameter("serviceCode").toString() + " è stato approvato!");
+			
+			NotificaDaoJDBC notificaDaoJDBC = new NotificaDaoJDBC(StandardDataSource.getInstance().getDefaultDataSource());
+			notificaDaoJDBC.save(notifica);
+			
+		}
+		
+		else if(request.getParameter("op").equals("notifications")) {
+			NotificaDaoJDBC notificaDaoJDBC = new NotificaDaoJDBC(StandardDataSource.getInstance().getDefaultDataSource());
+			List<Notifica> notifiche = notificaDaoJDBC.findByUser(Long.parseLong(request.getSession().getAttribute("id").toString()));
+			
+			for(Notifica i : notifiche) {
+				response.getOutputStream().print("<li class='dropdown-item'><strong>" + i.getTitolo() + "</strong><br>" + i.getContenuto() + "<li>");
+				response.getOutputStream().print("<div class='dropdown-divider'></div>");
+
+			}
 		}
 	}
 
