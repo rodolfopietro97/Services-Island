@@ -15,27 +15,27 @@
 	</div>
 
 	<div class="form-group">
-		<p>Durata media servizio</p>
+		<p>Durata media servizio - HH:MM:SS</p>
 		<input class="form-control" type="time" name="txtTempoMedio" id="txtTempoMedio">
 	</div>
 
 	<div class="form-group">
-		<p>Data inizio</p>
+		<p>Data inizio - YYYY-MM-DD</p>
 		<input class="form-control" type="date" name="txtDataInizio" id="txtDataInizio">
 	</div>
 	
 	<div class="form-group">
-		<p>Data fine</p>
+		<p>Data fine - YYYY-MM-DD</p>
 		<input class="form-control" type="date" name="txtDataFine" id="txtDataFine">
 	</div>
 
 	<div class="form-group">
-		<p>Orario inizio</p>
+		<p>Orario inizio - HH-MM-SS</p>
 		<input class="form-control" type="time" name="txtOrarioInizio" id="txtOrarioInizio">
 	</div>
 	
 	<div class="form-group">
-		<p>Orario fine</p>
+		<p>Orario fine - HH-MM-SS</p>
 		<input class="form-control" type="time" name="txtOrarioFine" id="txtOrarioFine">
 	</div>
 

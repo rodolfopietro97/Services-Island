@@ -12,6 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -20,7 +21,11 @@ import javax.swing.text.DateFormatter;
 
 import it.servicesisland.Connection.handlers.StandardDataSource;
 import it.servicesisland.Model.Servizio;
+
 import it.servicesisland.Persistence.MediatoreDaoJDBC;
+
+import it.servicesisland.Persistence.DataSource;
+
 import it.servicesisland.Persistence.ServizioDaoJDBC;
 
 /**
@@ -29,6 +34,18 @@ import it.servicesisland.Persistence.ServizioDaoJDBC;
 public class ServicesHandler extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
+	/**
+	 * dao instance
+	 */
+	ServizioDaoJDBC dao;
+	
+	
+	/**
+	 * datasource instance
+	 */
+	DataSource dataSource;
+	
+	
 	/**
 	 * Load postgre driver
 	 */
@@ -40,6 +57,7 @@ public class ServicesHandler extends HttpServlet {
 	    }
 	 }
 	
+	
     /**
      * @see HttpServlet#HttpServlet()
      */
@@ -48,6 +66,16 @@ public class ServicesHandler extends HttpServlet {
         // TODO Auto-generated constructor stub
     }
 
+    
+    /**
+	 * @see Servlet#init(ServletConfig)
+	 */
+	public void init(ServletConfig config) throws ServletException {
+		dataSource = StandardDataSource.getInstance().getDefaultDataSource();
+		dao= new ServizioDaoJDBC(dataSource);
+	}
+    
+    
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
@@ -86,38 +114,26 @@ public class ServicesHandler extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		
 		doGet(request, response);
 		
 		if(request.getParameter("op").equals("addService")) {
 	
-			
-			response.getOutputStream().print("<p>" + Double.parseDouble(request.getParameter("txtPrezzo")) + "</p>");
-//			Date dataInizio = Date.valueOf(LocalDate.parse(request.getParameter("txtDataInizio").toString(), DateTimeFormatter.ofPattern("aa-mm-dd")));
-//			Date dataFine = Date.valueOf(LocalDate.parse(request.getParameter("txtDataFine").toString(), DateTimeFormatter.ofPattern("aa-mm-dd")));
-			Time tempoMedio = Time.valueOf(request.getParameter("txtTempoMedio").toString());
-			response.getOutputStream().print("<p>" + tempoMedio.toLocaleString() + "</p>");
-
-
-
-			
-			
-//			response.getOutputStream().print("<p>" + request.getParameter("txtTempoMedio") + "</p>");
-			response.getOutputStream().print("<p>" + request.getParameter("txtDataInizio") + "</p>");
-			response.getOutputStream().print("<p>" + request.getParameter("txtContenutiMultimediali") + "</p>");
-
-//			Servizio temp = new Servizio(null, 
-//					Double.parseDouble(request.getParameter("txtPrezzo")), 
-//					orario_inizio, 
-//					data_inizio, 
-//					orario_fine, 
-//					data_fine, 
-//					descrizione, 
-//					nome, 
-//					tempo_medio, 
-//					approvato, 
-//					professionista, 
-//					altri_dettagli);
+		Servizio temp = new Servizio(null, 
+					Double.parseDouble(request.getParameter("txtPrezzo")), 
+					Time.valueOf(request.getParameter("txtOrarioInizio")), 
+					Date.valueOf(request.getParameter("txtDataInizio")), 
+					Time.valueOf(request.getParameter("txtOrarioFine")), 
+					Date.valueOf(request.getParameter("txtDataFine")), 
+					request.getParameter("txtDescrizione"), 
+					request.getParameter("txtNomeServizio"), 
+					Time.valueOf(request.getParameter("txtTempoMedio")), 
+					false, 
+					14, 
+					"none");
+		
+		
+		dao.save(temp);
 		}
 		// Mediator login
 		else if(request.getParameter("op").equals("mediatore")) {
