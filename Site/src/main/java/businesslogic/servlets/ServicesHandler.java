@@ -86,11 +86,9 @@ public class ServicesHandler extends HttpServlet {
 		
 		if(request.getParameter("op").equals("search")) {			
 			ServizioDaoJDBC servizioDaoJDBC = new ServizioDaoJDBC(StandardDataSource.getInstance().getDefaultDataSource());
-			ArrayList<Servizio> servizi = new ArrayList<>();
-			for(Servizio i : servizioDaoJDBC.findByDescrizione(request.getParameter("txtSearch").toString())) {
-				if(i.isApprovato())
-					servizi.add(i);
-			}
+			ArrayList<Servizio> servizi = servizioDaoJDBC.findByDescrizione(request.getParameter("txtSearch").toString());
+			servizi.removeIf(s -> !s.isApprovato());
+
 			if(servizi.isEmpty()) {
 				request.setAttribute("result", null);
 				request.getRequestDispatcher("user.jsp?page=search").forward(request, response);

@@ -134,9 +134,10 @@ public class ServizioDaoJDBC {
 
 			ResultSet result = statement.executeQuery();
 			
-			Servizio servizio = new Servizio();
-			while (result.next()) {
 
+			while (result.next()) {
+				Servizio servizio = new Servizio();
+				
 				servizio.setCodice(result.getLong("codice"));				
 				servizio.setPrezzo(result.getDouble("prezzo"));
 				servizio.setApprovato(result.getBoolean("approvato"));
