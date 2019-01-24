@@ -5,6 +5,7 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
+import it.servicesisland.Model.Prenotazione;
 import it.servicesisland.Model.Servizio;
 import it.servicesisland.Model.Utente;
 
@@ -269,5 +270,43 @@ public class UtenteDaoJDBC {
 			}
 		}
 		
+	}
+	
+	public List<Prenotazione> findAllPrenotazioni(String email){ 
+		
+		Connection connection = this.dataSource.getConnection();
+		
+		List<Prenotazione> prenotazioni = new ArrayList<Prenotazione>();
+		
+		try {			
+			Servizio servizio;
+			PreparedStatement statement;
+			String query = "select prenotazione.utente as utente, prenotazione.servizio as servizio"
+					+ " from utente inner join servizio on utente.codice=servizio.professionista "
+					+ "inner join prenotazione on prenotazione.servizio=servizio.codice"
+					+ " where utente.email= ?";
+			statement = connection.prepareStatement(query);
+			statement.setString(1, email);
+			ResultSet result = statement.executeQuery();
+			
+			
+			while (result.next()) {
+				Prenotazione p= new Prenotazione();
+				p.setServizio(result.getInt("servizio"));
+				p.setUtente(result.getInt("utente"));
+				prenotazioni.add(p);
+				
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}	 finally {
+			try {
+				connection.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		
+		return prenotazioni;
 	}
 }
