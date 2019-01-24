@@ -279,9 +279,10 @@ public class UtenteDaoJDBC {
 		List<Prenotazione> prenotazioni = new ArrayList<Prenotazione>();
 		
 		try {			
-			Servizio servizio;
+			
 			PreparedStatement statement;
 			String query = "select prenotazione.utente as utente, prenotazione.servizio as servizio"
+					+ ", prenotazione.orario_prenotazione as orario, prenotazione.data_prenotazione as data"
 					+ " from utente inner join servizio on utente.codice=servizio.professionista "
 					+ "inner join prenotazione on prenotazione.servizio=servizio.codice"
 					+ " where utente.email= ?";
@@ -294,6 +295,8 @@ public class UtenteDaoJDBC {
 				Prenotazione p= new Prenotazione();
 				p.setServizio(result.getInt("servizio"));
 				p.setUtente(result.getInt("utente"));
+				p.setData_prenotazione(result.getDate("data"));
+				p.setOrario_prenotazione(result.getTime("orario"));
 				prenotazioni.add(p);
 				
 			}
