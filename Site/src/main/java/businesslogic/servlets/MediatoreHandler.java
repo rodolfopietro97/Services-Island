@@ -1,22 +1,20 @@
 package businesslogic.servlets;
 
-
 import java.io.IOException;
-import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
 import businesslogic.servlets.handler.ServletHandler;
 import businesslogic.servlets.handler.strategiesinstances.Strategies;
 
-
 /**
- * Servlet implementation class UserHandler
+ * Servlet implementation class MediatoreHandler
  */
-public class UserHandler extends HttpServlet {
+public class MediatoreHandler extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-
+       
 	/**
 	 * Load postgre driver
 	 */
@@ -28,32 +26,21 @@ public class UserHandler extends HttpServlet {
 	    }
 	 }
 	
+	
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public UserHandler() {
+    public MediatoreHandler() {
         super();
     }
 
 	/**
-	 * @see Servlet#init(ServletConfig)
-	 */
-	public void init(ServletConfig config) throws ServletException {}
-
-	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {		
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("text/html");
 		request.setCharacterEncoding("utf-8");
 		response.setCharacterEncoding("utf-8");
-		
-		/*
-		 * Logout operation
-		 */
-		if(request.getParameter("op").equals("logout")) 			
-			ServletHandler.handle(Strategies.getInstance().getLogoutStrategy(), request, response);
-		
 	}
 
 	/**
@@ -61,25 +48,19 @@ public class UserHandler extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doGet(request, response);
-
-		/*
-		 * Login operation
-		 */
-		if(request.getParameter("op").equals("login"))
-			ServletHandler.handle(Strategies.getInstance().getLoginStrategy(), request, response);
-
-		/*
-		 * User registration operation
-		 */
-		else if(request.getParameter("op").equals("registerUser")) 		
-			ServletHandler.handle(Strategies.getInstance().getUserRegistrationStrategy(), request, response);
 		
 		/*
-		 * Professionist registration operation
+		 * Send unapproved services to mediatore legale
 		 */
-		else if(request.getParameter("op").equals("registerProfessonist")) 			
-			ServletHandler.handle(Strategies.getInstance().getProfessionistRegistrationStrategy(), request, response);
-			
+		if(request.getParameter("op").equals("mediatore")) 
+			ServletHandler.handle(Strategies.getInstance().getSendUnapprovedServiceToMediatoreStrategy(), request, response);
+		
+		/*
+		 * Approvation request of a service by mediatore legale
+		 */
+		else if(request.getParameter("op").equals("approvation"))
+			ServletHandler.handle(Strategies.getInstance().getApproveServiceByServiceCodeStrategy(), request, response);
+		
 	}
 
 }

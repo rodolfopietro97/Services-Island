@@ -8,7 +8,7 @@ if __name__ == "__main__":
     print("tento la connessione con il codice: " + codiceMediatore)
     # effettuo una richiesta post con la chiave del mediatore (mi restituira' la lista dei servizi)
     response = unirest.post(
-        "http://localhost:8080/Site/ServicesHandler",
+        "http://localhost:8080/Site/MediatoreHandler",
         params={
             "op" : "mediatore",
             "key" : codiceMediatore
@@ -28,7 +28,7 @@ if __name__ == "__main__":
         if(approvazione!="N"):
             #richiesta di approvazione ..
             response = unirest.post(
-                "http://localhost:8080/Site/ServicesHandler",
+                "http://localhost:8080/Site/MediatoreHandler",
                 params={
                     "op" : "approvation",
                     "key" : codiceMediatore,

@@ -38,6 +38,12 @@
 		<description>Services handler servlet. It is used for handle services approvation, modification, etc...</description>
 		<servlet-class>businesslogic.servlets.ServicesHandler</servlet-class>
 	</servlet>
+	<servlet>
+		<servlet-name>MediatoreHandler</servlet-name>
+		<display-name>MediatoreHandler</display-name>
+		<description></description>
+		<servlet-class>businesslogic.servlets.MediatoreHandler</servlet-class>
+	</servlet>
 	<servlet-mapping>
 		<servlet-name>UserHandler</servlet-name>
 		<url-pattern>/UserHandler</url-pattern>
@@ -45,6 +51,10 @@
 	<servlet-mapping>
 		<servlet-name>ServicesHandler</servlet-name>
 		<url-pattern>/ServicesHandler</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>MediatoreHandler</servlet-name>
+		<url-pattern>/MediatoreHandler</url-pattern>
 	</servlet-mapping>
 	
 <!-- Settings the error pages -->

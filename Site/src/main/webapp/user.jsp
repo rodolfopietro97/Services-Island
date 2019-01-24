@@ -116,6 +116,10 @@
 						<jsp:include page="components/userContents/bookingsContent.jsp"></jsp:include>
 					</c:when>
 					
+					<c:when test="${param.page eq 'editAccount'}">
+						<jsp:include page="components/forms/editAccountForm.jsp"></jsp:include>
+					</c:when>
+					
 					<c:otherwise>
 						<jsp:include page="components/userContents/userContents.jsp"></jsp:include>
 					</c:otherwise>
