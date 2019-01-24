@@ -165,6 +165,7 @@ public class UtenteDaoJDBC {
 	 * Get all services of a professionists
 	 * @param email of professionist user
 	 * @return {@link List} of services offered by Utente which has the same email
+	 * @deprecated è buggato!
 	 */
 	public List<Servizio> findAllServices(String email) {
 		Connection connection = this.dataSource.getConnection();

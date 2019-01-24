@@ -79,7 +79,7 @@ public class UserHandler extends HttpServlet {
 		 */
 		else if(request.getParameter("op").equals("registerProfessonist")) 			
 			ServletHandler.handle(Strategies.getInstance().getProfessionistRegistrationStrategy(), request, response);
-			
+
 	}
 
 }

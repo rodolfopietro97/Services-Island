@@ -8,9 +8,11 @@ import businesslogic.servlets.handler.ApproveServiceByServiceCodeStrategy;
 import businesslogic.servlets.handler.DeleteServiceOfProfessionistStrategy;
 import businesslogic.servlets.handler.FindServiceByIdStrategy;
 import businesslogic.servlets.handler.GetListOfUserNotificationsStrategy;
+import businesslogic.servlets.handler.GetStatisticsStrategy;
 import businesslogic.servlets.handler.LoginStrategy;
 import businesslogic.servlets.handler.LogoutStrategy;
 import businesslogic.servlets.handler.MakeServicePrenotationStrategy;
+import businesslogic.servlets.handler.PrenotationOfAllServicesOfProfessionistStrategy;
 import businesslogic.servlets.handler.ProfessionistRegistrationStrategy;
 import businesslogic.servlets.handler.RemoveUserPrenotationStrategy;
 import businesslogic.servlets.handler.SearchStrategy;
@@ -48,7 +50,8 @@ public class Strategies {
 	private LoginStrategy loginStrategy;
 	private UserRegistrationStrategy userRegistrationStrategy;
 	private ProfessionistRegistrationStrategy professionistRegistrationStrategy;
-	
+	private PrenotationOfAllServicesOfProfessionistStrategy prenotationOfAllServicesOfProfessionistStrategy;
+	private GetStatisticsStrategy getStatisticsStrategy;
 	
 	/**
 	 * Constructor without parameters
@@ -69,6 +72,8 @@ public class Strategies {
 		loginStrategy = new LoginStrategy();
 		userRegistrationStrategy = new UserRegistrationStrategy();
 		professionistRegistrationStrategy = new ProfessionistRegistrationStrategy();
+		prenotationOfAllServicesOfProfessionistStrategy = new PrenotationOfAllServicesOfProfessionistStrategy();
+		getStatisticsStrategy = new GetStatisticsStrategy();
 	}
 	
 	/**
@@ -184,6 +189,20 @@ public class Strategies {
 	 */
 	public ProfessionistRegistrationStrategy getProfessionistRegistrationStrategy() {
 		return professionistRegistrationStrategy;
+	}
+
+	/**
+	 * @return the prenotationOfAllServicesOfProfessionistStrategy
+	 */
+	public PrenotationOfAllServicesOfProfessionistStrategy getPrenotationOfAllServicesOfProfessionistStrategy() {
+		return prenotationOfAllServicesOfProfessionistStrategy;
+	}
+
+	/**
+	 * @return the getStatisticsStrategy
+	 */
+	public GetStatisticsStrategy getGetStatisticsStrategy() {
+		return getStatisticsStrategy;
 	}
 	
 }

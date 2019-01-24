@@ -145,6 +145,44 @@ public class PrenotazioneDaoJDBC {
 	}
 	
 	/**
+	 * finds prenotazioni of services id
+	 * @param serviceId
+	 * @return the found instances of prenotazione of service id
+	 */
+	public ArrayList<Prenotazione> findByServiceId(Long serviceId) {
+		
+		Connection connection = this.dataSource.getConnection();
+		Prenotazione prenotazione = null;
+		ArrayList<Prenotazione> prenotazioni = new ArrayList<>();
+		
+		try {
+			PreparedStatement statement;
+			String query = "select * from prenotazione where servizio = ?";
+			statement = connection.prepareStatement(query);
+			statement.setLong(1, serviceId);
+			ResultSet result = statement.executeQuery();
+			if (result.next()) {
+				prenotazione = new Prenotazione();
+				prenotazione.setData_prenotazione(result.getDate("data_prenotazione"));
+				prenotazione.setOrario_prenotazione(result.getTime("orario_prenotazione"));
+				prenotazione.setUtente(result.getInt("utente"));
+				prenotazione.setServizio(result.getInt("servizio"));
+				
+				prenotazioni.add(prenotazione);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				connection.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}	
+		return prenotazioni;
+	}
+	
+	/**
 	 * Delete a given instance of Prenotazione, finding it by primary key	
 	 * @param id of user, id of service
 	 */

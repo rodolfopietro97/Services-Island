@@ -20,7 +20,7 @@
 
 <div class="error-container">
   <h1>Errore 500</h1>
-  <p class="return">Torna <a href="javascript:history.go(-1)">Indietro</a> oppure a <a href="/Site">Services Island</a> </p>
+  <p class="return">Errore del server, Torna <a href="javascript:history.go(-1)">Indietro</a> oppure a <a href="/Site">Services Island</a> </p>
 
 </div>
 

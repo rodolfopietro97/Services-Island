@@ -1,6 +1,8 @@
 package businesslogic.servlets;
 
 import java.io.IOException;
+import java.util.ArrayList;
+
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -9,6 +11,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import businesslogic.servlets.handler.ServletHandler;
 import businesslogic.servlets.handler.strategiesinstances.Strategies;
+import it.servicesisland.Connection.handlers.StandardDataSource;
+import it.servicesisland.Model.Servizio;
 
 /**
  * Servlet implementation class ServicesHandler
@@ -108,32 +112,10 @@ public class ServicesHandler extends HttpServlet {
 			ServletHandler.handle(Strategies.getInstance().getViewUserPrenotationsStrategy(), request, response);
 		
 		/*
-		 * Get the list of all prenotations in a service offered by a professionist 
+		 * Get the list of all prenotations for each service offered by a professionist 
 		 */
-		else if(request.getParameter("op").equals("getPrenotationsOfProfessionist")) {
-//			final long userId = Long.parseLong(request.getParameter("utente").toString());
-//			StandardDataSource
-//				.getInstance()
-//				.getPrenotazioneDaoJDBC()
-//				.findByUserId(userId)
-//				.forEach(i -> {
-//					try {
-//						final long day = i.getData_prenotazione().getDay();
-//						final long year = i.getData_prenotazione().getYear();
-//						final long month = i.getData_prenotazione().getMonth();
-//						response.getOutputStream().println(
-//								"<p>Prenotazione in data: " + day + "/" + month + "/" + year + "</p>"
-//						);
-//						response.getOutputStream().println(
-//								"<a href='ServicesHandler?op=deletePrenotation&user=" + i.getUtente() + "&service=" + i.getServizio() + "'>" + 
-//								"<i class=\"fas fa-trash-alt\"></i></a><br>"
-//						);
-//					} catch (IOException e) {
-//						// TODO Auto-generated catch block
-//						e.printStackTrace();
-//					}
-//				});
-		}
+		else if(request.getParameter("op").equals("getPrenotationsOfProfessionist"))
+			ServletHandler.handle(Strategies.getInstance().getPrenotationOfAllServicesOfProfessionistStrategy(), request, response);
 		
 		/*
 		 * Get the list of all services by user id
@@ -141,7 +123,11 @@ public class ServicesHandler extends HttpServlet {
 		else if(request.getParameter("op").equals("getServices"))
 			ServletHandler.handle(Strategies.getInstance().getViewUserServicesStrategy(), request, response);
 		
-		
+		/*
+		 * Get statistic data
+		 */
+		else if (request.getParameter("op").equals("getStatistics"))
+			ServletHandler.handle(Strategies.getInstance().getGetStatisticsStrategy(), request, response);
 	}
 
 }
