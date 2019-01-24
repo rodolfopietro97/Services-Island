@@ -47,6 +47,35 @@
 <script>
 
 makePrenotation = function(){
-	alert("weeeeeeeeeeeee");
+
+	if($('#txtDataPrenotazione').val()!="" && $('#txtOrarioPrenotazione').val()!=""){
+		$.ajax({
+			url: "ServicesHandler",
+			type: "post",
+			async: true,
+			data: {
+				"op" : "prenotation",
+				"servizio" : $('#txtCodiceServizio').val(),
+				"utente" : $('#txtCodiceUtente').val(),
+				"data" : $('#txtDataPrenotazione').val(),
+				"orario" : $('#txtOrarioPrenotazione').val()
+			},
+			error : function(request, state, error){
+				console.log("Errore nelle notifiche" + request + state + error);
+			},
+			success : function(result){
+				if(result=="success"){
+					alert("Prenotazione avvenuta con successo");
+				}
+				else{
+					alert("Errore nella prenotazione");
+				}
+			}
+		});
+	}
+	else{
+		alert("Inserisci tutti i campi");
+	}
+
 }
 </script>

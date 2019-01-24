@@ -21,10 +21,12 @@ import javax.swing.text.DateFormatter;
 
 import it.servicesisland.Connection.handlers.StandardDataSource;
 import it.servicesisland.Model.Notifica;
+import it.servicesisland.Model.Prenotazione;
 import it.servicesisland.Model.Servizio;
 
 import it.servicesisland.Persistence.MediatoreDaoJDBC;
 import it.servicesisland.Persistence.NotificaDaoJDBC;
+import it.servicesisland.Persistence.PrenotazioneDaoJDBC;
 import it.servicesisland.Persistence.DataSource;
 
 import it.servicesisland.Persistence.ServizioDaoJDBC;
@@ -190,6 +192,24 @@ public class ServicesHandler extends HttpServlet {
 				response.getOutputStream().print("<div class='dropdown-divider'></div>");
 
 			}
+		}
+		
+		else if(request.getParameter("op").equals("prenotation")) {
+			PrenotazioneDaoJDBC prenotazioneDaoJDBC = new PrenotazioneDaoJDBC(StandardDataSource.getInstance().getDefaultDataSource());
+			prenotazioneDaoJDBC.save(
+					new Prenotazione(
+							Time.valueOf(request.getParameter("orario").toString()), 
+							Date.valueOf(request.getParameter("giorno").toString()), 
+							Integer.parseInt(request.getParameter("utente").toString()), 
+							Integer.parseInt(request.getParameter("servizio").toString())
+							    	 )
+					);
+			
+			// per ora va bene, ma serve il controllo date!
+			// aggiungi lla notifica all'utente
+			
+			response.getOutputStream().print("success");
+
 		}
 	}
 
