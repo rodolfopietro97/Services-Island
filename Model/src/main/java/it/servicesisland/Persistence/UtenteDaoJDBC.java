@@ -314,6 +314,10 @@ public class UtenteDaoJDBC {
 		return prenotazioni;
 	}
 	
+	/**
+	 * Update a user
+	 * @param u user to update
+	 */
 	public void update(Utente u) {
 		
 		Connection connection = this.dataSource.getConnection();
