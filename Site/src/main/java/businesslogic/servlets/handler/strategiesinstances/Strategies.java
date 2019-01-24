@@ -6,6 +6,8 @@ package businesslogic.servlets.handler.strategiesinstances;
 import businesslogic.servlets.handler.AddNewServiceStrategy;
 import businesslogic.servlets.handler.ApproveServiceByServiceCodeStrategy;
 import businesslogic.servlets.handler.DeleteServiceOfProfessionistStrategy;
+import businesslogic.servlets.handler.EditProfessionistStrategy;
+import businesslogic.servlets.handler.EditUserStrategy;
 import businesslogic.servlets.handler.FindServiceByIdStrategy;
 import businesslogic.servlets.handler.GetListOfUserNotificationsStrategy;
 import businesslogic.servlets.handler.GetStatisticsStrategy;
@@ -52,6 +54,8 @@ public class Strategies {
 	private ProfessionistRegistrationStrategy professionistRegistrationStrategy;
 	private PrenotationOfAllServicesOfProfessionistStrategy prenotationOfAllServicesOfProfessionistStrategy;
 	private GetStatisticsStrategy getStatisticsStrategy;
+	private EditUserStrategy editUserStrategy;
+	private EditProfessionistStrategy editProfessionistStrategy;
 	
 	/**
 	 * Constructor without parameters
@@ -74,6 +78,8 @@ public class Strategies {
 		professionistRegistrationStrategy = new ProfessionistRegistrationStrategy();
 		prenotationOfAllServicesOfProfessionistStrategy = new PrenotationOfAllServicesOfProfessionistStrategy();
 		getStatisticsStrategy = new GetStatisticsStrategy();
+		editUserStrategy = new EditUserStrategy();
+		editProfessionistStrategy = new EditProfessionistStrategy();
 	}
 	
 	/**
@@ -203,6 +209,20 @@ public class Strategies {
 	 */
 	public GetStatisticsStrategy getGetStatisticsStrategy() {
 		return getStatisticsStrategy;
+	}
+
+	/**
+	 * @return the editUserStrategy
+	 */
+	public EditUserStrategy getEditUserStrategy() {
+		return editUserStrategy;
+	}
+
+	/**
+	 * @return the editProfessionistStrategy
+	 */
+	public EditProfessionistStrategy getEditProfessionistStrategy() {
+		return editProfessionistStrategy;
 	}
 	
 }

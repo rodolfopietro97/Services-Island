@@ -79,7 +79,27 @@ public class UserHandler extends HttpServlet {
 		 */
 		else if(request.getParameter("op").equals("registerProfessonist")) 			
 			ServletHandler.handle(Strategies.getInstance().getProfessionistRegistrationStrategy(), request, response);
+		
+		/*
+		 * Professionist account edit 
+		 */
+		else if(request.getParameter("op").equals("editProfessonist")) 			
+			ServletHandler.handle(Strategies.getInstance().getEditProfessionistStrategy(), request, response);
+		
+		/*
+		 * User account edit 
+		 */
+		else if(request.getParameter("op").equals("editUser")) 			
+			ServletHandler.handle(Strategies.getInstance().getEditUserStrategy(), request, response);
 
+		/*
+		 * User account delete 
+		 */
+		else if(request.getParameter("op").equals("accountDelete")) 			
+			ServletHandler.handle(Strategies.getInstance().getEditUserStrategy(), request, response);
+
+		
+	
 	}
 
 }

@@ -28,13 +28,14 @@ public class ProfessionistRegistrationStrategy extends Strategy {
 				request.getParameter("sltSesso").toString(), 
 				request.getParameter("txtEmail").toString(), 
 				request.getParameter("txtPassword").toString(),
-				Long.parseLong(request.getParameter("txtNumeroTelefonico").toString()));
-				request.getParameter("txtCodiceF").toString();
-				request.getParameter("txtPartitaIVA").toString();
-				request.getParameter("txtProfessione").toString();
-				request.getParameter("txtSettore").toString();
-				request.getParameter("txtSedeFiscale").toString();
-				request.getParameter("txtSedeLegale").toString();
+				Long.parseLong(request.getParameter("txtNumeroTelefonico").toString()),
+				request.getParameter("txtCodiceF").toString(),
+				request.getParameter("txtPartitaIVA").toString(),
+				request.getParameter("txtProfessione").toString(),
+				request.getParameter("txtSettore").toString(),
+				request.getParameter("txtSedeFiscale").toString(),
+				request.getParameter("txtSedeLegale").toString()
+			);
 				
 		try {
 			utente.setPassword(DigestUtils.sha256Hex(utente.getPassword()));

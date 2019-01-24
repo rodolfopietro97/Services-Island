@@ -39,6 +39,7 @@ public class LoginStrategy extends Strategy {
 			loginSession.setAttribute("nome", tempUtente.getNome());
 			loginSession.setAttribute("numero", tempUtente.getTelefono());
 			loginSession.setAttribute("cognome", tempUtente.getCognome());
+			loginSession.setAttribute("sesso", tempUtente.getSesso());
 			loginSession.setAttribute("id", tempUtente.getCodice());
 
 			if(tempUtente.isProfessionista()) {
