@@ -170,7 +170,9 @@ public class ServizioDaoJDBC {
 public void delete(Long id) {
 		
 		Connection connection = this.dataSource.getConnection();
-		try {
+		try {			
+		PrenotazioneDaoJDBC pre= new PrenotazioneDaoJDBC(this.dataSource);
+		pre.delete(id);
 		PreparedStatement statement;
 		String query = "delete from servizio where codice = ?";
 		statement = connection.prepareStatement(query);

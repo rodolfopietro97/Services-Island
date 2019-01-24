@@ -129,4 +129,30 @@ public class PrenotazioneDaoJDBC {
 			}
 			
 		}
+	
+	/**
+	 * cancella tutte le prenotazioni di quel servizio
+	 * @param idSe
+	 */
+	public void delete(Long idSe) {
+		
+		Connection connection = this.dataSource.getConnection();
+		try {
+		PreparedStatement statement;
+		String query = "delete from prenotazione where servizio = ?";
+		statement = connection.prepareStatement(query);
+		statement.setLong(1, idSe);
+		statement.execute();
+		
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				connection.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		
+	}
 }

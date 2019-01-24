@@ -240,4 +240,34 @@ public class UtenteDaoJDBC {
 		return seId;
 		
 	}
+	
+	public void delete(String email) {
+		Connection connection = this.dataSource.getConnection();
+		Utente us=findByEmail(email);
+		try {
+			
+			ServizioDaoJDBC ser= new ServizioDaoJDBC(this.dataSource);
+			List<Servizio> servizi = this.findAllServices(email);
+			for(Servizio s: servizi){
+				ser.delete(s.getCodice());
+			}
+			
+			PreparedStatement statement;
+			String query = "delete from utente where codice = ?";
+			statement = connection.prepareStatement(query);
+			statement.setLong(1, us.getCodice());
+			statement.execute();
+			
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}	 finally {
+			try {
+				connection.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		
+	}
 }
