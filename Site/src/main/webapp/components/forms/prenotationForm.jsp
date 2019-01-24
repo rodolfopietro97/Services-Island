@@ -36,8 +36,8 @@
         	
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Chiudi</button>
-        <button type="button" class="btn btn-primary" onclick="makePrenotation()">Conferma</button>
+        <button style="cursor: pointer;" type="button" class="btn btn-secondary" data-dismiss="modal">Chiudi</button>
+        <button style="cursor: pointer;" type="button" class="btn btn-primary" onclick="makePrenotation()">Conferma</button>
       </div>
     </div>
   </div>
@@ -57,19 +57,19 @@ makePrenotation = function(){
 				"op" : "prenotation",
 				"servizio" : $('#txtCodiceServizio').val(),
 				"utente" : $('#txtCodiceUtente').val(),
-				"data" : $('#txtDataPrenotazione').val(),
+				"giorno" : $('#txtDataPrenotazione').val(),
 				"orario" : $('#txtOrarioPrenotazione').val()
 			},
 			error : function(request, state, error){
 				console.log("Errore nelle notifiche" + request + state + error);
 			},
 			success : function(result){
-				if(result=="success"){
+ 				if(result=="success"){
 					alert("Prenotazione avvenuta con successo");
 				}
 				else{
 					alert("Errore nella prenotazione");
-				}
+				} 
 			}
 		});
 	}

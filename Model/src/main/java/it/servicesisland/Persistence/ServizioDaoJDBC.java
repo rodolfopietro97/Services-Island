@@ -163,6 +163,58 @@ public class ServizioDaoJDBC {
 		return servizi;
 	}
 	
+	
+	
+	/**
+	 * Find the Servizio by the professionist
+	 * @param userId of profesisonist
+	 * @return thelists of Servizio which have a userId like to userId
+	 */
+	public ArrayList<Servizio> findByProfessionist(long userId) {
+		ArrayList<Servizio> servizi = new ArrayList<>();
+
+		Connection connection = this.dataSource.getConnection();
+//		Servizio servizio = null;
+		try {
+			PreparedStatement statement;
+			String query = "select * from servizio where professionista = ?";
+
+			statement = connection.prepareStatement(query);
+			statement.setLong(1, userId);
+
+			ResultSet result = statement.executeQuery();
+			
+
+			while (result.next()) {
+				Servizio servizio = new Servizio();
+				
+				servizio.setCodice(result.getLong("codice"));				
+				servizio.setPrezzo(result.getDouble("prezzo"));
+				servizio.setApprovato(result.getBoolean("approvato"));
+				servizio.setDescrizione(result.getString("descrizione"));
+				servizio.setNome(result.getString("nome"));
+				servizio.setData_inizio(result.getDate("data_inizio"));
+				servizio.setData_fine(result.getDate("data_fine"));
+				servizio.setOrario_inizio(result.getTime("orario_inizio"));
+				servizio.setOrario_fine(result.getTime("orario_fine"));
+				servizio.setProfessionista(result.getInt("professionista"));
+				
+				servizi.add(servizio);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				connection.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}	
+		return servizi;
+	}
+	
+	
+	
 /**
  * Delete a given instance of Servizio, finding it by primary key	
  * @param id

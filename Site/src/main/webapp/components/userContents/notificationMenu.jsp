@@ -15,9 +15,6 @@
 </div>
 
 <script>
-/* 	$(window).on('load', function(){
-
-	}); */
 	$(document).ready(function(){
 		setInterval(function(){ 
 			$.ajax({
@@ -31,22 +28,13 @@
 					console.log("Errore nelle notifiche" + request + state + error);
 				},
 				success : function(result){
-					// alert(result);
 					$('#notificationDiv').empty();
 					$('#notificationDiv').append(result);
-
-					// $('#notificationDiv').append(result);
-
-					
 				}
 			});
 		}, 1000);
 
 	});
-
-
-
-
 </script>
 
 

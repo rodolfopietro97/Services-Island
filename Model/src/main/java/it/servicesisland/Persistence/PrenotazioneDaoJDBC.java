@@ -4,6 +4,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import it.servicesisland.Model.*;
 
@@ -101,6 +103,45 @@ public class PrenotazioneDaoJDBC {
 			}
 		}	
 		return prenotazione;
+	}
+	
+	
+	/**
+	 * finds a prenotazione by user id
+	 * @param userId
+	 * @return the found instances of prenotazione of user id
+	 */
+	public ArrayList<Prenotazione> findByUserId(Long userId) {
+		
+		Connection connection = this.dataSource.getConnection();
+		Prenotazione prenotazione = null;
+		ArrayList<Prenotazione> prenotazioni = new ArrayList<>();
+		
+		try {
+			PreparedStatement statement;
+			String query = "select * from prenotazione where utente = ?";
+			statement = connection.prepareStatement(query);
+			statement.setLong(1, userId);
+			ResultSet result = statement.executeQuery();
+			if (result.next()) {
+				prenotazione = new Prenotazione();
+				prenotazione.setData_prenotazione(result.getDate("data_prenotazione"));
+				prenotazione.setOrario_prenotazione(result.getTime("orario_prenotazione"));
+				prenotazione.setUtente(result.getInt("utente"));
+				prenotazione.setServizio(result.getInt("servizio"));
+				
+				prenotazioni.add(prenotazione);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				connection.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}	
+		return prenotazioni;
 	}
 	
 	/**
