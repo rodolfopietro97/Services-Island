@@ -312,4 +312,43 @@ public class UtenteDaoJDBC {
 		
 		return prenotazioni;
 	}
+	
+	public void update(Utente u) {
+		
+		Connection connection = this.dataSource.getConnection();
+		
+		try {
+			PreparedStatement statement;
+			String query = "update utente set nome= ?, cognome=?,"
+					+ " sesso=?, email=?, password=?, professionista=?,"
+					+ "telefono=?, codice_fiscale=?, partita_iva=?,"
+					+ "professione=?, settore=?, sede_fiscale=?,"
+					+ "sede_legale=? where codice = ?";
+			statement = connection.prepareStatement(query);
+			statement.setString(1,u.getNome());
+			statement.setString(2, u.getCognome());
+			statement.setString(3, u.getSesso());
+			statement.setString(4, u.getEmail());
+			statement.setString(5, u.getPassword());
+			statement.setBoolean(6,u.isProfessionista());
+			statement.setLong(7, u.getTelefono());
+			statement.setString(8, u.getCodice_fiscale());
+			statement.setString(9, u.getPartita_iva());
+			statement.setString(10, u.getProfessione());
+			statement.setString(11, u.getSettore());
+			statement.setString(12, u.getSede_fiscale());
+			statement.setString(13, u.getSede_legale());
+			statement.setLong(14, u.getCodice());
+			statement.executeUpdate();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}	 finally {
+			try {
+				connection.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+	}
 }
