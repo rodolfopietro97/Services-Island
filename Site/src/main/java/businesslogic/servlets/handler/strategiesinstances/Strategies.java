@@ -3,6 +3,7 @@
  */
 package businesslogic.servlets.handler.strategiesinstances;
 
+import businesslogic.servlets.handler.AccountDeleteStrategy;
 import businesslogic.servlets.handler.AddNewServiceStrategy;
 import businesslogic.servlets.handler.ApproveServiceByServiceCodeStrategy;
 import businesslogic.servlets.handler.DeleteServiceOfProfessionistStrategy;
@@ -56,6 +57,7 @@ public class Strategies {
 	private GetStatisticsStrategy getStatisticsStrategy;
 	private EditUserStrategy editUserStrategy;
 	private EditProfessionistStrategy editProfessionistStrategy;
+	private AccountDeleteStrategy accountDeleteStrategy;
 	
 	/**
 	 * Constructor without parameters
@@ -80,6 +82,7 @@ public class Strategies {
 		getStatisticsStrategy = new GetStatisticsStrategy();
 		editUserStrategy = new EditUserStrategy();
 		editProfessionistStrategy = new EditProfessionistStrategy();
+		accountDeleteStrategy = new AccountDeleteStrategy();
 	}
 	
 	/**
@@ -224,5 +227,13 @@ public class Strategies {
 	public EditProfessionistStrategy getEditProfessionistStrategy() {
 		return editProfessionistStrategy;
 	}
+
+	/**
+	 * @return the accountDeleteStrategy
+	 */
+	public AccountDeleteStrategy getAccountDeleteStrategy() {
+		return accountDeleteStrategy;
+	}
+	
 	
 }

@@ -51,11 +51,11 @@
 							Gestione servizi
 						</a>
 					</li>
-					<li class="nav-item">
+<!-- 					<li class="nav-item">
 						<a class="nav-link" href="user.jsp?page=payments">
 							Area pagamenti
 						</a>
-					</li>
+					</li> -->
 				</c:when>
 			</c:choose>
 

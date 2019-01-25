@@ -96,7 +96,7 @@ public class UserHandler extends HttpServlet {
 		 * User account delete 
 		 */
 		else if(request.getParameter("op").equals("accountDelete")) 			
-			ServletHandler.handle(Strategies.getInstance().getEditUserStrategy(), request, response);
+			ServletHandler.handle(Strategies.getInstance().getAccountDeleteStrategy(), request, response);
 
 		
 	
