@@ -43,7 +43,7 @@
 			new Chart($("#bar-chart"), {
 			    type: 'bar',
 			    data: {
-			      labels: ["Prenotazioni", "Servizi Oferti", "Guadagno"],
+			      labels: ["Servizi Oferti", "Prenotazioni", "Guadagno"],
 			      datasets: [
 			        {
 			          label: "Numero",

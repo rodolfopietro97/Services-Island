@@ -66,6 +66,8 @@ makePrenotation = function(){
 			success : function(result){
  				if(result=="success"){
 					alert("Prenotazione avvenuta con successo");
+					window.location.replace("/Site");
+
 				}
 				else{
 					alert("Errore nella prenotazione");
